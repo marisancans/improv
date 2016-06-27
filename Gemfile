@@ -29,6 +29,9 @@ gem 'devise'
 #Database
 gem 'pg'
 
+#HTML markup
+gem 'haml'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
