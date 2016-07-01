@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
    
   get 'todos' => 'todo#index'
-  post 'todos/new' => 'todo#new'
-
+  post 'todo/new' => 'todo#new'
+  post 'todo/create' => 'todo#create'
   
 end
