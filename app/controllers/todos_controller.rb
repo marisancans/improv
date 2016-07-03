@@ -1,4 +1,4 @@
-class TodoController < ApplicationController
+class TodosController < ApplicationController
   before_action :authenticate_user!
   
   def index
@@ -13,13 +13,11 @@ class TodoController < ApplicationController
   end
   
   def create
-    @todo = Todo.new(params[:todo])
-
+    @todo = Todo.new(params.require(:todo).permit(:title).merge(user_id: current_user.id))
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to @todo, notice: 'Task was successfully created.' }
         format.json { render json: @todo, status: :created, location: @todo }
-        format.js
+        format.js { flash.now[:success] = "Todo created" }
       else
         format.html { render action: "new" }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
@@ -27,5 +25,7 @@ class TodoController < ApplicationController
       end
     end
   end
+  
+
   
 end
