@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   post 'todo/new' => 'todos#new'
   post 'todo/create' => 'todos#create'
   
+  get 'lists' => 'lists#index'
+  post 'list/new' => 'lists#new'
+  post 'list/create' => 'lists#create'
+  
 end
