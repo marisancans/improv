@@ -1,6 +1,8 @@
 .container
   .row
-    .col-md-6
-      = link_to "Lists", lists_path
-    .col-md-6
-      = link_to "Todos", todos_path
+    = link_to lists_path do
+      .col-md-6.text-center.block.block-lists
+        Lists
+    = link_to todos_path do
+      .col-md-6.text-center.block.block-todos
+        Todos
