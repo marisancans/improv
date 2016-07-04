@@ -1,3 +1,19 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.block {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: white;
+    font-size: 30px;
+    font-family: open sans;
+}
+
+.block-todos {
+    background-color: #8c1aff;
+}
+
+.block-lists {
+    background-color: #3333ff;
+}

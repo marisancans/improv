@@ -32,6 +32,10 @@ gem 'pg'
 #HTML markup
 gem 'haml'
 
+#Boostrap
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'autoprefixer-rails'
+
 
 
 # Use ActiveModel has_secure_password

@@ -1,2 +1,8 @@
-<h1>Welcome#home</h1>
-<p>Find me in app/views/welcome/home.html.erb</p>
+.container
+  .row
+    = link_to lists_path do
+      .col-md-6.text-center.block.block-lists
+        Lists
+    = link_to todos_path do
+      .col-md-6.text-center.block.block-todos
+        Todos
