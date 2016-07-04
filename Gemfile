@@ -29,6 +29,10 @@ gem 'devise'
 #Database
 gem 'pg'
 
+#HTML markup
+gem 'haml'
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -42,6 +46,9 @@ gem 'pg'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Testing
+  gem 'rspec-rails', '~> 3.4'
+  gem "capybara"
 end
 
 group :development do

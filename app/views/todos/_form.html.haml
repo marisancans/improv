@@ -1,0 +1,17 @@
+= form_for @new_todo, url: todo_create_path, remote:true do |f|
+  - if @new_todo.errors.any?
+    #error_explanation
+      %h2
+        = pluralize @new_todo.errors.count, "error"
+        prohibited this new_todo from being saved:
+      %ul
+        - @new_todo.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :title
+    %br
+      = f.text_field :title
+  .field
+    = f.label :due_to
+  .actions
+    = f.submit
