@@ -2,18 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.block {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    color: white;
-    font-size: 30px;
-    font-family: open sans;
+//padding: 25px 50px 75px 100px;
+//top padding is 25px
+//right padding is 50px
+//bottom padding is 75px
+//left padding is 100px
+
+@import url(http://fonts.googleapis.com/css?family=Nunito:300);
+
+
+.btn-sharp {
+  padding: 14px 24px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-radius: 0;
+}
+ 
+.btn-sharp:hover {
+  background: #33a6cc;
+  text-decoration: none;
 }
 
-.block-todos {
-    background-color: #8c1aff;
+.btn-sharp-todos {
+  background: #0099cc;
 }
 
-.block-lists {
-    background-color: #3333ff;
+.btn-sharp-lists {
+  background: #0044cc;
 }
+ 
