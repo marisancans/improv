@@ -9,3 +9,9 @@ development:
   database: db_development
   encoding: SQL_ASCII
   pool: 5
+  
+test:
+  adapter: postgresql
+  database: db_test
+  encoding: SQL_ASCII
+  pool: 5

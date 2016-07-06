@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+100000.times do |n|
+  list = List.create(title: "#{n}")
+  puts "#{n}"
+end
