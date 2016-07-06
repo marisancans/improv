@@ -1,8 +1,8 @@
 .container
   .row
-    = link_to lists_path do
-      .col-md-6.text-center.block.block-lists
+    .col-md-6
+      = link_to lists_path, class: "btn-sharp btn-sharp-lists" do
         Lists
-    = link_to todos_path do
-      .col-md-6.text-center.block.block-todos
+    .col-md-6
+      = link_to todos_path, class: "btn-sharp btn-sharp-todos" do
         Todos

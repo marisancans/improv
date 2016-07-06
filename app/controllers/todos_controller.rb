@@ -13,7 +13,7 @@ class TodosController < ApplicationController
   end
   
   def create
-    @todo = Todo.new(params.require(:todo).permit(:title, :due_to).merge(user_id: current_user.id))
+    @todo = Todo.new(todo_params)
     respond_to do |format|
       if @todo.save
         format.json { render json: @todo, status: :created, location: @todo }
@@ -25,6 +25,12 @@ class TodosController < ApplicationController
       end
     end
   end
+  
+  private
+  
+    def todo_params
+      params.require(:todo).permit(:title, :due_to).merge(user_id: current_user.id)
+    end
   
 
   
