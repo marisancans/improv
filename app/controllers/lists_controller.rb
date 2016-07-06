@@ -4,6 +4,7 @@ class ListsController < ApplicationController
   def index  
     @lists = current_user.lists.order(created_at: :desc)
     @new_list = Todo.new
+   # 2.times { @new_list.list_items.build}
   end
   
   def create
