@@ -15,6 +15,7 @@ class ListsController < ApplicationController
         format.js { flash.now[:success] = "List #{@list.title} created" }
       else
         format.json { render json: @list.errors, status: :unprocessable_entity }
+        format.js { render :error }
       end
     end
   end
