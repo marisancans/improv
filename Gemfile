@@ -33,11 +33,18 @@ gem 'pg'
 gem 'haml'
 
 #Boostrap
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'autoprefixer-rails'
+# ! No need because of materialize framework
+#gem 'bootstrap-sass', '~> 3.3.6'
+#gem 'autoprefixer-rails'
 
 #Materialize
 gem 'materialize-sass'
+
+#Dynamic forms
+gem "cocoon"
+
+#Advanced forms
+gem 'formtastic', '~> 3.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,3 +1,8 @@
-.col-md-2.text-center.list-item
-  = list.title
-  = render list.list_items
+.col.s6
+  %ul.collection.with-header
+    %li.collection-item 
+    = list.title
+  = list.list_items.each_with_index do |item, index|
+    index + 1
+    item.content
+  %br
