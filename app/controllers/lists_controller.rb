@@ -12,11 +12,10 @@ class ListsController < ApplicationController
     respond_to do |format|
       if @list.save
         format.json { render json: @list, status: :created, location: @list }
-        format.js { flash.now[:success] = "List created" }
+        format.js { flash.now[:success] = "List #{@list.title} created" }
       else
-        format.html { render action: "new" }
         format.json { render json: @list.errors, status: :unprocessable_entity }
-        format.js
+        format.js { render :error }
       end
     end
   end
