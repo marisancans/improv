@@ -36,7 +36,8 @@ gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
 
-
+#Materialize
+gem 'materialize-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
