@@ -1,17 +1,27 @@
 .col.s6
-  %div{:id => "list-#{list.id}"}
-    %ul.collection.hoverable
-      %ul.collapsible.collapsible-without-borders{"data-collapsible" => "accordion"}
-        %li
-          .collapsible-header.blue-grey.darken-1.white-text
-            %i.material-icons> filter_drama
-            = list.title
-          .collapsible-body
-            = button_to list, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn red" do
-              %i.material-icons delete
-      - list.list_items.each_with_index do |item, index|
-        %li.collection-item
-          = "#{index + 1}. #{item.content}"
-        
+  %ul.collection.hoverable
+    %ul.collapsible-without-borders.collapsible{"data-collapsible" => "accordion"}
+      %li
+        .collapsible-header.blue-grey.darken-1.white-text
+          %i.material-icons> filter_drama
+          = list.title
+        .collapsible-body
+          = div_for list do
+            %br
+            .container
+              .row
+                .col.s6.center-align
+                  = button_to list, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn-floating red" do
+                    %i.material-icons delete
+                  Delete
+                  
+                .col.s6.center-align
+                  = button_to edit_list_path(list), remote: :true, method: :get, class: "btn-floating blue", id: "list-modal-button" do
+                    %i.material-icons mode_edit
+                  Edit list
 
-      
+    - list.list_items.each_with_index do |item, index|
+      %li.collection-item.word-break
+        %span.list-item-index
+          = "#{index + 1}. "
+        = item.content

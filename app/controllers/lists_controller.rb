@@ -1,10 +1,10 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
+  
    
   def index  
     @lists = current_user.lists.includes(:list_items).order(created_at: :desc)
-    @new_list = List.new
-   # 2.times { @new_list.list_items.build}
+    @list = List.new
   end
   
   def create
@@ -32,6 +32,25 @@ class ListsController < ApplicationController
         format.js { render :error }
       end
     end
+  end
+  
+  def edit
+    @list = List.find(params[:id])
+    correct_user
+    respond_to do |format|
+      format.js 
+    end
+  end
+  
+  def update
+    @list = List.find(params[:id])
+    if @list.update(list_params)
+        format.json { render json: @list, status: :updated, location: @list }
+        format.js { flash.now[:success] = "List #{@list.title} updated" }
+      else
+        format.json { render json: @list.errors, status: :unprocessable_entity }
+        format.js { render :error }
+      end
   end
   
   private

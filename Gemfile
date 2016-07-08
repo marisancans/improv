@@ -32,6 +32,8 @@ gem 'pg'
 #HTML markup
 gem 'haml'
 
+gem 'server-generated-popups'
+
 #Boostrap
 # ! No need because of materialize framework
 #gem 'bootstrap-sass', '~> 3.3.6'
