@@ -1,1 +1,2 @@
 $('#lists').prepend("<%= j render @list %>");
+$("#list-<%= @list.id %>").hide().slideDown("normal")

@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get 'todos' => 'todos#index'
   post 'todo/new' => 'todos#new'
   post 'todo/create' => 'todos#create'
-  
-  get 'lists' => 'lists#index'
-  post 'list/new' => 'lists#new'
-  post 'list/create' => 'lists#create'
+  delete 'todo/destroy/:id(.:format)' => 'todos#destroy'
+  resources :lists
+  #get 'lists' => 'lists#index'
+  #post 'list/create' => 'lists#create'
   
 end

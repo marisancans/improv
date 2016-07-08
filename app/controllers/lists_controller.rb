@@ -20,10 +20,28 @@ class ListsController < ApplicationController
     end
   end
   
+  def destroy
+    @list = List.find(params[:id])
+    correct_user
+    respond_to do |format|
+      if @list.destroy
+        format.json { render json: @list, status: :deleted, location: @list }
+        format.js { flash.now[:success] = "List #{@list.title} deleted" }
+      else
+        format.json { render json: @list.errors, status: :unprocessable_entity }
+        format.js { render :error }
+      end
+    end
+  end
+  
   private
   
   def list_params
     params.require(:list).permit(:title, list_items_attributes: [:id, :content, :_destroy]).merge(user_id: current_user.id)
+  end
+  
+  def correct_user
+    redirect_to root_url unless @list.user_id == current_user.id
   end
 
 end
