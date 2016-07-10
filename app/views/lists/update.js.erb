@@ -1,1 +1,4 @@
-$('div#<%= dom_id(list) %>').replaceWith('<%= j render partial: "list", locals: {list: @list} %>');
+$('div#<%= dom_id(@list) %>').replaceWith('<%= j render @list %>');
+$('.collapsible').collapsible({
+  accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+});

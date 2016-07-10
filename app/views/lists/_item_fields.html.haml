@@ -1,4 +1,6 @@
-.nested-fields
-  = f.inputs do
+.row.nested-fields.collection-item.word-break.red{:class => cycle("blue-grey lighten-5", "blue-grey lighten-4")}
+  .col.s11
     = f.input :content
-    = link_to_remove_association "remove item", f
+  .col.s1
+    = link_to_remove_association f do
+      %i.material-icons delete
