@@ -33,7 +33,8 @@ gem 'pg'
 #HTML markup
 gem 'haml'
 
-gem 'server-generated-popups'
+#RSS
+gem 'feedjira'
 
 #Boostrap
 # ! No need because of materialize framework
