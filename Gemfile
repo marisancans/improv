@@ -36,6 +36,11 @@ gem 'haml'
 #RSS
 gem 'feedjira'
 
+#Delayed job
+gem 'delayed_job_active_record'
+#Scheludue
+gem 'daemons'
+
 #Boostrap
 # ! No need because of materialize framework
 #gem 'bootstrap-sass', '~> 3.3.6'
