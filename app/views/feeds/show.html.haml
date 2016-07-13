@@ -1,0 +1,12 @@
+.row
+  .col.s3.card.orange.lighten-3
+    .feed-name.center-align= @feed.name
+    .feed-url.center-align= @feed.url
+    .center-align= @feed.description
+  .col.s9
+    .row
+      - @feed.entries.each do |entry|
+        = link_to entry.title, entry.url
+        = entry.published
+        .delimiter
+    

@@ -1,0 +1,9 @@
+= link_to "Add feed", new_feed_path
+%br
+
+%br
+= @feeds.count
+
+.container
+  .row#feeds
+    = render @feeds
