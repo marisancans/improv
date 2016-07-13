@@ -41,6 +41,9 @@ gem 'delayed_job_active_record'
 #Scheludue
 gem 'daemons'
 
+#Font-awesome
+gem 'font-awesome-sass', '~> 4.6.2'
+
 #Boostrap
 # ! No need because of materialize framework
 #gem 'bootstrap-sass', '~> 3.3.6'

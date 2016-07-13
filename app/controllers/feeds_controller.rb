@@ -20,6 +20,7 @@ class FeedsController < ApplicationController
   end
   
   def show
+    @feeds = current_user.feeds
   end
   
   private
