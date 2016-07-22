@@ -17,6 +17,6 @@
         = link_to todos_path, class:"" do
           Todos
           %i.material-icons.left done
-        = link_to feeds_path, class:"" do
+        = link_to feeds_path do
+          = icon('fa fa-rss left')
           RSS feeds
-          %i.fa.fa-rss.left

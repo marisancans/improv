@@ -1,16 +1,9 @@
-.row
-  .col.s2
-    %img.responsive-img{:src => "https://cdn.meme.am/instances/500x/38365969.jpg"}/
-  .col.s2
-    %img.responsive-img{:src => "http://www.nikola-breznjak.com/blog/wp-content/uploads/2014/11/MVClady.jpg"}/
-  .col.s2
-    %img.responsive-img{:src => "http://cdn.meme.am/instances/66672062.jpg"}/
-  .col.s2
-    %img.responsive-img{:src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4dPjmEWJHjJbujC4QMEYbM4XpNU7deOJy0rBLhDdlG-99ZJqwSw"}/
-  .col.s2
-    %img.responsive-img{:src => "https://s-media-cache-ak0.pinimg.com/736x/5a/e4/9a/5ae49a02fc6d1281dd9267d679e6ba01.jpg"}/
-  .col.s2
-    %img.responsive-img{:src => "http://cdn.meme.am/instances/500x/66209086.jpg"}/
-  .col.s2
-    %img.responsive-img{:src => "http://i2.wp.com/jasdeep.ca/wp-content/uploads/2013/10/iltni.jpg"}/
-/%img{:src => "http://i.imgur.com/TTmQo3Z.png"}/
+.container
+  .row
+    .col.s4.red
+      s
+    .col.s4.blue
+      a
+    .col.s4.green
+      - @entries.each do |entry|
+        %br= entry.title

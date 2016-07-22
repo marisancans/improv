@@ -1,9 +1,17 @@
-= link_to "Add feed", new_feed_path
-%br
-
-%br
-= @feeds.count
-
 .container
-  .row#feeds
-    = render @feeds
+  .row
+    %h4.center-align Subscribed feeds
+  .row
+    .col.s12.cards-container
+    %table.responsive-table
+      %thead
+        %tr
+          %th Title
+          %th Url
+          %th Last updated
+      %tbody
+      - @feeds.each do |feed|
+        %tr
+          %td= feed.name
+          %td= clickable_pretty_feed_url(feed.url, feed.id)
+          %td= feed.updated_at
