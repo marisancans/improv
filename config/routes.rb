@@ -11,11 +11,14 @@ Rails.application.routes.draw do
   post 'todo/new' => 'todos#new'
   post 'todo/create' => 'todos#create'
   delete 'todo/destroy/:id(.:format)' => 'todos#destroy'
+
   resources :lists
     resources :feeds do
-    member do
-     resources :entries, only: [:index, :show]
-    end
+        get 'fetch' => 'feeds#fetch'
+      member do
+       resources :entries, only: [:index, :show]
+      end
+      
   end
   #get 'lists' => 'lists#index'
   #post 'list/create' => 'lists#create'

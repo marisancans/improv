@@ -1,9 +1,21 @@
-.container
-  .row
-    .col.s4.red
+= stylesheet_link_tag 'feeds'
+.row
+  .col.s2.red
+    a
+  .col.s7
+    = image_tag 'http://placehold.it/2000x500', class: 'responsive-img'
+    .col.s2.red
       s
-    .col.s4.blue
+    .col.s7.blue
       a
-    .col.s4.green
-      - @entries.each do |entry|
-        %br= entry.title
+    .col.s3
+  .col.s3.blue.lighten-5
+    = button_to feed_fetch_path(1), class: 'waves-effect waves-light btn' do
+      = icon('fa fa-refresh right')
+      Fetch feeds
+    
+    - @entries.each do |entry|
+      %br
+      .hvr-underline-from-left= link_to entry.title, entry.url
+      .feed-published= entry.published
+      = entry.url

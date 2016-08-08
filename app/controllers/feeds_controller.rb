@@ -23,6 +23,10 @@ class FeedsController < ApplicationController
     @feeds = current_user.feeds
   end
   
+  def fetch
+    @feeds = Feed.first
+  end
+  
   private
   
   def set_feed
