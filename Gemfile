@@ -33,7 +33,21 @@ gem 'pg'
 #HTML markup
 gem 'haml'
 
-gem 'server-generated-popups'
+#RSS
+gem 'feedjira'
+
+#Delayed job
+gem 'delayed_job_active_record'
+#Scheludue
+gem 'daemons'
+
+# #Cron jobs
+# gem 'whenever'
+
+gem 'rufus-scheduler'
+
+#Font-awesome
+gem 'font-awesome-sass', '~> 4.6.2'
 
 #Boostrap
 # ! No need because of materialize framework

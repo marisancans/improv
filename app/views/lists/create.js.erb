@@ -1,2 +1,5 @@
 $('#lists').prepend("<%= j render @list %>");
-$("#list-<%= @list.id %>").hide().slideDown("normal")
+$("#list-<%= @list.id %>").hide().slideDown("normal");
+$('.collapsible').collapsible({
+  accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+});

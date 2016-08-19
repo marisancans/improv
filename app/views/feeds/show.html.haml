@@ -1,0 +1,6 @@
+.row
+  .col.s3.card.grey.lighten-3
+    = render partial: 'side_show', collection: @feeds, as: :feed
+  .col.s9.card.grey.lighten-3
+    .row
+      = render @feed.entries
