@@ -1,6 +1,6 @@
 class Feed < ActiveRecord::Base
-  validates_presence_of :name
-  validates_presence_of :url
+  validates :name, presence: true
+  validates :url, presence: true
   has_many :entries
   has_many :subscribed_feeds
   
