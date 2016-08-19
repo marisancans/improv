@@ -1,10 +1,8 @@
 = stylesheet_link_tag 'feeds'
+= javascript_include_tag 'feeds'
 .row
   .col.s2
-    All feeds, last updated at:
-    %br
-    - @feeds.each do |feed|
-      = feed.updated_at
+    placeholder
   .col.s7
     = image_tag 'http://placehold.it/2000x500', class: 'responsive-img'
     .col.s2.red
@@ -13,9 +11,18 @@
       a
     .col.s3
   .col.s3
-    last sync: 
-
+    %h6.center-align.tooltipped(data-position="bottom" data-delay="50" data-tooltip='#{render partial: 'shared/feeds/tooltip', locals: {feeds: @feeds}}')
+      My feeds:
     - @entries.each do |entry|
       %br
       .hvr-underline-from-left= link_to entry.title, entry.url, target: '_blank'
       .feed-published= entry.updated_at
+      
+%script{:type=>"text/javascript"}
+  $(document).ready(function() {
+  $('.tooltipped').each(function(index, element) {
+  var span = $('#' + $(element).attr('data-tooltip-id') + '>span:first-child');
+  span.before($(element).attr('data-tooltip'));
+  span.remove();
+  });
+  });

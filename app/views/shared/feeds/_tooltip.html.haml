@@ -1,0 +1,8 @@
+.row
+    = pluralize(feeds.count, 'feed')
+- feeds.each do |feed|
+    .row
+        .col.s6= image_tag 'http://placehold.it/30x30'
+        .col.s6
+            = feed.name
+            .feed-published= feed.updated_at.to_s(:time) 
