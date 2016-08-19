@@ -19,10 +19,15 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 10.minutes do
-  rake "feeds:sync"
-end
+# every 10.minutes do
+#     rake "feeds:test", environment: "development"
+# end
+# /////--Above is from whenever gem
 
-every 1.minute do
-    rake "feeds:test"
+require 'rufus-scheduler'
+
+scheduler = Rufus::Scheduler.new
+
+scheduler.every('10.minutes') do 
+  system("rake feeds:sync")
 end

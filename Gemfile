@@ -41,8 +41,10 @@ gem 'delayed_job_active_record'
 #Scheludue
 gem 'daemons'
 
-#Cron jobs
-gem 'whenever'
+# #Cron jobs
+# gem 'whenever'
+
+gem 'rufus-scheduler'
 
 #Font-awesome
 gem 'font-awesome-sass', '~> 4.6.2'
