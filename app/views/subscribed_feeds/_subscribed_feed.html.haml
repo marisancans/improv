@@ -1,0 +1,11 @@
+.col.s6
+  .card.horizontal
+    .card-image
+      = image_tag "http://placehold.it/200x150"
+    .card-stacked
+      .card-content
+        = subscribed_feed.feed.name
+        // = feed.description
+      .card-action
+        = link_to "Subscribe", "#"
+        // = feed.url

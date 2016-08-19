@@ -5,3 +5,5 @@
     = render @subscribed_feeds
   .row
     %h4.center-align Other feeds
+  .row
+    = render partial: 'feed', collection: @unsubscribed_feeds, as: :feed

@@ -37,7 +37,7 @@ class FeedsController < ApplicationController
   end
   
   def set_unsubscribed_feeds
-    @unsubscribed_feeds = Feed.where(user: current_user)
+    @unsubscribed_feeds = Feed.where.not(id: @subscribed_feeds.map{|n| n.feed.id})
   end
   
   def set_feed
