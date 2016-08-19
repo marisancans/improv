@@ -1,22 +1,24 @@
-.navbar
+.navbar-fixed
   %nav
-    .nav-wrapper.container
+    .nav-wrapper
       %a.brand-logo{:href => "/"} Improv
       %ul.right.hide-on-med-and-down
+        %li
+          = link_to lists_path, class: "" do
+            Lists
+            %i.material-icons.left list
+        %li
+          = link_to todos_path, class:"" do
+            Todos
+            %i.material-icons.left done
+        %li
+          = link_to feeds_path do
+            = icon('fa fa-rss left')
+            RSS feeds
         - if user_signed_in?
-          %li
-            = link_to "Sign out", destroy_user_session_path, :method => :delete
+          %li= link_to "Sign out", destroy_user_session_path, :method => :delete
         - else
           %li
             = link_to "Sign in", new_user_session_path 
             = link_to "Register", new_user_registration_path 
-        %li
-        = link_to lists_path, class: "" do
-          Lists
-          %i.material-icons.left list
-        = link_to todos_path, class:"" do
-          Todos
-          %i.material-icons.left done
-        = link_to feeds_path do
-          = icon('fa fa-rss left')
-          RSS feeds
+        
