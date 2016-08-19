@@ -17,12 +17,3 @@
       %br
       .hvr-underline-from-left= link_to entry.title, entry.url, target: '_blank'
       .feed-published= entry.updated_at
-      
-%script{:type=>"text/javascript"}
-  $(document).ready(function() {
-  $('.tooltipped').each(function(index, element) {
-  var span = $('#' + $(element).attr('data-tooltip-id') + '>span:first-child');
-  span.before($(element).attr('data-tooltip'));
-  span.remove();
-  });
-  });
