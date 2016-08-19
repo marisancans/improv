@@ -5,6 +5,4 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :todos
   has_many :lists
-  has_many :feeds
-  has_many :entries, :through => :feeds
 end

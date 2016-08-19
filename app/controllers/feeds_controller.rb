@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :destroy, :update]
   def index
-    @feeds = current_user.feeds
+    @feeds = Feed.all
   end
 
   def new

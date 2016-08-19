@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
   resources :lists
     resources :feeds do
-        get 'fetch' => 'feeds#fetch'
       member do
        resources :entries, only: [:index, :show]
       end

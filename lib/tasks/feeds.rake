@@ -10,4 +10,7 @@ namespace :feeds do
       p "Synced Feed - #{feed.name}"
     end
   end
+  task test: [:environment] do
+    List.create(user_id: User.first, title: "#{Time.current}")
+  end
 end

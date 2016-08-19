@@ -1,4 +1,5 @@
 class Feed < ActiveRecord::Base
-   has_many :entries, dependent: :destroy
-   belongs_to :user
+  validates_presence_of :name
+  validates_presence_of :url
+  has_many :entries
 end

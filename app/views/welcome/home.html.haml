@@ -1,7 +1,10 @@
 = stylesheet_link_tag 'feeds'
 .row
-  .col.s2.red
-    a
+  .col.s2
+    All feeds, last updated at:
+    %br
+    - @feeds.each do |feed|
+      = feed.updated_at
   .col.s7
     = image_tag 'http://placehold.it/2000x500', class: 'responsive-img'
     .col.s2.red
@@ -9,13 +12,10 @@
     .col.s7.blue
       a
     .col.s3
-  .col.s3.blue.lighten-5
-    = button_to feed_fetch_path(1), class: 'waves-effect waves-light btn' do
-      = icon('fa fa-refresh right')
-      Fetch feeds
-    
+  .col.s3
+    last sync: 
+
     - @entries.each do |entry|
       %br
-      .hvr-underline-from-left= link_to entry.title, entry.url
-      .feed-published= entry.published
-      = entry.url
+      .hvr-underline-from-left= link_to entry.title, entry.url, target: '_blank'
+      .feed-published= entry.updated_at
