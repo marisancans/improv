@@ -1,8 +1,8 @@
 class SubscribedFeed < ActiveRecord::Base
-    belongs_to :feed, dependent: :destroy, counter_cache: true
-    belongs_to :user, dependent: :destroy
+    belongs_to :feed, counter_cache: true
+    belongs_to :user
 
-    validates :feed_id, :user_id, presence: true, uniqueness: true
+    validates_uniqueness_of :feed_id, scope: :user_id, presence: true
     
-    scope :subscribed, ->(user) { where(user: user) }
+    scope :subscribed, ->(user){ where(user_id: user.id ) }
 end

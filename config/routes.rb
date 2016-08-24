@@ -19,6 +19,6 @@ Rails.application.routes.draw do
       end
   end
   
-  resource :subscribed_feed, only: [:create, :destroy]
+  resources :subscribed_feeds, only: [:create, :destroy]
   
 end

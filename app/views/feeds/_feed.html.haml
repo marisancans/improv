@@ -7,6 +7,6 @@
         = feed.name
         = feed.description
       .card-action
-        = button_to "Subscribe", subscribed_feed_path(feed_id: feed), remote: true
+        = button_to "Subscribe", subscribed_feeds_path, params: { feed_id: feed.id }, method: :post, remote: true
         = link_to "Details", feed_path(feed)
         // = feed.url
