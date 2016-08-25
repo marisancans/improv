@@ -7,9 +7,19 @@
   line-height: 80%;
   padding-top: 10px;
 }
+.entry-published-date {
+  font-size: 11px;
+}
 
-.feed-published {
-  font-size: 10px;
+.entry {
+  .hvr-underline-from-left { a { color: rgba(0, 0, 0, 0.87); } }
+  &:hover { a { color: #039be5; } }
+}
+
+.entry--with-hidden-date {
+  .entry-published-date {
+    display: none;
+  }
 }
 
 .no-underline {
@@ -30,8 +40,6 @@
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow: hidden;
-  a { color: rgba(0, 0, 0, 0.87); }
-  &:hover { a { color: #039be5; } }
 }
 
 .hvr-underline-from-left:before {

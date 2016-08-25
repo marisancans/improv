@@ -5,8 +5,12 @@ $(document).ready ->
     span = $('#' + $(element).attr('data-tooltip-id') + '>span:first-child')
     span.before $(element).attr('data-tooltip')
     span.remove()
-    
 
+$(document).on 'mouseover', '.entry--with-hidden-date', ->
+  $(@).find('.entry-published-date').slideDown( 300 )
+    
+$(document).on 'mouseleave', '.entry--with-hidden-date', ->
+  $(@).find('.entry-published-date').slideUp( 300 )    
     
 $(document).on 'click', '.subscribe-feed-button', ->
   new SubscribeToFeed(@)
@@ -19,7 +23,6 @@ class SubscribeToFeed
     @postSubscribedFeed(url, feed_id, @$button)
 
   postSubscribedFeed: (url, feed_id, button) ->
-    console.log(button)
     $.post
       url: url
       data : { feed_id : feed_id }

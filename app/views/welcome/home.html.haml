@@ -13,5 +13,7 @@
       My feeds:
     - @entries.each do |entry|
       %br
-      .hvr-underline-from-left= link_to entry.title, entry.url, target: '_blank'
-      .feed-published= entry.published
+      .entry.entry--with-hidden-date
+        .hvr-underline-from-left
+          = link_to entry.title, entry.url, target: '_blank'
+          .entry-published-date= "#{time_ago_in_words(entry.published)} ago"
