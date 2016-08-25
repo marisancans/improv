@@ -3,10 +3,9 @@ class SubscribedFeedsController < ApplicationController
   before_action :set_subscribed_feed, only: :destroy
     
   def create
+    @subscribed_feed = SubscribedFeed.new(subscribed_feed_params)
     respond_to do |format|
-      @subscribed_feed = SubscribedFeed.new
-      if SubscribedFeed.create(subscribed_feed_params) 
-        set_feed
+      if @subscribed_feed.save
         format.js
       else
         format.json { render json: @subscribed_feed.errors, status: :unprocessable_entity }
@@ -23,6 +22,10 @@ class SubscribedFeedsController < ApplicationController
     #VALIDATION & response
   end
   
+  def set_feed
+    @feed = SubscribedFeed.find(@subscribed_feed.id)
+  end
+  
   private
   
   def set_subscribed_feed
@@ -31,9 +34,5 @@ class SubscribedFeedsController < ApplicationController
   
   def subscribed_feed_params
     params.permit(:feed_id).merge(user_id: current_user.id)
-  end
-  
-  def set_feed
-    @feed = Feed.find(subscribed_feed_params[:feed_id])
   end
 end

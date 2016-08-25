@@ -22,6 +22,17 @@
   }
 }
 
+.subscribe-feed-button {
+  border-color: none;
+  border-width: 0;
+  background-color: initial;
+  text-transform: uppercase;
+  &:focus {
+    outline: none;
+    background-color: initial;
+  }
+}
+
 .no-underline {
   a {
     text-decoration: none;

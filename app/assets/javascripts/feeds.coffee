@@ -26,8 +26,9 @@ class SubscribeToFeed
     $.post
       url: url
       data : { feed_id : feed_id }
-      beforeSend: ->
-        $('[id^=feed_]'+feed_id).append( '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>' )
+      beforeSend: =>
+        button.text('Subscribing...')
+        button.append( '<i class="fa fa-cog fa-spin fa-2x fa-fw"></i><span class="sr-only">Loading...</span>' )
       success: (data) ->
         $('#loaderDiv').hide()
-        $('[id^=feed_]'+feed_id).remove()
+        $('[id^=feed_'+feed_id+']').remove()
