@@ -1,12 +1,13 @@
-.col.s6
-  .card.horizontal
-    .card-image
-      = image_tag "http://placehold.it/200x150"
-    .card-stacked
-      .card-content
-        = feed.name
-        = feed.description
-      .card-action
-        = button_to "Subscribe", subscribed_feeds_path, params: { feed_id: feed.id }, method: :post, remote: true
-        = link_to "Details", feed_path(feed)
-        // = feed.url
+= div_for feed  do |feed|
+  .col.s6
+    .card.horizontal
+      .card-image
+        = image_tag "http://placehold.it/200x150"
+      .card-stacked
+        .card-content
+          = feed.name
+          = feed.description
+        .card-action
+          = button_tag "Subscribe", class: 'subscribe-feed-button', data: { url: subscribed_feeds_path, feedid: feed.id, disable_with: 'Subscribing' }, remote: true
+          = link_to "Details", feed_path(feed)
+          // = feed.url

@@ -1,5 +1,3 @@
-= stylesheet_link_tag 'feeds'
-= javascript_include_tag 'feeds'
 .row
   .col.s2
     placeholder
@@ -11,9 +9,9 @@
       a
     .col.s3
   .col.s3
-    %h6.center-align.tooltipped(data-position="bottom" data-delay="50" data-tooltip='#{render partial: 'shared/feeds/tooltip', locals: {feeds: @feeds}}')
+    %h6.center-align.tooltipped(data-position="bottom" data-delay="50" data-tooltip='#{render partial: 'shared/feeds/tooltip', locals: {subscribed_feeds: @subscribed_feeds}}')
       My feeds:
     - @entries.each do |entry|
       %br
       .hvr-underline-from-left= link_to entry.title, entry.url, target: '_blank'
-      .feed-published= entry.updated_at
+      .feed-published= entry.published

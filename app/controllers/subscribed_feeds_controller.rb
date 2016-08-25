@@ -6,11 +6,11 @@ class SubscribedFeedsController < ApplicationController
     respond_to do |format|
       @subscribed_feed = SubscribedFeed.new
       if SubscribedFeed.create(subscribed_feed_params) 
-          format.json { render json: @subscribed_feed, status: :updated, location: @subscribed_feed }
-          format.js { flash.now[:success] = "Subscribed!" }
+        set_feed
+        format.js
       else
         format.json { render json: @subscribed_feed.errors, status: :unprocessable_entity }
-        format.js { render :error }
+        # format.json { render :json => { :error => @order.errors } }
       end
     end
   end
@@ -31,5 +31,9 @@ class SubscribedFeedsController < ApplicationController
   
   def subscribed_feed_params
     params.permit(:feed_id).merge(user_id: current_user.id)
+  end
+  
+  def set_feed
+    @feed = Feed.find(subscribed_feed_params[:feed_id])
   end
 end

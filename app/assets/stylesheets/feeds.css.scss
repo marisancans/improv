@@ -30,7 +30,10 @@
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow: hidden;
+  a { color: rgba(0, 0, 0, 0.87); }
+  &:hover { a { color: #039be5; } }
 }
+
 .hvr-underline-from-left:before {
   content: "";
   position: absolute;
@@ -47,6 +50,7 @@
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+
 .hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
   right: 0;
 }

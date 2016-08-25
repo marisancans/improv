@@ -1,11 +1,12 @@
-.col.s6
-  .card.horizontal
-    .card-image
-      = image_tag "http://placehold.it/200x150", class: 'img-resposive'
-    .card-stacked
-      .card-content
-        = subscribed_feed.feed.name
-        = subscribed_feed.feed.description
-      .card-action
-        = button_to 'Unsubscribe', subscribed_feed, remote: true, method: :delete
-        = link_to "Details", "#"
+= div_for subscribed_feed  do |subscribed_feed|
+  .col.s6
+    .card.horizontal
+      .card-image
+        = image_tag "http://placehold.it/200x150", class: 'img-resposive'
+      .card-stacked
+        .card-content
+          = subscribed_feed.feed.name
+          = subscribed_feed.feed.description
+        .card-action
+          = button_to 'Unsubscribe', subscribed_feed, remote: true, method: :delete
+          = link_to "Details", "#"
