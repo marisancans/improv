@@ -8,7 +8,10 @@
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     = stylesheet_link_tag "layout", controller_name
   %body
-    #modal-holder
-    = render "shared/navbar"
-    = yield
-    = render "shared/footer"
+    .content
+      #modal-holder
+      = render "shared/navbar"
+      = yield
+    .footer
+      = render "shared/footer"
+    
