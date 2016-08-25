@@ -18,8 +18,16 @@ class SubscribedFeedsController < ApplicationController
   end
 
   def destroy
-    @subscribed_feed.destroy if current_user.id == @subscribed_feed.user_id
-    #VALIDATION & response
+    @unsubscribed_feed = Feed.find(@subscribed_feed.feed_id)
+    respond_to do |format|
+      if @subscribed_feed.destroy && current_user.id == @subscribed_feed.user_id
+        format.js
+      else
+        format.json { render json: @subscribed_feed.errors, status: :unprocessable_entity }
+        # format.js
+        # format.json { render :json => { :error => @order.errors } }
+      end
+    end
   end
   
   def set_feed

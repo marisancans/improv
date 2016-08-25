@@ -22,7 +22,7 @@
   }
 }
 
-.subscribe-feed-button {
+.subscribe-feed-button, .unsubscribe-feed-button {
   border-color: none;
   border-width: 0;
   background-color: initial;
@@ -32,6 +32,8 @@
     background-color: initial;
   }
 }
+
+
 
 .no-underline {
   a {

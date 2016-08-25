@@ -8,5 +8,5 @@
           = subscribed_feed.feed.name
           = subscribed_feed.feed.description
         .card-action
-          = button_to 'Unsubscribe', subscribed_feed, remote: true, method: :delete
+          = button_to 'Unsubscribe', subscribed_feed, class: 'unsubscribe-feed-button red-text', form_class: 'unsubscribe-form', data: { feedid: subscribed_feed.id }, remote: true
           = link_to "Details", "#"
