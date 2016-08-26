@@ -1,12 +1,10 @@
 = div_for subscribed_feed  do |subscribed_feed|
   .col.s3
-    .card.horizontal
+    .card
       .card-image
         = image_tag "http://placehold.it/200x150", class: 'img-resposive'
-      .card-stacked
-        .card-content
-          = subscribed_feed.feed.name
-          = subscribed_feed.feed.description
-        .card-action
-          = button_to 'Unsubscribe', subscribed_feed, class: 'unsubscribe-feed-button red-text', form_class: 'unsubscribe-form', data: { feedid: subscribed_feed.id }, remote: true
-          = link_to "Details", "#"
+      .card-content
+        .card-title= subscribed_feed.feed.name
+      .card-action.align-fix
+        = button_to 'Unsubscribe', subscribed_feed, class: 'unsubscribe-feed-button red-text', form_class: 'unsubscribe-form', data: { feedid: subscribed_feed.id }, remote: true
+        = link_to "Details", "#"
