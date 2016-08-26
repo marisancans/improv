@@ -1,6 +1,13 @@
-.row
-  .col.s3.card.grey.lighten-3
-    = render partial: 'side_show', collection: @feeds, as: :feed
-  .col.s9.card.grey.lighten-3
-    .row
-      = render @feed.entries
+.container
+  .row
+    .col.s6
+      = image_tag "http://placehold.it/500x150"
+    .col.s6.yelllow
+      = @feed.subscribed_feeds_count
+      .row
+        %h5.center-align 20 subsc
+        .col.s6.red
+          = @feed.name
+        .col.s6.blue
+          = @feed.description
+          description placeholder

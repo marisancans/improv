@@ -17,9 +17,8 @@ Rails.application.routes.draw do
       member do
        resources :entries, only: [:index, :show]
       end
-      
   end
-  #get 'lists' => 'lists#index'
-  #post 'list/create' => 'lists#create'
+  
+  resources :subscribed_feeds, only: [:create, :destroy]
   
 end

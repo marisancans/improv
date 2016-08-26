@@ -2,13 +2,16 @@
 %html
   %head
     %title Improv
-    = stylesheet_link_tag "application", controller_name
-    = javascript_include_tag "application", controller_name
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
     = csrf_meta_tags
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
-    %script{:src => "http://code.onion.com/fartscroll.js"}
+    = stylesheet_link_tag "layout", controller_name
   %body
-    #modal-holder
-    = render "shared/navbar"
-    = yield
-    = render "shared/footer"
+    .content
+      #modal-holder
+      = render "shared/navbar"
+      = yield
+    .footer
+      = render "shared/footer"
+    

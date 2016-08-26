@@ -1,5 +1,9 @@
 class FeedsController < ApplicationController
-  before_action :set_feed, only: [:show, :destroy, :update]
+  include FeedsHelper
+  before_action :authenticate_user!
+  before_action :set_subscribed_feeds, only: [:index]
+  before_action :set_unsubscribed_feeds, only: [:index], if: -> { @subscribed_feeds }
+  
   def index
     @feeds = Feed.all
   end
@@ -20,7 +24,7 @@ class FeedsController < ApplicationController
   end
   
   def show
-    @feeds = current_user.feeds
+    @feed = Feed.find(params[:id])
   end
   
   def fetch
@@ -29,8 +33,16 @@ class FeedsController < ApplicationController
   
   private
   
+  def set_subscribed_feeds
+    @subscribed_feeds = SubscribedFeed.subscribed(current_user)
+  end
+  
+  def set_unsubscribed_feeds
+    @unsubscribed_feeds = Feed.unsubscribed(@subscribed_feeds)
+  end
+  
   def set_feed
-    @feed = current_user.feeds.find(params[:id])
+    # @feed = current_user.feeds.find(params[:id])
   end
   
   def feed_params

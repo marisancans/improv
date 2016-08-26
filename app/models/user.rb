@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :todos
   has_many :lists
+  has_many :subscribed_feeds, dependent: :destroy
 end

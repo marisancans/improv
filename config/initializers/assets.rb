@@ -4,7 +4,8 @@
 Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( todos.css welcome.css lists.css feeds.css
-                                                  todos.js welcome.js  lists.js  feeds.js)
+                                                  todos.js welcome.js  lists.js  feeds.js
+                                                  layout.css)
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

@@ -1,6 +1,7 @@
 .row
-    = pluralize(feeds.count, 'feed')
-- feeds.each do |feed|
+    = pluralize(subscribed_feeds.count, 'feed')
+- subscribed_feeds.each do |subscribed_feed|
+    - feed = subscribed_feed.feed
     .row
         .col.s6= image_tag 'http://placehold.it/30x30'
         .col.s6

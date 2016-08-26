@@ -1,11 +1,14 @@
-.col.s6
-  .card.horizontal
-    .card-image
-      = image_tag "http://placehold.it/200x150"
-    .card-stacked
+= div_for feed  do |feed|
+  .col.s3
+    .card
+      .card-image
+        = image_tag "http://cdn.bleedingcool.net/wp-content/uploads/2014/11/reddit-logo.png"
       .card-content
-        = feed.name
-        = feed.description
+        .card-title= feed.name
       .card-action
-        = link_to "Subscribe", "#"
+        = button_tag "Subscribe", class: 'subscribe-feed-button green-text', data: { url: subscribed_feeds_path, feedid: feed.id, disable_with: 'Subscribing' }, remote: true
+        = link_to "Details", feed_path(feed)
         // = feed.url
+            
+
+            
