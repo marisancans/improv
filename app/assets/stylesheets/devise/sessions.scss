@@ -66,10 +66,6 @@ html {
     font-size: 70px;
     line-height: 90%;
     margin-top: 10px;
-    
-    // @media #{$medium-and-down} {
-    //   font-size: 100px;
-    // }
   }
   
   .small-text { 
@@ -96,6 +92,8 @@ html {
 }
 
 .input {
+  color: rgba(255, 255, 255, 0.8);
+  
   label[for=user_email] { 
     color: rgba(255, 255, 255, 0.8);
   }
@@ -111,6 +109,14 @@ input[type=submit] {
 
 input[type=submit]:focus {
     border-color:#333;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
 }
 
 
