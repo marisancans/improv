@@ -31,7 +31,7 @@
                 
     .col.s12.m12.l6
       .card
-        .card-title.center-align Register
+        .card-title.center-align Sign up
         .card-content
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = devise_error_messages!
@@ -51,11 +51,4 @@
               %br/
               = f.password_field :password_confirmation, autocomplete: "off"
             .actions
-              = f.submit "Sign up"
-              
-.row
-  .col.s3.offset-s9.quote
-    %p
-      “The only way to make sense out of change is to plunge into it, move with it, and join the dance.” 
-      %br
-      ― Alan W. Watts
+              = button_tag 'Sign up', class: 'sign-up-button', remote: true
