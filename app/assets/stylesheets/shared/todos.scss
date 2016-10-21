@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#new_todo_form {
-  //display:none;
+.date {
+    select {
+        display: initial;
+        width: 10%;
+    }
+}
+
+.todo-expired {
+    color: red;
 }

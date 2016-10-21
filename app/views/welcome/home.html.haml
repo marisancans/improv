@@ -1,10 +1,14 @@
 .row
   .col.s2
-    placeholder
+    - @todos.order(due_to: :asc).each do |todo|
+      - if Time.current > todo.due_to
+        .todo-expired= "#{time_ago_in_words(todo.due_to)} ago"
+      - else
+        = distance_of_time_in_words(Time.current, todo.due_to)
+
   .col.s7
     = image_tag 'http://placehold.it/2000x500', class: 'responsive-img'
     .col.s2.red
-      = image_tag 'https://blog.mariusschulz.com/content/images/css_shutter.gif'
     .col.s7.blue
       a
     .col.s3

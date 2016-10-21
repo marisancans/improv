@@ -12,6 +12,7 @@
     %br
       = f.text_field :title
     %br
+    .date
       = f.datetime_select :due_to, min: Date.today
   .field
     = f.label :due_to
