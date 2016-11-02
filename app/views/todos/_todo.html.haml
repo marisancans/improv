@@ -1,12 +1,19 @@
-.container
-.row
-  .col.s12.m6
-    .card.blue-grey.darken-1
-      .card-content.white-text
-        %span.card-title
-        = todo.title
-        %p
-        = todo.due_to
+// = div_for todo  do |todo|
+//   .col.s3
+//     .card
+//       .card-image
+//         = image_tag "http://placehold.it/200x150", class: 'img-resposive'
+//       .card-content
+//         .card-title= todo.title
+//       .card-action.align-fix
+//         = button_to 'Unsubscribe', todo, class: 'unsubscribe-feed-button red-text', form_class: 'unsubscribe-form', data: { feedid: todo.id }, remote: true
+//         = link_to "Details", "#"
+
+= div_for todo  do |todo|
+  .col.s4
+    .card
+      .card-content
+        .card-title= todo.title
       .card-action
-        %a{:href => "#"} Delete
-        %a{:href => "#"} Edit
+        = button_to 'Delete', new_todo_path
+        = link_to "Details", "#"

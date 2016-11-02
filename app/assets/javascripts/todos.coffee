@@ -6,5 +6,7 @@ $ ->
   $('#new-todo').click (event) ->
     event.preventDefault()
     $('#new_todo_form').toggle()
-    return
-  return
+
+$(document).on 'click', '.delete-todo-button',  (event) ->
+  event.preventDefault()
+  new DeleteTodo($(@.form))
