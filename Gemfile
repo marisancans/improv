@@ -57,6 +57,9 @@ gem 'font-awesome-sass', '~> 4.6.2'
 #Materialize
 gem 'materialize-sass'
 
+#Calendar
+gem "simple_calendar", "~> 2.0"
+
 #Dynamic forms
 gem "cocoon"
 

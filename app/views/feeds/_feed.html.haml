@@ -6,7 +6,7 @@
       .card-content
         .card-title= feed.name
       .card-action
-        = button_tag "Subscribe", class: 'subscribe-feed-button green-text', data: { url: subscribed_feeds_path, feedid: feed.id, disable_with: 'Subscribing' }, remote: true
+        = button_tag "Subscribe", class: 'card-button subscribe-feed-button green-text', data: { url: subscribed_feeds_path, feedid: feed.id, disable_with: 'Subscribing' }, remote: true
         = link_to "Details", feed_path(feed)
         // = feed.url
             

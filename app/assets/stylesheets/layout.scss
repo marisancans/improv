@@ -9,3 +9,14 @@ body {
 .content {
   flex: 1;
 }
+
+.card-button {
+  border-color: none;
+  border-width: 0;
+  background-color: initial;
+  text-transform: uppercase;
+  &:focus {
+    outline: none;
+    background-color: initial;
+  }
+}

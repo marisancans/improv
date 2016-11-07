@@ -1,0 +1,10 @@
+= div_for todo  do |todo|
+  .col.s4
+    .card
+      .card-content
+        .card-title= todo.title
+      .card-action
+        = button_to 'Delete', todo, class: 'card-button red-text', data: { url: todos_path, todoid: todo.id, disable_with: 'Deleting' }, remote: true
+        
+        //Edit list
+        = link_to "Details", "#"

@@ -7,7 +7,7 @@
 development:
   adapter: postgresql
   database: db_development
-  encoding: UTF8
+  encoding: SQL_ASCII
   pool: 5
   
 test:

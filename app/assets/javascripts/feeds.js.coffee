@@ -13,7 +13,6 @@ $(document).on 'mouseleave', '.entry--with-hidden-date', ->
   $(@).find('.entry-published-date').slideUp( 300 )    
   
 $(document).on 'ajax:before', 'form.unsubscribe-form', ->
-  $(@).append( '<i class="fa fa-cog fa-spin fa-fw"></i><span class="sr-only">Loading...</span>' )
   $(@).find('.unsubscribe-feed-button').val('Unsubscribing...')
 
 $(document).on 'click', '.unsubscribe-feed-button',  (event) ->
