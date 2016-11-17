@@ -1,0 +1,12 @@
+@import "materialize/components/color";
+$primary-color: color("blue", "lighten-2") !default;
+// $secondary-color: color("blue", "lighten-2") !default;
+// $success-color: color("green", "base") !default;
+
+@import 'materialize';
+
+@import "materialize/extras/nouislider";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "layout";

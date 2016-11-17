@@ -10,3 +10,30 @@ $ ->
 $(document).on 'click', '.delete-todo-button',  (event) ->
   event.preventDefault()
   new DeleteTodo($(@.form))
+
+$(document).on 'click', '.modal-trigger',  (event) ->
+  # send POST to controller and recieve back parial as form
+  new EditDate(@)
+  
+  
+class EditDate
+  constructor: (day) ->
+    @$day = $(day)
+    url = @$day.data('url')
+    start_time = @$day.data('start-time').replace(/\"/g, "")
+    target = @$day.data('target')
+    @getEvents(url, start_time, target)
+
+  getEvents: (url, start_time, target) ->
+    $.get
+      url: url
+      data : { start_time : start_time }
+      beforeSend: =>
+        $('#loading').show();
+      success: ->
+        $('#'+target).openModal();
+        $('#loading').hide();
+        # /slight delay neeeds fix
+      error: ->
+      
+

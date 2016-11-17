@@ -1,7 +1,7 @@
 = month_calendar events: events do |date, events|
-
-  = date.day
-  
+  .date
+    = date.day
   - events.each do |event|
-    %div
+    .event
+      %span= event.start_time.strftime("%H:%M")
       = event.name

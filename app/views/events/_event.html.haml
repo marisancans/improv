@@ -1,10 +1,10 @@
-= div_for todo  do |todo|
+= div_for event  do |event|
   .col.s4
     .card
       .card-content
-        .card-title= todo.title
+        .card-title= event.name
       .card-action
-        = button_to 'Delete', todo, class: 'card-button red-text', data: { url: todos_path, todoid: todo.id, disable_with: 'Deleting' }, remote: true
+        = button_to 'Delete', event, class: 'card-button red-text', remote: true
         
-        //Edit list
+        //Edit list 
         = link_to "Details", "#"

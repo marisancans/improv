@@ -18,5 +18,18 @@ body {
   &:focus {
     outline: none;
     background-color: initial;
+
   }
+}
+
+.row.seven-cols {
+  margin-bottom: 0px;
+}
+
+.seven-cols .col.s1,
+.seven-cols .col.m1,
+.seven-cols .col.l1 {
+  width: 14.285714285714285714285714285714%;
+  *width: 14.285714285714285714285714285714%;
+  padding: 0px;
 }

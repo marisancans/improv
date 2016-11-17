@@ -5,3 +5,92 @@
 #new_todo_form {
   //display:none;
 }
+
+#loading{
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.5);
+  
+  .progress{
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0,0,0,.0);
+    
+    .indeterminate{
+       background-color: white;
+    }
+  }
+}
+
+.modal-trigger:hover {
+  cursor: pointer;
+}
+
+
+.simple-calendar {
+
+  .day {
+    border: 1px solid #ccc;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    height: 100px;
+    
+    .date {
+      float: right;
+      padding-right: 5px;
+    }
+    
+
+    // 
+    // padding: 10px 0px;
+    
+    .event {
+      font-size: 12px;
+      display: block;
+      clear: both;
+      // @extend .purple, .accent-4;
+      padding: 0px 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+     
+     span {
+        font-size: 10px;
+     }
+    }
+
+  }
+  
+
+  
+  
+  
+
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {} 
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month, .next-month {}
+  
+  .current-month {}
+
+  .has-events {}
+}
+

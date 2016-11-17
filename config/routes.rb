@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   
   get 'test' => 'welcome#test'
    
-  resources :events
+  resources :events do
+    collection do
+      get 'fetch'
+    end
+  end
   
   resources :lists
     resources :feeds do

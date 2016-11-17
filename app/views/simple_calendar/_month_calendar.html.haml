@@ -1,0 +1,23 @@
+.simple-calendar
+  .calendar-heading
+    = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view
+    %span.calendar-title
+      = t('date.month_names')[start_date.month]
+      = start_date.year
+    = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view
+
+  .row.seven-cols
+    - date_range.slice(0, 7).each do |day|
+      .col.s1.m1.l1
+        %th= t('date.abbr_day_names')[day.wday]
+
+  - date_range.each_slice(7) do |week|
+    .row.seven-cols
+      - week.each do |day|
+        .col.s1.m1.l1
+          = content_tag :div, class: calendar.td_classes_for(day) << 'modal-trigger', data: { target: 'event-modal', url: fetch_events_path, start_time: day } do
+            - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
+              - capture_haml(day, sorted_events.fetch(day, []), &block)
+            - else
+              - block.call day, sorted_events.fetch(day, [])
+

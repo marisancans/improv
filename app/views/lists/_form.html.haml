@@ -1,16 +1,1 @@
-= semantic_form_for @list, remote: true do |f|
-  #error_explanation
-  .input-field
-    = f.input :title, "placeholder": "Title"
-  %h4 Items
-  #items
-    = f.semantic_fields_for :list_items do |list_item|
-      = render 'item_fields', f: list_item
-    .links
-      .row
-        .col.s6
-          = link_to_add_association f, :list_items, class: "btn waves-effect light-blue darken-2" do
-            %i.material-icons.left add
-            Add item
-        .col.s6
-          = f.action :submit, button_html: { class: "btn waves-effect light-blue darken-2" }
+sssss
