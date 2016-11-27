@@ -50,7 +50,7 @@ class SaveEvent
   postData: (form) ->
     $.ajax
       type: 'POST'
-      url: form.data('url')
+      url: form.attr('action')
       data : form.serialize()
       beforeSend: =>
   

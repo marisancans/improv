@@ -16,7 +16,7 @@ class EventsController < ApplicationController
       respond_to do |format|
         start_time = params[:start_time].to_datetime
         @date = params[:start_time]
-        @events = current_user.events.where(start_time: start_time.in_time_zone.beginning_of_day..start_time.in_time_zone.end_of_day )
+        @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
         format.js
       end
     end
@@ -24,16 +24,16 @@ class EventsController < ApplicationController
   
   def create
     if params[:events].present?
-      current_user.events.update(params[:events].keys,params[:events].values)
-      @date = params[:date]
-    end
-    respond_to do |format|
-      
-      format.js { flash.now[:success] = "Updated" }
-    end
+      if current_user.events.update(params[:events].keys,params[:events].values)
+        respond_to do |format|
+          @date = params[:date].to_date
+          @events = current_user.events.get_from_date(@date).order(start_time: :asc)
+          format.js { flash.now[:success] = "Updated" }
+        end
+      end
     # else
     #   render :nothing => true, :status => 400
-    # end
+    end
   end
   
   private
