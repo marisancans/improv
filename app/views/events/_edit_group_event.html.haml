@@ -1,8 +1,9 @@
-=@events.count
 .container
   = form_tag events_path, remote: true do
     .row
       - @events.each do |event|
         = fields_for "events[]", event do |pf|
           = pf.text_field :name
-      =submit_tag "Save"
+      = hidden_field_tag 'date', @date
+      = submit_tag "Save", id: 'save-event-button'
+    

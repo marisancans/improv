@@ -14,33 +14,26 @@ class EventsController < ApplicationController
   def fetch
     if params[:start_time].present?
       respond_to do |format|
-        day = params[:start_time].to_datetime
-        @events = current_user.events.where(start_time: day.in_time_zone.beginning_of_day..day.in_time_zone.end_of_day )
+        start_time = params[:start_time].to_datetime
+        @date = params[:start_time]
+        @events = current_user.events.where(start_time: start_time.in_time_zone.beginning_of_day..start_time.in_time_zone.end_of_day )
         format.js
       end
     end
   end
   
   def create
-    # my_class = ClassName.find_or_initialize_by_id(id)
-    
-    # my_class.update_attributes({
-    #   :street_address => self.street_address,
-    #   :city_name => self.city_name,
-    #   :zip_code => self.zip_code
-    # })
-    # @event = Event.new(event_params)
-    Event.update(params[:events].keys, params[:events].values)
-    respond_to do |format|
-      if @event.save
-        format.json { render json: @event, status: :created, location: @event }
-        format.js { flash.now[:success] = "event created" }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-        format.js
-      end
+    if params[:events].present?
+      current_user.events.update(params[:events].keys,params[:events].values)
+      @date = params[:date]
     end
+    respond_to do |format|
+      
+      format.js { flash.now[:success] = "Updated" }
+    end
+    # else
+    #   render :nothing => true, :status => 400
+    # end
   end
   
   private

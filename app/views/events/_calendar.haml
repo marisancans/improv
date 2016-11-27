@@ -2,6 +2,6 @@
   .date
     = date.day
   - events.each do |event|
-    .event
+    = div_for(event, class: 'event') do |event|
       %span= event.start_time.strftime("%H:%M")
       = event.name

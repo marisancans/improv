@@ -20,7 +20,7 @@ class EditDate
   constructor: (day) ->
     @$day = $(day)
     url = @$day.data('url')
-    start_time = @$day.data('start-time').replace(/\"/g, "")
+    start_time = @$day.data('start-time')
     target = @$day.data('target')
     @getEvents(url, start_time, target)
 
@@ -35,5 +35,26 @@ class EditDate
         $('#loading').hide();
         # /slight delay neeeds fix
       error: ->
-      
+    
 
+$(document).on 'click', '#save-event-button',  (event) ->
+  event.preventDefault()
+  new SaveEvent($(@.form))
+  
+class SaveEvent
+  constructor: (form) ->
+    @$form = $(form)
+    url = @$form.attr('action')
+    @postData(@$form)
+  
+  postData: (form) ->
+    $.ajax
+      type: 'POST'
+      url: form.data('url')
+      data : form.serialize()
+      beforeSend: =>
+  
+      success: ->
+        
+      error: ->
+        form.append('Something went wrong :(')
