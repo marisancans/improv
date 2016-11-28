@@ -52,9 +52,15 @@ class SaveEvent
       type: 'POST'
       url: form.attr('action')
       data : form.serialize()
+      console.log(form.serialize())
       beforeSend: =>
   
       success: ->
         
       error: ->
         form.append('Something went wrong :(')
+
+
+$(document).on 'click', '#addNewEvent',  (event) ->
+  console.log(event)
+  $("#event_fields").append($('#new_event_field').html())

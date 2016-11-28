@@ -1,9 +1,12 @@
 .container
   = form_tag events_path, remote: true do
     .row
-      - @events.each do |event|
-        = fields_for "events[]", event do |pf|
-          = pf.text_field :name
+      #event_fields
+        - @events.each do |event|
+          = fields_for "events[]", event do |pf|
+            = pf.text_field :name
+      %a#addNewEvent{:href => "javascript:;"} Add New Choice
+
       = hidden_field_tag 'date', @date
       = submit_tag "Save", id: 'save-event-button'
     

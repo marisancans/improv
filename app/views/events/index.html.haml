@@ -6,9 +6,14 @@
   
   = link_to 'New Event', new_event_path
 
--@events.each do |event|
-  %br=event.inspect
+// -@events.each do |event|
+//   %br=event.inspect
   
 #loading
   .progress
     .indeterminate
+
+#new_event_field{:style => ""}
+  = render partial: "event_fields", locals: {event: @event} 
+
+----
