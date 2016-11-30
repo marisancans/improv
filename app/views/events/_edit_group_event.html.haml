@@ -1,12 +1,18 @@
 .container
-  = form_tag events_path, remote: true do
-    .row
+  .row
+    Editing 
+    = @date  
+  .row
+    = form_tag events_path, remote: true do
       #event_fields
         - @events.each do |event|
           = fields_for "events[]", event do |pf|
             = pf.text_field :name
-      %a#addNewEvent{:href => "javascript:;"} Add New Choice
+            .time-select
+              = pf.time_select(:start_time)
 
+      %a#addNewEvent{:href => "javascript:;"} Add New Choice
+  
       = hidden_field_tag 'date', @date
       = submit_tag "Save", id: 'save-event-button'
     

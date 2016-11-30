@@ -1,2 +1,7 @@
-= fields_for "new_events[]", event do |pf|
+.new-field
+  = fields_for "new_events[]", event do |pf|
     = pf.text_field :name
+    .time-select
+      = pf.time_select(:start_time)
+    .remove-choice{:href => "#", :onclick => "removeEvent($(this))"} X
+  

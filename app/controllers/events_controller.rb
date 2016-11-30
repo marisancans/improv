@@ -29,19 +29,19 @@ class EventsController < ApplicationController
     end
     
     if params[:new_events].present?
-      binding.pry
-     params[:new_events].each {|e| Event.create(e)}
+      params[:new_events].each_with_object({}) do |e|
+        Event.create(name: e[:name], user_id: current_user.id, start_time: params[:start_time])
+      end
     end
       
-    if true
       respond_to do |format|
         @date = params[:date].to_date
         @events = current_user.events.get_from_date(@date).order(start_time: :asc)
         format.js { flash.now[:success] = "Updated" }
       end
-    else
-      render :nothing => true, :status => 400
-    end
+    # else
+    #   render :nothing => true, :status => 400
+    # end
   end
   
   private
@@ -50,6 +50,12 @@ class EventsController < ApplicationController
       params.require(:events).permit(:id, :name, :start_time, :user_id, new_events: [:name])
     end
     
+    # def new_event_params
+    #   permit(:new_events => [:name])
+    # params.require(:events).permit(:name, { data: params[:product][:data].try(:keys) })
+    # end
+    
+ 
    
     
     

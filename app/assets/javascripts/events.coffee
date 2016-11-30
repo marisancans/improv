@@ -61,6 +61,12 @@ class SaveEvent
         form.append('Something went wrong :(')
 
 
-$(document).on 'click', '#addNewEvent',  (event) ->
-  console.log(event)
+$(document).on 'click', '#addNewEvent',  ->
   $("#event_fields").append($('#new_event_field').html())
+  
+
+@removeEvent = (element) ->
+  element.parent().remove()
+  
+  
+  
