@@ -27,9 +27,20 @@
     }
   }
 }
+#event_fields{
 
-.time-select {
-  select { display: initial;}
+  .time-select {
+    display: inline;
+    
+    select { 
+      width: initial;
+      display: initial;
+    }
+  }
+  
+  .title{
+    padding: 0 0 0 10px;
+  }
 }
 
 .modal-trigger:hover {
