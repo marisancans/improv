@@ -8,10 +8,7 @@
         - @events.each do |event|
           = fields_for "events[]", event do |pf|
             = pf.text_field :name
-            .time-select
-              = pf.time_select(:start_time)
-
-      %a#addNewEvent{:href => "javascript:;"} Add New Choice
+            .time-select= pf.time_select(:start_time)
   
       = hidden_field_tag 'date', @date
       = submit_tag "Save", id: 'save-event-button'
