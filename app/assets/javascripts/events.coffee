@@ -18,14 +18,20 @@ $(document).on 'click', '#save-event-button',  (event) ->
   event.preventDefault()
   new SaveEvent($(@.form))
 
+$(document).on 'click', '.close-button',  (event) ->
+  event.preventDefault()
+  removeElement(@)
+
 $(document).on 'click', '.delete-button',  (event) ->
   event.preventDefault()
   new DeleteEvents($(@.form))
   
 hidePrevious= ->
-  $('.card-panel').each (index, element) ->
-    console.log(element)
-    $(element).hide()
+  $('.card-panel').each (index, event) ->
+    $(event).hide()
+    
+removeElement= (event) ->
+  $(event).parent().hide()
   
 class EditDay
   constructor: (element) ->
@@ -70,9 +76,7 @@ class SaveEvent
         
       error: ->
         form.append('Something went wrong :(')
-        
-@removeEvent = (element) ->
-  element.parent().remove()
+
   
   
   

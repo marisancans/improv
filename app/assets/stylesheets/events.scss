@@ -69,6 +69,17 @@
         position: absolute;
         display: none;
         margin: 2.5rem 0 0 2.5rem;
+        
+        .date-with-words {
+          text-transform: uppercase;
+          letter-spacing: .1rem;
+        }
+        
+        .close-button {
+          background-color: white;
+          border: none;
+        }
+        
       }
       
       .buttons {

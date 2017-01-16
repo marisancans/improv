@@ -1,6 +1,8 @@
-.row
-  Editing 
-  = @date  
+= button_tag feeds_path, class: 'close-button right' do
+  = icon('fa fa-times fa-lg')
+    
+.row.center-align.date-with-words= @date.to_date.strftime("%B %-d")  
+ 
 .row
   = form_tag events_path, remote: true do
     #event_fields
