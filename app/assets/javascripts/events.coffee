@@ -7,39 +7,51 @@ $ ->
     event.preventDefault()
     $('#new_todo_form').toggle()
     
+$(document).on 'click', '#addNewEvent',  ->
+  $("#event_fields").append($('#new_event_field').html())
+    
 $(document).on 'click', '.edit-button',  (event) ->
   # send POST to controller and recieve back parial as form
-  new EditDate(@)
+  new EditDay(@)
+  
+$(document).on 'click', '#save-event-button',  (event) ->
+  event.preventDefault()
+  new SaveEvent($(@.form))
 
 $(document).on 'click', '.delete-button',  (event) ->
   event.preventDefault()
-  new DeleteTodo($(@.form))
+  new DeleteEvents($(@.form))
   
-class EditDate
+hidePrevious= ->
+  $('.card-panel').each (index, element) ->
+    console.log(element)
+    $(element).hide()
+  
+class EditDay
   constructor: (element) ->
     @$element = $(element)
     url = @$element.data('url')
     start_time = @$element.data('start-time')
     target = @$element.data('target')
     @getEvents(url, start_time, target)
+    hidePrevious()
 
   getEvents: (url, start_time, target) ->
     $.get
       url: url
       data : { start_time : start_time }
+
       beforeSend: =>
-        $('#loading').show();
+        
+        #$('#loading').show();
       success: ->
-        $('#'+target).openModal();
-        $('#loading').hide();
+        
+        # $('#'+target).openModal();
+        # $('#loading').hide();
         # /slight delay neeeds fix
+      
       error: ->
     
-
-$(document).on 'click', '#save-event-button',  (event) ->
-  event.preventDefault()
-  new SaveEvent($(@.form))
-  
 class SaveEvent
   constructor: (form) ->
     @$form = $(form)
@@ -58,12 +70,7 @@ class SaveEvent
         
       error: ->
         form.append('Something went wrong :(')
-
-
-$(document).on 'click', '#addNewEvent',  ->
-  $("#event_fields").append($('#new_event_field').html())
-  
-
+        
 @removeEvent = (element) ->
   element.parent().remove()
   

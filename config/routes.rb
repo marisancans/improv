@@ -9,7 +9,7 @@ Rails.application.routes.draw do
    
   resources :events do
     collection do
-      get 'fetch'
+      get 'fetch_for_edit'
     end
   end
   

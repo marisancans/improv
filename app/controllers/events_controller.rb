@@ -12,13 +12,17 @@ class EventsController < ApplicationController
     # binding.pry
   end
   
-  def fetch
+  def fetch_for_edit
     if params[:start_time].present?
       respond_to do |format|
         start_time = params[:start_time].to_datetime
         @date = params[:start_time]
         @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
-        format.js
+        if @events.any? 
+          format.js 
+        else 
+          render body: nil
+        end
       end
     end
   end

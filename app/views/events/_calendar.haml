@@ -1,8 +1,10 @@
 = month_calendar events: events do |date, events|
   .content{id: date}
+    .card-panel
     .buttons
-      = button_tag class: "btn-floating edit-button", data: { target: 'event-modal', url: fetch_events_path, start_time: date } do
-        %i.large.material-icons mode_edit
+      = edit_events_button 'btn-floating edit-button', { target: 'event-modal', url: fetch_for_edit_events_path, start_time: "#{date}" }, 'large material-icons' if events.any?
+      = button_tag feeds_path, class: 'btn-floating' do
+        = icon('fa fa-plus')
       %a.btn-floating
         %i.large.material-icons.delete-button delete
     .date

@@ -55,22 +55,25 @@
         transition: all 0.5s ease;
         
         .buttons {
-          
-          .btn-floating {
-            display: block;
-          }
+          display: block;
         }
       }
     }
       
     .content {
+      .card-panel {
+        position: absolute;
+        display: none;
+        margin: 2.5rem 0 0 2.5rem;
+      }
+      
       .buttons {
         position: absolute;
+         display: none;
         
         .btn-floating {
           border-radius: initial;
-          display: none;
-          
+         
           &:hover {
             border-radius: 50%;
           }
