@@ -43,24 +43,45 @@
   }
 }
 
-.modal-trigger:hover {
-  cursor: pointer;
-}
-
-
 .simple-calendar {
-
-  .day {
-    border: 1px solid #ccc;
-    margin-right: -1px;
-    margin-bottom: -1px;
-    height: 100px;
-    
-    .date {
-      float: right;
-      padding-right: 5px;
+    .day {
+      border: 1px solid #ccc;
+      margin-right: -1px;
+      margin-bottom: -1px;
+      height: 100px;
+  
+      &:hover {
+        // @extend: $primary-color;
+        transition: all 0.5s ease;
+        
+        .buttons {
+          
+          .btn-floating {
+            display: block;
+          }
+        }
+      }
     }
-    
+      
+    .content {
+      .buttons {
+        position: absolute;
+        
+        .btn-floating {
+          border-radius: initial;
+          display: none;
+          
+          &:hover {
+            border-radius: 50%;
+          }
+        }
+      }
+      
+      .date {
+        float: right;
+        padding-right: 5px;
+      }
+        
 
     // 
     // padding: 10px 0px;
@@ -79,7 +100,6 @@
         font-size: 10px;
      }
     }
-
   }
   
 

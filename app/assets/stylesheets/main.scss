@@ -2,6 +2,7 @@
 $primary-color: color("blue", "lighten-2") !default;
 // $secondary-color: color("blue", "lighten-2") !default;
 // $success-color: color("green", "base") !default;
+// $link-color: color($primary-color, "darken-1") !default;
 
 @import 'materialize';
 
@@ -10,3 +11,4 @@ $primary-color: color("blue", "lighten-2") !default;
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "layout";
+@import "events";

@@ -1,10 +1,14 @@
 = month_calendar events: events do |date, events|
   .content{id: date}
+    .buttons
+      %a.btn-floating
+        %i.large.material-icons mode_edit
+      %a.btn-floating
+        %i.large.material-icons delete
     .date
       = date.day
     - events.each do |event|
       .event
         %span= event.start_time.strftime("%H:%M")
         = event.name
-    %a.btn-floating.red
-      %i.large.material-icons mode_edit
+    
