@@ -6,22 +6,21 @@ $ ->
   $('#new-todo').click (event) ->
     event.preventDefault()
     $('#new_todo_form').toggle()
-
-$(document).on 'click', '.delete-todo-button',  (event) ->
-  event.preventDefault()
-  new DeleteTodo($(@.form))
-
-$(document).on 'click', '.modal-trigger',  (event) ->
+    
+$(document).on 'click', '.edit-button',  (event) ->
   # send POST to controller and recieve back parial as form
   new EditDate(@)
-  
+
+$(document).on 'click', '.delete-button',  (event) ->
+  event.preventDefault()
+  new DeleteTodo($(@.form))
   
 class EditDate
-  constructor: (day) ->
-    @$day = $(day)
-    url = @$day.data('url')
-    start_time = @$day.data('start-time')
-    target = @$day.data('target')
+  constructor: (element) ->
+    @$element = $(element)
+    url = @$element.data('url')
+    start_time = @$element.data('start-time')
+    target = @$element.data('target')
     @getEvents(url, start_time, target)
 
   getEvents: (url, start_time, target) ->

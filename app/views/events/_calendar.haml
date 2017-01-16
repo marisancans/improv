@@ -1,10 +1,10 @@
 = month_calendar events: events do |date, events|
   .content{id: date}
     .buttons
-      %a.btn-floating
+      = button_tag class: "btn-floating edit-button", data: { target: 'event-modal', url: fetch_events_path, start_time: date } do
         %i.large.material-icons mode_edit
       %a.btn-floating
-        %i.large.material-icons delete
+        %i.large.material-icons.delete-button delete
     .date
       = date.day
     - events.each do |event|
