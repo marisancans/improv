@@ -96,40 +96,23 @@
   }
       
   .content {
-      .card-panel {
-        position: absolute;
-        display: none;
-        margin: 2.5rem 0 0 2.5rem;
-        
-        .date-with-words {
-          text-transform: uppercase;
-          letter-spacing: .1rem;
-        }
-        
-        .close-button {
-          background-color: white;
-          border: none;
-        }
-        
-      }
+    .buttons {
+      position: absolute;
+       display: none;
       
-      .buttons {
-        position: absolute;
-         display: none;
-        
-        .btn-floating {
-          border-radius: initial;
-         
-          &:hover {
-            border-radius: 50%;
-          }
+      .btn-floating {
+        border-radius: initial;
+       
+        &:hover {
+          border-radius: 50%;
         }
       }
-      
-      .date {
-        float: right;
-        padding-right: 5px;
-      }
+    }
+    
+    .date {
+      float: right;
+      padding-right: 5px;
+    }
         
 
     // 
@@ -178,3 +161,25 @@
   .has-events {}
 }
 
+#card-panel {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  margin-top: -50px;
+  margin-left: -100px;
+ 
+  // margin: 2.5rem 0 0 2.5rem;
+  // background-color: red;
+  
+  .date-with-words {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+  }
+  
+  .close-button {
+    background-color: white;
+    border: none;
+  }
+  
+}

@@ -20,7 +20,7 @@ $(document).on 'click', '#save-event-button',  (event) ->
 
 $(document).on 'click', '.close-button',  (event) ->
   event.preventDefault()
-  removeElement(@)
+  hideElement(@)
 
 $(document).on 'click', '.delete-button',  (event) ->
   event.preventDefault()
@@ -30,8 +30,12 @@ hidePrevious= ->
   $('.card-panel').each (index, event) ->
     $(event).hide()
     
-removeElement= (event) ->
+hideElement= (event) ->
   $(event).parent().hide()
+  
+resizeInputs= ->
+  $('input[value]').each ->
+    $(this).attr 'size', $(this).attr('value').length
   
 class EditDay
   constructor: (element) ->
@@ -51,7 +55,7 @@ class EditDay
         
         #$('#loading').show();
       success: ->
-        
+        resizeInputs()
         # $('#'+target).openModal();
         # $('#loading').hide();
         # /slight delay neeeds fix
@@ -69,13 +73,12 @@ class SaveEvent
       type: 'POST'
       url: form.attr('action')
       data : form.serialize()
-      console.log(form.serialize())
+      
       beforeSend: =>
   
       success: ->
-        
+        $('#card-panel').hide()
       error: ->
-        form.append('Something went wrong :(')
 
   
   

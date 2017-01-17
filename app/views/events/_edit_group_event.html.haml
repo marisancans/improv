@@ -4,7 +4,7 @@
 .row.center-align.date-with-words= @date.to_date.strftime("%B %-d")  
  
 .row
-  = form_tag events_path, remote: true do
+  = form_tag update_multiple_events_path, method: :put, remote: true do
     #event_fields
       - @events.each do |event|
         = fields_for "events[]", event do |pf|

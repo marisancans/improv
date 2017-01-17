@@ -1,6 +1,5 @@
 = month_calendar events: events do |date, events|
   .content{id: date}
-    .card-panel
     .buttons
       = edit_events_button 'btn-floating edit-button', { target: 'event-modal', url: fetch_for_edit_events_path, start_time: "#{date}" }, 'large material-icons' if events.any?
       = button_tag feeds_path, class: 'btn-floating' do
