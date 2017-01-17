@@ -1,6 +1,20 @@
-= form_for(:gallery) do |f|
-  = f.text_field :title
-  = button_to :submit
-  
-- @galleries.each do |g|
-  .card-panel= link_to g.title, gallery_path(g)
+.container
+  .row
+    .col.m4
+      .card
+        .card-image.waves-effect.waves-block.waves-light
+          .activator= cl_image_tag("camera-photo.jpg", :transformation=>[{:color=>"white", :overlay=>"text:Arial_600:Add new gallery"}],
+            :width=>500, :height=>500, :crop=>"fit")
+        .card-content
+          = form_for :gallery, remote: true do |f|
+            #error_explanation
+            .input-field
+
+              = form_for @gallery, remote: true do |f|
+                = f.text_field :title, placeholder: :title
+                = f.file_field(:image)
+                = f.submit 'Create', class: 'btn waves-effect' 
+
+      
+    - @galleries.each do |g|
+      .col.m4.card-panel= link_to g.title, gallery_path(g)

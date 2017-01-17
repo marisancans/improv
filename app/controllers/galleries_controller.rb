@@ -1,5 +1,6 @@
 class GalleriesController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     @gallery = Gallery.new
     @galleries = current_user.galleries
@@ -12,8 +13,13 @@ class GalleriesController < ApplicationController
   
   def create
     @gallery = Gallery.new(gallery_params)
-    
-    redirect :back if @gallery.save
+    if @gallery.save
+      flash[:notice] = 'Gallery successfully created'
+      redirect_to @gallery 
+    else
+      flash[:error] = 'Error when creating new gallery'
+      redirect_to galleries_path
+    end
   end
 
   private
