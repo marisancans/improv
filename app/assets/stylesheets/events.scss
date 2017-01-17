@@ -27,44 +27,75 @@
     }
   }
 }
-#event_fields{
-
-  .time-select {
-    display: inline;
-    
-    select { 
-      width: initial;
-      display: initial;
-      height: 2rem;
-      padding: initial;
+#event_fields {
+  .event-field {
+    .time-select {
+      display: inline;
+      
+      select { 
+        width: initial;
+        display: initial;
+        height: 2rem;
+        padding: initial;
+      }
     }
-  }
-  
-  .title{
-    padding: 10px 0;
-    // white-space: nowrap;
-    display: inline
+    
+    .title {
+      padding: 10px 0;
+      display: inline-block
+      // white-space: nowrap;
+    }
   }
 }
 
 .simple-calendar {
-    .day {
-      border: 1px solid #ccc;
-      margin-right: -1px;
-      margin-bottom: -1px;
-      height: 100px;
-  
-      &:hover {
-        // @extend: $primary-color;
-        transition: all 0.5s ease;
-        
-        .buttons {
-          display: block;
-        }
+  .calendar-heading {
+    padding: 10px 0;
+    
+    .calendar-title {
+      .month {
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 2rem;
+        letter-spacing: 2rem;
+        display: inline-block;
+      }
+      
+      %span {
+        letter-spacing: initial;
+        font-size: initial;
+      }
+      
+      .month-navigation {
+        text-transform: uppercase;
+        font-weight: 300;
+        padding-top: 15px;
       }
     }
+    
+    .year {
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+  }
+  
+  .day {
+    border: 1px solid #ccc;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    height: 100px;
+
+    &:hover {
+      // @extend: $primary-color;
+      transition: all 0.5s ease;
       
-    .content {
+      .buttons {
+        display: block;
+      }
+    }
+  }
+      
+  .content {
       .card-panel {
         position: absolute;
         display: none;
