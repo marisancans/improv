@@ -2,8 +2,7 @@
   = form_for [@gallery, @gallery_image] do |f|
     = f.file_field(:image)
     = f.submit
-    
-  %h1 Isotope - masonry layout mode
+  
   .grid
     - @gallery.gallery_images.each do |i|
       - 5.times do
