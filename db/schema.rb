@@ -61,6 +61,14 @@ ActiveRecord::Schema.define(version: 20160819132731) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "feeds", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
@@ -94,21 +102,6 @@ ActiveRecord::Schema.define(version: 20160819132731) do
     t.integer  "feed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "todo_items", force: :cascade do |t|
-    t.text     "memo"
-    t.datetime "due_to"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "todos", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "due_to"
   end
 
   create_table "users", force: :cascade do |t|

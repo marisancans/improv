@@ -4,13 +4,13 @@
       %a.brand-logo{:href => "/"} Improv
       %ul.right.hide-on-med-and-down
         %li
+          = link_to events_path, class: "" do
+            Events
+            %i.material-icons.left today
+        %li
           = link_to lists_path, class: "" do
             Lists
             %i.material-icons.left list
-        %li
-          = link_to todos_path, class:"" do
-            Todos
-            %i.material-icons.left done
         %li
           = link_to feeds_path do
             = icon('fa fa-rss left')

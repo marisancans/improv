@@ -2,11 +2,10 @@
 %html
   %head
     %title Improv
-    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "application", params[:controller]
     = javascript_include_tag "application"
     = csrf_meta_tags
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
-    = stylesheet_link_tag "layout", controller_name
   %body
     .content
       #modal-holder

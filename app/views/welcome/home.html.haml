@@ -1,6 +1,10 @@
 .row
   .col.s2
-    placeholder
+    %br This months upcoming events:
+    - @events.each do |event|
+      %span= event.start_time.strftime("[%d] %H:%M")
+      = event.name
+      %br
   .col.s7
     = image_tag 'http://placehold.it/2000x500', class: 'responsive-img'
     .col.s2.red

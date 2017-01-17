@@ -6,5 +6,5 @@
       .card-content
         .card-title= subscribed_feed.feed.name
       .card-action.align-fix
-        = button_to 'Unsubscribe', subscribed_feed, class: 'unsubscribe-feed-button red-text', form_class: 'unsubscribe-form', data: { feedid: subscribed_feed.id }, remote: true
+        = button_to 'Unsubscribe', subscribed_feed, class: 'card-button unsubscribe-feed-button red-text', form_class: 'unsubscribe-form', data: { feedid: subscribed_feed.id }, remote: true
         = link_to "Details", "#"

@@ -1,0 +1,10 @@
+= div_for event  do |event|
+  .col.s4
+    .card
+      .card-content
+        .card-title= event.name
+      .card-action
+        = button_to 'Delete', event, class: 'card-button red-text', remote: true
+        
+        //Edit list 
+        = link_to "Details", "#"
