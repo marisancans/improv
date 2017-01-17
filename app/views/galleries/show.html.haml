@@ -1,7 +1,9 @@
-= form_for [@gallery, @gallery_image] do |f|
-  = f.file_field(:image)
-  = f.submit
-  
-- @gallery.gallery_images.each do |i|
-  = cl_image_tag i.image
+.container
+  = form_for [@gallery, @gallery_image] do |f|
+    = f.file_field(:image)
+    = f.submit
     
+  %h1 Isotope - masonry layout mode
+  .grid.row
+    - @gallery.gallery_images.each do |i|
+      .grid-item= cl_image_tag i.image

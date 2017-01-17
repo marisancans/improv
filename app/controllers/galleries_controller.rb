@@ -13,7 +13,7 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
     
-    # redirect_to index if @gallery.save
+    redirect :back if @gallery.save
   end
 
   private

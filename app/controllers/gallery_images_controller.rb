@@ -8,7 +8,7 @@ class GalleryImagesController < ApplicationController
     @gallery_image = GalleryImage.new(gallery_images_params)
     @gallery_image.save
     
-    # redirect_to r if @gallery_image.save
+    @gallery_image.save
   end
 
   private
