@@ -28,17 +28,96 @@
   }
 }
 
-// when :alert, :danger, :error, :validation_errors
-
-.alert, .danger, .error, .validation_errors {
-  background-color: #e91e63;
-}
-.warning, .todo {
+.image-upload {
+  display: inline-block;
+  width: 50%;
   
+  label {
+    .btn {
+      background-color: white;
+      box-shadow: none;
+      color: rgba(0, 0, 0, 0.87);
+      
+    &:hover {
+      background-color: rgb(33, 33, 33);
+      box-shadow: none;
+      color: white;
+      }
+    }
+  }
 }
 
-.notice, .success {
-  background-color: #4caf50;
+.create-gallery-button {
+  display: inline-block;
+  background-color: white;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.87);
+  
+  &:hover {
+    background-color: rgb(33, 33, 33);
+    box-shadow: none;
+    color: white;
+  }
 }
 
-// classes += 'alert-info'
+// What lies behind this comment is probably beyond my understanding now. The nesting is comfy.
+
+#hide-whole {
+    position: relative;
+    display: inline-block;
+  
+    .hide-input { 
+      width: 99%;
+      height: 100%;
+      
+      input { 
+        width: 99%;
+        height: 100%;
+      } 
+    }
+    
+    .fake-button {
+      background-color: white;
+      box-shadow: none;
+      color: rgba(0, 0, 0, 0.87);
+      
+      .fa-lg {
+        vertical-align: initial;
+      }
+    }
+    
+  &:hover {
+    .fake-button {
+      background-color: rgb(33, 33, 33);
+      box-shadow: none;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+#hide-whole .hide-input {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+#hide-whole .hide-input:hover {
+    
+}
+
+#hide-whole button {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.87);
+  
+  &:hover {
+    background-color: rgb(33, 33, 33);
+    box-shadow: none;
+    color: white;
+  }
+}

@@ -2,8 +2,8 @@
   = form_for [@gallery, @gallery_image] do |f|
     = f.file_field(:image)
     = f.submit
-  
-  .grid
-    - @gallery.gallery_images.each do |i|
-      - 5.times do
-        .grid-item.card-panel.hoverable= image_tag "https://unsplash.it/#{rand(200..350)}/#{rand(200..350)}?random"
+  = image_tag @gallery.image
+  // .grid
+  //   - @gallery.gallery_images.each do |i|
+  //     - 5.times do
+  //       .grid-item.card-panel.hoverable= image_tag "https://unsplash.it/#{rand(200..350)}/#{rand(200..350)}?random"

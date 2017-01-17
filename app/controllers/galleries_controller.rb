@@ -15,17 +15,18 @@ class GalleriesController < ApplicationController
     @gallery = Gallery.new(gallery_params)
     if @gallery.save
       flash[:notice] = 'Gallery successfully created'
-      redirect_to @gallery 
+      redirect_to @gallery
     else
       flash[:error] = @gallery.errors.full_messages
-      redirect_to galleries_path
+      # redirect_to galleries_path
+      redirect_to(galleries_path, flash: {warning: "x"} )
     end
   end
 
   private
     
     def gallery_params
-      params.require(:gallery).permit(:id, :title, :user_id).merge(user_id: current_user.id)
+      params.require(:gallery).permit(:id, :title, :image).merge(user_id: current_user.id)
     end
     
 end

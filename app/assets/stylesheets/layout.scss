@@ -33,3 +33,18 @@ body {
   *width: 14.285714285714285714285714285714%;
   padding: 0px;
 }
+
+// when :alert, :danger, :error, :validation_errors
+
+.alert, .danger, .error, .validation_errors {
+  background-color: #e91e63;
+}
+.warning, .todo {
+  
+}
+
+.notice, .success {
+  background-color: #4caf50;
+}
+
+// classes += 'alert-info'

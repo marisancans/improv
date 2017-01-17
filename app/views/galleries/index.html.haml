@@ -9,15 +9,23 @@
           .activator= cl_image_tag("camera-photo.jpg", :transformation=>[{:color=>"white", :overlay=>"text:Arial_600:Add new gallery"}],
             :width=>500, :height=>500, :crop=>"fit")
         .card-content
-          = form_for :gallery, remote: true do |f|
-            #error_explanation
-            .input-field
-
-              = form_for @gallery, remote: true do |f|
-                = f.text_field :title, placeholder: :title
+          = form_for :gallery do |f|
+            #hide-whole
+              .hide-input
                 = f.file_field(:image)
-                = f.submit 'Create', class: 'btn waves-effect' 
+              .fake-button.btn.waves-effect
+                Add
+                = icon 'fa fa-picture-o fa-lg' 
+                
+              
+            = f.submit 'Create', class: 'btn waves-effect right create-gallery-button' 
+            = f.text_field :title, placeholder: :title
+            
+            
+    
 
       
-    - @galleries.each do |g|
-      .col.m4.card-panel= link_to g.title, gallery_path(g)
+//     - @galleries.each do |g|
+//       .col.m4.card-panel= link_to g.title, gallery_path(g)
+
+  
