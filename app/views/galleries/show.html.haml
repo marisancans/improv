@@ -1,9 +1,10 @@
-.container
+.wrapper
   = form_for [@gallery, @gallery_image] do |f|
     = f.file_field(:image)
     = f.submit
     
   %h1 Isotope - masonry layout mode
-  .grid.row
+  .grid
     - @gallery.gallery_images.each do |i|
-      .grid-item= cl_image_tag i.image
+      - 5.times do
+        .grid-item.card-panel.hoverable= image_tag "https://unsplash.it/#{rand(200..350)}/#{rand(200..350)}?random"
