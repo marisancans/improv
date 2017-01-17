@@ -1,0 +1,6 @@
+= form_for(:gallery) do |f|
+  = f.text_field :title
+  = button_to :submit
+  
+- @galleries.each do |g|
+  .card-panel= link_to g.title, gallery_path(g)

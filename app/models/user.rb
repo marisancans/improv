@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :events, :dependent => :destroy 
   has_many :lists, :dependent => :destroy 
   has_many :subscribed_feeds, dependent: :destroy
+  has_many :galleries
 end
