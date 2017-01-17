@@ -66,6 +66,15 @@ gem "cocoon"
 #Advanced forms
 gem 'formtastic', '~> 3.0'
 
+#Image hosting
+gem 'cloudinary', '~> 1.3'
+
+#Attachment management
+gem "paperclip", "~> 5.0.0"
+
+#ENV variable management
+gem "figaro"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
