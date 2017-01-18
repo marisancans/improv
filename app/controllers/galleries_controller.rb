@@ -25,13 +25,24 @@ class GalleriesController < ApplicationController
   
   def destroy
     @gallery = current_user.galleries.find(params[:id])
-      
-    respond_to do |format|
+
+    
       # if @gallery.delete
-        format.html { redirect_to  galleries_path, error: "Something went wrong" }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
+    
+        # ||= 
+        # errors = @gallery.errors.full_messages 
+        # b = 'Error, something went wrong'
+        # flash[:error] ||= errors
+        # a        # => 20
+        
+      # redirect_to galleries_path
+      
+      # else 
+        respond_to do |format|
+          format.js
+        end
       # end
-    end
+    # end
       
       
 

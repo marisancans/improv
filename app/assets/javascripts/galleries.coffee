@@ -2,13 +2,7 @@ $(document).on 'turbolinks:load', ->
   $('.flash-message').each (index, element) ->  
     Materialize.toast $(@).val(), 5000, $(@).attr('name')
 
-  $grid = $('.gallery-grid').imagesLoaded(->
-    # init Isotope after all images have loaded
-    $grid.isotope
-      itemSelector: '.gallery-grid-item'
-      masonry: percentPosition: true
-      stamp: '.stamp'
-  )
+  initializeIzotope()
   
 $ ->
   $('#gallery_image').change ->
@@ -17,4 +11,14 @@ $ ->
     icon.css 'color': 'green';
   
   
- 
+initializeIzotope= ->
+  $grid = $('.gallery-grid').imagesLoaded(->
+      # init Isotope after all images have loaded
+      $grid.isotope
+        itemSelector: '.gallery-grid-item'
+        masonry: percentPosition: true
+        stamp: '.stamp'
+    )
+
+  
+
