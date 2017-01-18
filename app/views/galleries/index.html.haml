@@ -4,28 +4,21 @@
     .header.valign Gallery
   .row
     .col.m4
-      .card
-        .card-image.waves-effect.waves-block.waves-light
-          .activator= cl_image_tag("camera-photo.jpg", :transformation=>[{:color=>"white", :overlay=>"text:Arial_600:Add new gallery"}],
-            :width=>500, :height=>500, :crop=>"fit")
-        .card-content
-          = form_for :gallery do |f|
-            #hide-whole
-              .hide-input
-                = f.file_field(:image)
-              .fake-button.btn.waves-effect
-                Add
-                = icon 'fa fa-picture-o fa-lg' 
-                
-              
-            = f.submit 'Create', class: 'btn waves-effect right create-gallery-button' 
-            = f.text_field :title, placeholder: :title
+      = render 'new'
+    - @galleries.each do |g|
+      .col.m4
+        .card
+          .card-image.waves-effect.waves-block.waves-light
+            .activator= cl_image_tag(g.image, :width=>500, :height=>500, :crop=>"fit")
+          .card-content
+            %span.card-title.activator.grey-text.text-darken-4
+              = g.title
+              %i.material-icons.right more_vert
+            %p
+              %a{:href => "#"} This is a link
+          .card-reveal
+            %span.card-title.grey-text.text-darken-4
+              Card Title
+              %i.material-icons.right close
+            %p Here is some more information about this product that is only revealed once clicked on.
             
-            
-    
-
-      
-//     - @galleries.each do |g|
-//       .col.m4.card-panel= link_to g.title, gallery_path(g)
-
-  

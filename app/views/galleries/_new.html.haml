@@ -1,0 +1,15 @@
+.card
+  .card-image.waves-effect.waves-block.waves-light
+    .activator= cl_image_tag("camera-photo.jpg", :width=>500, :height=>500, :crop=>"fit")
+  .card-content
+    %span.card-title.activator Create new gallery
+    = form_for :gallery do |f|
+      #hide-whole
+        .hide-input
+          = f.file_field(:image)
+        .fake-button.btn.waves-effect
+          Add
+          = icon 'fa fa-picture-o fa-lg' 
+        
+      = f.submit 'Create', class: 'btn waves-effect right create-gallery-button' 
+      = f.text_field :title, placeholder: :title

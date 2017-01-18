@@ -18,8 +18,7 @@ class GalleriesController < ApplicationController
       redirect_to @gallery
     else
       flash[:error] = @gallery.errors.full_messages
-      # redirect_to galleries_path
-      redirect_to(galleries_path, flash: {warning: "x"} )
+      redirect_to galleries_path
     end
   end
 
