@@ -20,9 +20,26 @@ class GalleriesController < ApplicationController
     else
       flash[:error] = @gallery.errors.full_messages
       redirect_to galleries_path
-      flash.now[:notice] = "Message is available in same request-response cycle"
     end
   end
+  
+  def destroy
+    @gallery = current_user.galleries.find(params[:id])
+      
+    respond_to do |format|
+      # if @gallery.delete
+        format.html { redirect_to  galleries_path, error: "Something went wrong" }
+        # format.json { render json: @user.errors, status: :unprocessable_entity }
+      # end
+    end
+      
+      
+
+      # flash[:error] = @gallery.errors.full_messages
+      
+    # end
+  end
+  
 
   private
     
