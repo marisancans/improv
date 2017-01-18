@@ -53,7 +53,11 @@
   box-shadow: none;
   color: rgba(0, 0, 0, 0.87);
 
-  i { vertical-align: initial; }
+  i { 
+    vertical-align: initial;
+    height: 100%;
+    width: 100%;
+  }
   
   &:hover {
     background-color: rgb(33, 33, 33);
@@ -85,6 +89,7 @@
       
       .fa-lg {
         vertical-align: initial;
+        padding-left: 5px;
       }
     }
     

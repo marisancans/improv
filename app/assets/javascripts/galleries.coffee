@@ -9,6 +9,11 @@ $(document).on 'turbolinks:load', ->
       masonry: columnWidth: 100
   )
   
+$ ->
+  $('#gallery_image').change ->
+    icon = $('#gallery_image-icon')
+    icon.toggleClass 'fa-picture-o fa-check-square-o'
+    icon.css 'color': 'green';
   
   
  
