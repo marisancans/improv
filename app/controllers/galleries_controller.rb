@@ -27,29 +27,24 @@ class GalleriesController < ApplicationController
     @gallery = current_user.galleries.find(params[:id])
 
     
-      # if @gallery.delete
-    
-        # ||= 
-        # errors = @gallery.errors.full_messages 
-        # b = 'Error, something went wrong'
-        # flash[:error] ||= errors
-        # a        # => 20
-        
-      # redirect_to galleries_path
+    if @gallery.delete
       
-      # else 
-        respond_to do |format|
-          format.js
+      respond_to do |format|
+        format.js
+      end
+      
+      else
+        if @gallery.errors.full_messages.any?
+          flash[:error] = @gallery.errors.full_messages
+        else 
+          flash[:error] = 'Error, something went wrong'
+          redirect_to galleries_path
         end
-      # end
-    # end
-      
-      
+        
+    end
 
-      # flash[:error] = @gallery.errors.full_messages
-      
-    # end
   end
+
   
 
   private
