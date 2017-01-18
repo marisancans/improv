@@ -1,0 +1,19 @@
+.col.m4
+  = div_for gallery do
+    .card
+      .card-image.waves-effect.waves-block.waves-light
+        .activator= cl_image_tag(gallery.image, :width=>500, :height=>500, :crop=>"fit")
+      .card-content
+        %span.card-title.activator.grey-text.text-darken-4
+          = gallery.title
+          %i.material-icons.right more_vert
+        %p
+          %a{:href => "#"} This is a link
+      .card-reveal
+        %span.card-title.grey-text.text-darken-4
+          Card Title
+          %i.material-icons.right close
+        %p Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia non
+        = button_to gallery, class: 'gallery-button-default btn waves-effect', method: :delete, data: { confirm: "Are you sure?" }, remote: true do
+          = icon('fa fa-trash-o fa-lg')
+          Delete

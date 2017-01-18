@@ -3,22 +3,7 @@
     %i.material-icons.large.camera-icon camera
     .header.valign Gallery
   .row
-    .col.m4
-      = render 'new'
-    - @galleries.each do |g|
-      .col.m4
-        .card
-          .card-image.waves-effect.waves-block.waves-light
-            .activator= cl_image_tag(g.image, :width=>500, :height=>500, :crop=>"fit")
-          .card-content
-            %span.card-title.activator.grey-text.text-darken-4
-              = g.title
-              %i.material-icons.right more_vert
-            %p
-              %a{:href => "#"} This is a link
-          .card-reveal
-            %span.card-title.grey-text.text-darken-4
-              Card Title
-              %i.material-icons.right close
-            %p Here is some more information about this product that is only revealed once clicked on.
+    = render 'new'
+    = render @galleries
+              
             

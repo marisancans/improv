@@ -1,4 +1,6 @@
 class Gallery < ActiveRecord::Base
+    before_save :capitalize_title
+
     has_many :gallery_images
     belongs_to :user
     
@@ -6,4 +8,10 @@ class Gallery < ActiveRecord::Base
     validates :image, presence: true
 
     mount_uploader :image, ImageUploader
+    
+    
+    def capitalize_title
+      self.title = self.title.humanize
+    end
+    
 end

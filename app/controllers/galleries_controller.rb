@@ -3,7 +3,7 @@ class GalleriesController < ApplicationController
   
   def index
     @gallery = Gallery.new
-    @galleries = current_user.galleries
+    @galleries = current_user.galleries.order(created_at: :asc)
   end
   
   def show
