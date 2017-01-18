@@ -1,8 +1,8 @@
-.col.m4
+.gallery-grid-item
   = div_for gallery do
     .card
       .card-image.waves-effect.waves-block.waves-light
-        .activator= cl_image_tag(gallery.image, :width=>500, :height=>500, :crop=>"fit")
+        = cl_image_tag(gallery.image, :width=>400, :height=>400, :crop=>"fit")
       .card-content
         %span.card-title.activator.grey-text.text-darken-4
           = gallery.title

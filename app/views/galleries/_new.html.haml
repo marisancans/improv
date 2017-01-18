@@ -1,16 +1,15 @@
-.col.m4
-  .card
-    .card-image.waves-effect.waves-block.waves-light
-      .activator= cl_image_tag("camera-photo.jpg", :width=>500, :height=>500, :crop=>"fit")
-    .card-content
-      %span.card-title.activator Create new gallery
-      = form_for :gallery do |f|
-        #hide-whole
-          .hide-input
-            = f.file_field(:image)
-          #file-name
-          .fake-button.btn.waves-effect
-            Add
-            = icon 'fa fa-picture-o fa-lg', id: 'gallery_image-icon'
-        = f.submit 'Create', class: 'btn waves-effect right gallery-button-default', data: { disable_with: "Working..." }
-        = f.text_field :title, placeholder: :title
+.card.stamp.new-gallery-card
+  .card-image.waves-effect.waves-block.waves-light
+    .activator= cl_image_tag("camera-photo.jpg", :width=>500, :height=>500, :crop=>"fit")
+  .card-content
+    %span.card-title.activator Create new gallery
+    = form_for :gallery do |f|
+      #hide-whole
+        .hide-input
+          = f.file_field(:image)
+        #file-name
+        .fake-button.btn.waves-effect
+          Add
+          = icon 'fa fa-picture-o fa-lg', id: 'gallery_image-icon'
+      = f.submit 'Create', class: 'btn waves-effect right gallery-button-default', data: { disable_with: "Working..." }
+      = f.text_field :title, placeholder: :title
