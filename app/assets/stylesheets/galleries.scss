@@ -137,3 +137,25 @@ body.controller-galleries {
   width: 33.33%;
   padding: 0 1%;
 }
+
+.gallery-image-grid {
+  background: #DDD;
+}
+
+
+
+
+
+
+
+
+
+.gallery-grid-image-item {
+  float: left;
+  
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+

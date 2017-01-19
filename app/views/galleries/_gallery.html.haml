@@ -1,7 +1,8 @@
 = div_for gallery, class: 'gallery-grid-item' do
   .card
     .card-image.waves-effect.waves-block.waves-light
-      = cl_image_tag(gallery.image, :width=>400, :height=>400, :crop=>"fit")
+      = link_to gallery do
+        = cl_image_tag(gallery.image, :width=>400, :height=>400, :crop=>"fit")
     .card-content
       %span.card-title.activator.grey-text.text-darken-4
         = gallery.title
