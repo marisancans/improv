@@ -153,6 +153,10 @@ body.controller-galleries {
   }
 }
 
+.chocolat-wrapper .chocolat-top {
+  top: 65px;
+}
+
 @media #{$small-and-down} {
   .gallery-grid-image-item, .gallery-image-grid-sizer { width: 100%; }
 }
