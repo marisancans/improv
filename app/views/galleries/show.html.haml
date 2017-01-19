@@ -4,7 +4,6 @@
 
 .gallery-image-grid
   .gallery-image-grid-sizer
-  // - @gallery.gallery_images.each do |i|
-  -20.times do
+  - @gallery.gallery_images.order(created_at: :desc).each do |i|
     .gallery-grid-image-item
-      = image_tag "https://unsplash.it/#{rand(400..800)}/#{rand(400..800)}"
+      = cl_image_tag i.image, folder: "Webpage"

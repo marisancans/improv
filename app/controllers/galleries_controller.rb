@@ -16,7 +16,6 @@ class GalleriesController < ApplicationController
     if @gallery.save
       flash[:notice] = 'Gallery successfully created'
       redirect_to @gallery
-      
     else
       flash[:error] = @gallery.errors.full_messages
       redirect_to galleries_path

@@ -1,4 +1,4 @@
 class GalleryImage < ActiveRecord::Base
-  belongs_to :gallery, dependent: :destroy
-  mount_uploader :image, ImageUploader
+  belongs_to :gallery
+  mount_uploader :image, GalleryImageUploader
 end
