@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
   
   def index
     @gallery = Gallery.new
-    @galleries = current_user.galleries.order(created_at: :asc)
+    @galleries = current_user.galleries.order(created_at: :desc)
   end
   
   def show

@@ -4,7 +4,7 @@
 
 .gallery-image-grid.chocolat-parent
   .gallery-image-grid-sizer
-  - @gallery.gallery_images.order(created_at: :desc).each do |i|
+  - @gallery.gallery_images.order(created_at: :asc).each do |i|
     .gallery-grid-image-item
       = link_to i.image.url, class: 'chocolat-image' do
         = cl_image_tag i.image

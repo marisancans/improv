@@ -1,4 +1,4 @@
-= div_for gallery, class: 'gallery-grid-item' do
+= div_for gallery, class: 'gallery-grid-item', data: { created_at: gallery.created_at } do
   .card
     .card-image.waves-effect.waves-block.waves-light
       = link_to gallery do

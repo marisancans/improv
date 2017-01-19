@@ -8,8 +8,16 @@ $ ->
     icon = $('#gallery_image-icon')
     icon.toggleClass 'fa-picture-o fa-check-square-o'
     icon.css 'color': 'green';
-  
-  
+    
+$(document).on 'click', '.sort-by-button-group', ->
+  $grid = $('.gallery-grid')
+  sortValue = $(this).attr('data-sort-value')
+  ascending = $(this).attr('data-ascending')
+  mode = if ascending == 'false' then true else false
+  $grid.isotope
+    sortBy: sortValue
+    sortAscending: mode
+
 initGallery= ->
   $grid = $('.gallery-grid').imagesLoaded(->
       # init Isotope after all images have loaded
@@ -17,6 +25,8 @@ initGallery= ->
         itemSelector: '.gallery-grid-item'
         masonry: percentPosition: true
         stamp: '.stamp'
+        getSortData:
+          created_at: '[data-created-at]'
     )
     
 initGalleryImages= ->

@@ -2,6 +2,12 @@
   .center-align.header-wrapper
     %i.material-icons.large.camera-icon camera
     .header.valign Gallery
+    
+  .center-align
+    = button_tag 'Newest', class: 'btn waves-effect gallery-button-default transparent sort-by-button-group', data: { sort_value: 'created_at', ascending: 'true' }
+    = button_tag 'Oldest', class: 'btn waves-effect gallery-button-default transparent sort-by-button-group', data: { sort_value: 'created_at', ascending: 'false' }
+    %hr#gallery-sorting-line
+  
   .gallery-grid
     = render 'new'
     = render @galleries
