@@ -1,5 +1,6 @@
 class GalleryImagesController < ApplicationController
 
+  
   # def show
 
   # end

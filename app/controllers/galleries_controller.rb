@@ -1,4 +1,5 @@
 class GalleriesController < ApplicationController
+  include CloudinaryHelper
   before_action :authenticate_user!
   
   def index
@@ -24,13 +25,18 @@ class GalleriesController < ApplicationController
   
   def destroy
     @gallery = current_user.galleries.find(params[:id])
-
+    gallery_id = @gallery.id
+    user_id = current_user.id
+    Cloudinary::Api.delete_resources_by_prefix(gallery_cloudinary_path(user_id, gallery_id))
     
     if @gallery.destroy
       
       respond_to do |format|
         format.js
       end
+      
+      
+     
       
       else
         if @gallery.errors.full_messages.any?
