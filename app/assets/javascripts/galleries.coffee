@@ -1,6 +1,7 @@
 $(document).on 'turbolinks:load', ->
   initGallery()
   initGalleryImages()
+  $('.chocolat-parent').Chocolat();
   
 $ ->
   $('#gallery_image').change ->

@@ -2,8 +2,9 @@
   = f.file_field(:image)
   = f.submit
 
-.gallery-image-grid
+.gallery-image-grid.chocolat-parent
   .gallery-image-grid-sizer
   - @gallery.gallery_images.order(created_at: :desc).each do |i|
-    .gallery-grid-image-item
-      = cl_image_tag i.image, folder: "Webpage"
+    .gallery-grid-image-item.chocolat-image
+      = link_to(cl_image_tag i.image) do
+        = cl_image_tag i.image, folder: "Webpage"
