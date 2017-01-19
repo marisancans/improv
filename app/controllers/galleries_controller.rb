@@ -26,7 +26,7 @@ class GalleriesController < ApplicationController
     @gallery = current_user.galleries.find(params[:id])
 
     
-    if @gallery.delete
+    if @gallery.destroy
       
       respond_to do |format|
         format.js
