@@ -140,14 +140,8 @@ body.controller-galleries {
 
 .gallery-image-grid {
   background: #DDD;
+
 }
-
-
-
-
-
-
-
 
 
 .gallery-grid-image-item {
@@ -159,3 +153,15 @@ body.controller-galleries {
   }
 }
 
+@media #{$small-and-down} {
+  .gallery-grid-image-item, .gallery-image-grid-sizer { width: 100%; }
+}
+@media #{$medium-and-up} {
+  .gallery-grid-image-item, .gallery-image-grid-sizer { width: 100%; }
+}
+@media #{$medium-and-down} {
+  .gallery-grid-image-item, .gallery-image-grid-sizer { width: 50%; }
+}
+@media #{$large-and-up} {
+  .gallery-grid-image-item, .gallery-image-grid-sizer { width: 33.33%; }
+}
