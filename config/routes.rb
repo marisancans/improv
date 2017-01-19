@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
   
   resources :galleries do
-    resources :gallery_images
+    resources :gallery_images, :only => [:create, :destroy]
   end
   
   resources :subscribed_feeds, only: [:create, :destroy]

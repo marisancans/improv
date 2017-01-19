@@ -1,5 +1,5 @@
-= form_for [@gallery, @gallery_image] do |f|
-  = f.file_field(:image)
+= form_for @gallery, url: gallery_gallery_images_path(@gallery), method: :post do |f|
+  = f.file_field :gallery_images, multiple: true
   = f.submit
 
 .gallery-image-grid.chocolat-parent
