@@ -7,7 +7,7 @@
       .fake-button.btn.waves-effect.transparent
         Add
         = icon 'fa fa-picture-o fa-lg', id: 'gallery-image-icon'
-    = f.submit 'Upload', class: 'btn waves-effect gallery-button-default transparent gallery-upload-button', data: { disable_with: "Working..." }
+    = f.submit 'Upload', class: 'btn waves-effect gallery-button-default transparent gallery-upload-button', data: { disable_with: "Uploading..." }
 
     
     
@@ -15,7 +15,7 @@
 
 .gallery-image-grid.chocolat-parent
   .gallery-image-grid-sizer
-  - @gallery.gallery_images.order(created_at: :asc).each do |i|
+  - @gallery.gallery_images.order(created_at: :desc).each do |i|
     .gallery-grid-image-item
       = link_to i.image.url, class: 'chocolat-image' do
         = cl_image_tag i.image

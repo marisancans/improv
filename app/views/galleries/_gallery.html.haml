@@ -2,7 +2,7 @@
   .card
     .card-image.waves-effect.waves-block.waves-light
       = link_to gallery do
-        = cl_image_tag(gallery.image, :width=>400, :height=>400, :crop=>"fit")
+        = cl_image_tag(gallery.image, :width=>400, :height=>400, :crop=>"fit", class:'waves-effect waves-block waves-light') 
     .card-content
       %span.card-title.activator.grey-text.text-darken-4
         = gallery.title

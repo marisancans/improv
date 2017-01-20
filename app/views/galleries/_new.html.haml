@@ -1,7 +1,7 @@
 .new-gallery-card
   .card.stamp
-    .card-image.waves-effect.waves-block.waves-light
-      .activator= cl_image_tag("camera-photo.jpg", :width=>500, :height=>500, :crop=>"fit")
+    .card-image
+      .activator.waves-effect.waves-block.waves-light= cl_image_tag("camera-photo.jpg", :width=>500, :height=>500, :crop=>"fit")
     .card-content
       %span.card-title.activator Create new gallery
       = render 'form'
