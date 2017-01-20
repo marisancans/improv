@@ -1,15 +1,15 @@
 class GalleriesController < ApplicationController
   include CloudinaryHelper
   before_action :authenticate_user!
+  before_action :find_gallery, only: [:show, :destroy, :update, :edit]
+  before_action :initialize_gallery, only: [:index]
   
   def index
-    @gallery = Gallery.new
     @galleries = current_user.galleries.order(created_at: :desc)
   end
   
   def show
-    @gallery = current_user.galleries.find(params[:id])
-    @gallery_image = GalleryImage.new
+    @gallery_image = GalleryImage.news
   end
   
   def create
@@ -24,32 +24,50 @@ class GalleriesController < ApplicationController
   end
   
   def destroy
-    @gallery = current_user.galleries.find(params[:id])
     gallery_id = @gallery.id
     user_id = current_user.id
     
     if @gallery.destroy
-      
       respond_to do |format|
         format.js
       end
-      
       Cloudinary::Api.delete_resources_by_prefix(gallery_cloudinary_path(user_id, gallery_id))
       delete_cloudinary_user_gallery_folder(user_id, gallery_id)
-
-      else
-        if @gallery.errors.full_messages.any?
-          flash[:error] = @gallery.errors.full_messages
-        else 
-          flash[:error] = 'Error, something went wrong'
-          redirect_to galleries_path
-        end
-        
+    else
+      if @gallery.errors.full_messages.any?
+        flash[:error] = @gallery.errors.full_messages
+      else 
+        flash[:error] = 'Error, something went wrong'
+        redirect_to galleries_path
+      end
     end
-
+  end
+  
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def update
+    if @gallery.update_attributes(gallery_params)
+      flash[:notice] = 'Gallery successfully updated'
+      redirect_to galleries_path
+    else
+      flash[:error] = @gallery.errors.full_messages
+      redirect_to galleries_path
+    end
   end
 
   private
+  
+    def find_gallery
+      @gallery = current_user.galleries.find(params[:id])
+    end
+    
+    def initialize_gallery
+      @gallery = Gallery.new
+    end    
   
     def delete_cloudinary_user_gallery_folder(user_id, gallery_id)
       folder_path = gallery_cloudinary_path(user_id, gallery_id)

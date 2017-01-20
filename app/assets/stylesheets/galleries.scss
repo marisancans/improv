@@ -147,6 +147,8 @@ body.controller-galleries {
   }
 }
 
+.delete-gallery-button, .rename-gallery-button { display: inline-block; }
+
 .gallery-grid {
   padding-top: 20px;
 }
