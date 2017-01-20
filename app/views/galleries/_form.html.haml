@@ -2,10 +2,9 @@
   #hide-whole
     .hide-input
       = f.file_field(:image)
-    #file-name
     .fake-button.btn.waves-effect
       Add
-      = icon 'fa fa-picture-o fa-lg', id: 'gallery_image-icon'
+      = icon 'fa fa-picture-o fa-lg', id: 'gallery-image-icon'
      
     - if @gallery.new_record?
       - button_name = 'Create'

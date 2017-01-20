@@ -22,6 +22,7 @@ class GalleryImagesController < ApplicationController
     add_more_images(images_params[:gallery_images])
     flash[:error] = "Failed uploading images" unless @gallery.save
     redirect_to :back
+    # flash[:notice] = 'Gallery successfully created'
   end
 
   private

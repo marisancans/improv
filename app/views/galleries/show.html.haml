@@ -1,6 +1,17 @@
-= form_for @gallery, url: gallery_gallery_images_path(@gallery), method: :post do |f|
-  = f.file_field :gallery_images, multiple: true
-  = f.submit
+.center-align.header-wrapper.title-header
+  .header.valign= @gallery.title
+  = form_for @gallery, url: gallery_gallery_images_path(@gallery), method: :post do |f|
+    #hide-whole
+      .hide-input
+        = f.file_field :gallery_images, multiple: true
+      .fake-button.btn.waves-effect.transparent
+        Add
+        = icon 'fa fa-picture-o fa-lg', id: 'gallery-image-icon'
+    = f.submit 'Upload', class: 'btn waves-effect gallery-button-default transparent gallery-upload-button', data: { disable_with: "Working..." }
+
+    
+    
+  %hr#gallery-sorting-line
 
 .gallery-image-grid.chocolat-parent
   .gallery-image-grid-sizer

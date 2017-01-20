@@ -8,6 +8,15 @@ body.controller-galleries {
 
 .header-wrapper {
   padding-top: 10px;
+  
+  &.title-header {
+    padding: 50px 0 50px 0;
+    
+    .header {
+      font-size: 1.5rem;
+      letter-spacing: 1.5rem;
+    }
+  }
 
   .camera-icon {
     -webkit-animation: rotation 60s infinite linear;
@@ -127,10 +136,6 @@ body.controller-galleries {
     position: absolute;
     top: 0;
     z-index: 2;
-}
-
-#hide-whole .hide-input:hover {
-    
 }
 
 #hide-whole button {
