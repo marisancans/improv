@@ -3,11 +3,10 @@ $(document).on 'turbolinks:load', ->
   initGalleryImages()
   $('.chocolat-parent').Chocolat();
   
-$ ->
-  $('#gallery_image').change ->
-    icon = $('#gallery-image-icon')
-    icon.toggleClass 'fa-picture-o fa-check-square-o'
-    icon.css 'color': 'green';
+$(document).on 'change', '#gallery_image, #gallery_gallery_images', ->
+  icon = $('#gallery-image-icon')
+  icon.toggleClass 'fa-picture-o fa-check-square-o'
+  icon.css 'color': 'green';
     
 $(document).on 'click', '.sort-by-button-group', ->
   $grid = $('.gallery-grid')
