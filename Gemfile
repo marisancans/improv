@@ -24,21 +24,22 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
-#Users
+# Users
 gem 'devise'
 
-#Database
+# Database
 gem 'pg'
 
-#HTML markup
+# HTML markup
 gem 'haml'
 
-#RSS
+# RSS
 gem 'feedjira'
 
-#Delayed job
+# Delayed job
 gem 'delayed_job_active_record'
-#Scheludue
+
+# Scheludue
 gem 'daemons'
 
 # #Cron jobs
@@ -54,26 +55,29 @@ gem 'font-awesome-sass', '~> 4.6.2'
 #gem 'bootstrap-sass', '~> 3.3.6'
 #gem 'autoprefixer-rails'
 
-#Materialize
+# Materialize
 gem 'materialize-sass'
 
-#Calendar
+# Calendar
 gem "simple_calendar", "~> 2.0"
 
-#Dynamic forms
+# Dynamic forms
 gem "cocoon"
 
-#Advanced forms
+# Advanced forms
 gem 'formtastic', '~> 3.0'
 
-#Attachment management
+# Attachment management
 gem 'carrierwave', '~> 1.0'
 
-#Image hosting
+# Cloudinary hosting API
 gem 'cloudinary', '~> 1.3'
 
-#ENV variable management
+# ENV variable management
 gem "figaro"
+
+# httparty 
+gem 'httparty'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
