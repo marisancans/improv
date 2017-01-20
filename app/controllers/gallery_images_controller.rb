@@ -1,5 +1,5 @@
 class GalleryImagesController < ApplicationController
-
+  before_action :find_image, only: [:destroy, :update, :edit]
   
   # def show
 
@@ -23,6 +23,10 @@ class GalleryImagesController < ApplicationController
     flash[:error] = "Failed uploading images" unless @gallery.save
     redirect_to :back
     # flash[:notice] = 'Gallery successfully created'
+  end
+  
+  def destroy
+    
   end
 
   private

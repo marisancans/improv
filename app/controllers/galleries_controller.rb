@@ -10,6 +10,7 @@ class GalleriesController < ApplicationController
   
   def show
     @gallery_image = GalleryImage.new
+    @gallery_images = @gallery.gallery_images.order(created_at: :desc)
   end
   
   def create

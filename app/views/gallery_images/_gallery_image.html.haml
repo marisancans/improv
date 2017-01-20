@@ -1,0 +1,6 @@
+.gallery-grid-image-item
+  = link_to gallery_image.image.url, class: 'cccchocolat-image' do
+    = cl_image_tag gallery_image.image
+    asd
+    = button_to [@gallery, gallery_image], method: :delete, remote: true do
+      Delete

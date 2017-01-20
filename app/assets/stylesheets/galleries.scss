@@ -10,7 +10,7 @@ body.controller-galleries {
   padding-top: 10px;
   
   &.title-header {
-    padding: 50px 0 50px 0;
+    padding: 50px 0 0 0;
     
     .header {
       font-size: 1.5rem;
@@ -41,8 +41,15 @@ body.controller-galleries {
   }
 }
 
+.add-new-images-form {
+  display: inline-block;
+}
+
 #gallery-sorting-line {
   width: 25%;
+  &.padded {
+    margin-bottom: 50px;
+  }
 }
 
 .image-upload {
@@ -73,7 +80,7 @@ body.controller-galleries {
   i { 
     vertical-align: initial;
     height: 100%;
-    width: 100%;
+    // width: 100%;
   }
   
   &:hover {
@@ -92,6 +99,7 @@ body.controller-galleries {
     color: white;
   }
 }
+
 
 // What lies behind this comment is probably beyond my understanding now. The nesting is comfy.
 
@@ -159,7 +167,6 @@ body.controller-galleries {
 }
 
 .gallery-grid-item, .new-gallery-card {
-  width: 33.33%;
   padding: 0 1%;
 }
 
@@ -177,14 +184,13 @@ body.controller-galleries {
 }
 
 @media #{$small-and-down} {
-  .gallery-grid-image-item, .gallery-image-grid-sizer { width: 100%; }
+  .gallery-grid-image-item, .gallery-image-grid-sizer, .new-gallery-card, .gallery-grid-item { width: 100%; }
+  body {color: red;}
 }
 @media #{$medium-and-up} {
-  .gallery-grid-image-item, .gallery-image-grid-sizer { width: 100%; }
-}
-@media #{$medium-and-down} {
-  .gallery-grid-image-item, .gallery-image-grid-sizer { width: 50%; }
+  .gallery-grid-image-item, .gallery-image-grid-sizer, .new-gallery-card, .gallery-grid-item { width: 50%; }
+  
 }
 @media #{$large-and-up} {
-  .gallery-grid-image-item, .gallery-image-grid-sizer { width: 33.33%; }
+  .gallery-grid-image-item, .gallery-image-grid-sizer, .new-gallery-card, .gallery-grid-item { width: 33.33%; }
 }

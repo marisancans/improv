@@ -28,6 +28,6 @@ require 'rufus-scheduler'
 
 scheduler = Rufus::Scheduler.new
 
-scheduler.every('10m') do 
+scheduler.every('1h') do 
   system('rake feeds:sync')
 end

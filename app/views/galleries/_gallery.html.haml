@@ -15,7 +15,7 @@
       // - binding.pry
       .edit-form{id: "gallery_edit_form_#{gallery.id}"} 
       .delete-gallery-button
-        = button_to gallery, class: 'gallery-button-default btn waves-effect', method: :delete, data: { confirm: "Are you sure? ALL GALLERY ITEMS WILL BE DELETED!", disable_with: "Please wait..." }, remote: true do
+        = button_to gallery, class: 'gallery-button-default btn waves-effect', method: :delete, data: { disable_with: "Please wait..." }, remote: true do
           = icon('fa fa-trash-o fa-lg')
       .rename-gallery-button
         = button_to edit_gallery_path(gallery), class: 'gallery-button-default btn waves-effect', method: :get, remote: true do

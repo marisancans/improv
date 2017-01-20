@@ -16,6 +16,29 @@ $(document).on 'click', '.sort-by-button-group', ->
   $grid.isotope
     sortBy: sortValue
     sortAscending: mode
+    
+$(document).on 'click', '.gallery-image-deletion', (event) ->  
+  if confirm('Are you sure you want to delete this?')
+    # $('.gallery-image-grid').isotope('remove', this).isotope 'layout'
+    $.ajax
+    type: 'POST'
+    url: form.attr('action')
+    data : form.serialize()
+    
+    beforeSend: =>
+
+    success: ->
+      $('#card-panel').hide()
+    error: ->
+    
+  else
+    
+  @$form = $(form)
+  url = @$form.attr('action')
+  @postData(@$form)
+
+postData: (form) ->
+  
 
 initGallery= ->
   $grid = $('.gallery-grid').imagesLoaded(->
@@ -29,13 +52,6 @@ initGallery= ->
     )
     
 initGalleryImages= ->
-  # $grid = $('.gallery-image-grid').imagesLoaded(->
-  #     # init Isotope after all images have loaded
-  #     $grid.isotope
-  #       itemSelector: '.gallery-grid-image-item'
-  #       layoutMode: 'fitColumns'
-  #   )
-
   $grid = $('.gallery-image-grid').isotope(
     itemSelector: '.gallery-grid-image-item'
     percentPosition: true
