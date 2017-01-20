@@ -9,7 +9,7 @@ class GalleriesController < ApplicationController
   end
   
   def show
-    @gallery_image = GalleryImage.news
+    @gallery_image = GalleryImage.new
   end
   
   def create
