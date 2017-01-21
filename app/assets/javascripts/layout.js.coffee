@@ -1,3 +1,6 @@
 $(document).on 'turbolinks:load', ->
-  $('.flash-message').each (index, element) ->  
-    Materialize.toast $(@).val(), 5000, $(@).attr('name')
+  $('.flash-message').each -> 
+    data = $(@).val()
+    data_split = data.split('\\')
+    $toastContent = $('<span>' + data_split.join('<br>') + '</span>')
+    Materialize.toast $toastContent, 7000, $(@).attr('name')

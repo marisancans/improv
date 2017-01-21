@@ -77,8 +77,7 @@ class GalleriesController < ApplicationController
       cloud_name = ENV['cloudinary_cloud_name']
       url = "https://#{api_key}:#{api_secret}@api.cloudinary.com/v1_1/#{cloud_name}/folders/#{folder_path}"
       response = HTTParty.delete(url)
-      puts response.body, response.code, response.message, response.headers.inspect
-      puts 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+      puts response.body
     end
     
     def gallery_params

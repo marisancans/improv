@@ -3,10 +3,10 @@
   
 .center-align
   .add-new-images-form
-    = form_for :gallery, url: gallery_gallery_images_path(@gallery), method: :post do |f|
+    = form_for :gallery_images, url: gallery_gallery_images_path(@gallery), method: :post do |f|
       #hide-whole
         .hide-input
-          = f.file_field :gallery_images, multiple: true
+          = f.file_field :images, multiple: true
         .fake-button.btn.waves-effect.transparent
           Add
           = icon 'fa fa-picture-o fa-lg', id: 'gallery-image-icon'
