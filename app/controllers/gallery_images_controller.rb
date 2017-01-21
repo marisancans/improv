@@ -1,21 +1,5 @@
 class GalleryImagesController < ApplicationController
   before_action :find_image, only: [:destroy, :update, :edit]
-  
-  # def show
-
-  # end
-  
-  # def create
-  #   @gallery_image = GalleryImage.new(gallery_images_params)
-  #   @gallery_image.save
-  #   new_gallery_images
-  # end
-
-  # private
-    
-  #   def gallery_images_params
-  #     params.require(:gallery_image).permit(:id, :title, :image).merge(gallery_id: params[:gallery_id])
-  #   end
   before_action :set_gallery
 
   def create
@@ -26,10 +10,21 @@ class GalleryImagesController < ApplicationController
   end
   
   def destroy
-    
+    respond_to do |format|
+      if @image.destroy
+        format.js
+      else
+        flash[:error] = "Failed deleting image"
+        redirect_to gallery_path(@image.gallery)
+      end
+    end
   end
 
   private
+  
+  def find_image
+    @image = GalleryImage.find(params[:id])
+  end
 
   def set_gallery
     @gallery = Gallery.find(params[:gallery_id])

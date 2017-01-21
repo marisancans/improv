@@ -177,10 +177,32 @@ body.controller-galleries {
     display: block;
     width: 100%;
   }
+  
+  
+  &:hover { 
+    .delete-gallery-image-button { 
+      opacity: 1;
+     -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+    } 
+  }
 }
 
 .chocolat-wrapper .chocolat-top {
   top: 65px;
+}
+
+.delete-gallery-image-button {
+  opacity: 0;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  border: solid white 1px;
+  color: white;
+  background-color: rgba(241, 241, 241, 0.25);
+  padding: 0 1rem;
 }
 
 @media #{$small-and-down} {

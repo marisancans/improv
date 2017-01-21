@@ -1,6 +1,6 @@
-.gallery-grid-image-item
+= div_for gallery_image, class: 'gallery-grid-image-item' do
   = link_to gallery_image.image.url, class: 'cccchocolat-image' do
     = cl_image_tag gallery_image.image
-    asd
-    = button_to [@gallery, gallery_image], method: :delete, remote: true do
-      Delete
+    = button_to [@gallery, gallery_image], class: 'gallery-button-default btn waves-effect delete-gallery-image-button', method: :delete, remote: true do
+      = icon('fa fa-trash-o fa-lg')
+      
