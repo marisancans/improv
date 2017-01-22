@@ -1,7 +1,7 @@
 class GalleriesController < ApplicationController
   include CloudinaryHelper
   before_action :authenticate_user!
-  before_action :find_gallery, only: [:show, :destroy, :update, :edit]
+  before_action :find_gallery, only: [:show, :destroy, :update, :edit, :delete_get_data]
   before_action :initialize_gallery, only: [:index]
   
   def index
@@ -43,6 +43,13 @@ class GalleriesController < ApplicationController
       end
     end
   end
+  
+  def delete_get_data
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   
   def edit
     respond_to do |format|

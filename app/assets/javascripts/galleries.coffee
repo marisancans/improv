@@ -17,28 +17,14 @@ $(document).on 'click', '.sort-by-button-group', ->
     sortBy: sortValue
     sortAscending: mode
     
-$(document).on 'click', '.gallery-image-deletion', (event) ->  
-  if confirm('Are you sure you want to delete this?')
-    # $('.gallery-image-grid').isotope('remove', this).isotope 'layout'
-    $.ajax
-    type: 'POST'
-    url: form.attr('action')
-    data : form.serialize()
-    
-    beforeSend: =>
+$(document).on 'click', '.delete-gallery-button', -> 
+  target = $(@).data('modal')
+  $('#'+target).modal('open');
 
-    success: ->
-      $('#card-panel').hide()
-    error: ->
-    
-  else
-    
-  @$form = $(form)
-  url = @$form.attr('action')
-  @postData(@$form)
-
-postData: (form) ->
   
+  
+  # //IMAGE DELTE Cofigmatio n and delete and ba descripion///////////////// 
+
 
 initGallery= ->
   $grid = $('.gallery-grid').imagesLoaded(->

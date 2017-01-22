@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   
   resources :galleries do
     resources :gallery_images, :only => [:create, :destroy]
+    post 'delete_get_data', on: :member
   end
   
   resources :subscribed_feeds, only: [:create, :destroy]

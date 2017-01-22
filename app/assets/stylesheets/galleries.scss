@@ -160,7 +160,7 @@ body.controller-galleries {
   }
 }
 
-.delete-gallery-button, .rename-gallery-button { display: inline-block; }
+.delete-gallery-form, .rename-gallery-button { display: inline-block; }
 
 .gallery-grid {
   padding-top: 20px;
@@ -207,7 +207,6 @@ body.controller-galleries {
 
 @media #{$small-and-down} {
   .gallery-grid-image-item, .gallery-image-grid-sizer, .new-gallery-card, .gallery-grid-item { width: 100%; }
-  body {color: red;}
 }
 @media #{$medium-and-up} {
   .gallery-grid-image-item, .gallery-image-grid-sizer, .new-gallery-card, .gallery-grid-item { width: 50%; }
