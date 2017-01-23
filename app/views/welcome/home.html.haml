@@ -1,14 +1,19 @@
 .row
   .col.s2
-    %br This months upcoming events:
-    - @events.each do |event|
-      %span= event.start_time.strftime("[%d] %H:%M")
-      = event.name
-      %br
+    // - @todos.order(due_to: :asc).each do |todo|
+    //   - if Time.current > todo.due_to
+    //     .todo-expired= "#{time_ago_in_words(todo.due_to)} ago"
+    //   - else
+    //     = distance_of_time_in_words(Time.current, todo.due_to)
+
+    // %br This months upcoming events:
+    // - @events.each do |event|
+    //   %span= event.start_time.strftime("[%d] %H:%M")
+    //   = event.name
+    //   %br
   .col.s7
     = image_tag 'http://placehold.it/2000x500', class: 'responsive-img'
     .col.s2.red
-      s
     .col.s7.blue
       a
     .col.s3
