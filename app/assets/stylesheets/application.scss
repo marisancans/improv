@@ -1,4 +1,16 @@
-/*
- *= require_self
- *= require main
-*/
+@import "materialize/components/color";
+$primary-color: color("blue", "lighten-2") !default;
+// $secondary-color: color("blue", "lighten-2") !default;
+// $success-color: color("green", "base") !default;
+// $link-color: color($primary-color, "darken-1") !default;
+
+@import 'materialize';
+
+@import "materialize/extras/nouislider";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "chocolat";
+@import "layout";
+@import "galleries";
+@import "events";

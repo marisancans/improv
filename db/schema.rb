@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117063524) do
+ActiveRecord::Schema.define(version: 20170123141534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,10 +79,12 @@ ActiveRecord::Schema.define(version: 20170117063524) do
   end
 
   create_table "galleries", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "title"
     t.integer  "user_id"
+    t.string   "image"
+    t.text     "description"
   end
 
   create_table "gallery_images", force: :cascade do |t|
@@ -114,6 +116,13 @@ ActiveRecord::Schema.define(version: 20170117063524) do
   create_table "subscribed_feeds", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "todo_items", force: :cascade do |t|
+    t.text     "memo"
+    t.datetime "due_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

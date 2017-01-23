@@ -1,0 +1,16 @@
+= form_for @gallery do |f|
+  #hide-whole
+    .hide-input
+      = f.file_field(:image)
+    .fake-button.btn.waves-effect
+      Add
+      = icon 'fa fa-picture-o fa-lg', id: 'gallery-image-icon'
+     
+    - if @gallery.new_record?
+      - button_name = 'Create'
+    - else
+      - button_name = 'Save'
+    
+  = f.submit button_name, class: 'btn waves-effect right gallery-button-default', data: { disable_with: "Working..." }
+  = f.text_field :title, placeholder: :title
+  = f.text_field :description, placeholder: :description

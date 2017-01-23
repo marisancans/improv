@@ -1,10 +1,21 @@
-.wrapper
-  = form_for [@gallery, @gallery_image] do |f|
-    = f.file_field(:image)
-    = f.submit
+.center-align.header-wrapper.title-header
+  .header.valign= @gallery.title
+  
+.center-align
+  .add-new-images-form
+    = form_for :gallery_images, url: gallery_gallery_images_path(@gallery), method: :post do |f|
+      #hide-whole
+        .hide-input
+          = f.file_field :images, multiple: true
+        .fake-button.btn.waves-effect.transparent
+          Add
+          = icon 'fa fa-picture-o fa-lg', id: 'gallery-image-icon'
+      = f.submit 'Upload', class: 'btn waves-effect gallery-button-default transparent gallery-upload-button', data: { disable_with: "Uploading..." }
+
     
-  %h1 Isotope - masonry layout mode
-  .grid
-    - @gallery.gallery_images.each do |i|
-      - 5.times do
-        .grid-item.card-panel.hoverable= image_tag "https://unsplash.it/#{rand(200..350)}/#{rand(200..350)}?random"
+    
+  %hr#gallery-sorting-line.padded
+
+.gallery-image-grid.chocolat-parent
+  .gallery-image-grid-sizer
+  = render @gallery_images

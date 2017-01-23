@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body.controller-events {
+  background-color: rgba(241, 241, 241, 0.25)
+}
+
 #new_todo_form {
   //display:none;
 }

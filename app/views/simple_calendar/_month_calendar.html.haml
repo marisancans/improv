@@ -16,7 +16,7 @@
     .row.seven-cols
       - week.each do |day|
         .col.s1.m1.l1
-          = content_tag :div, class: calendar.td_classes_for(day) << 'modal-trigger' do
+          = content_tag :div, class: calendar.td_classes_for(day) do
             - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
               - capture_haml(day, sorted_events.fetch(day, []), &block)
             - else

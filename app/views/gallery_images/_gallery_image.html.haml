@@ -1,0 +1,12 @@
+= div_for gallery_image, class: 'gallery-grid-image-item' do
+  = button_tag class: 'gallery-button-default btn waves-effect delete-gallery-image-button' do
+    = icon('fa fa-trash-o fa-lg')
+  .delete-gallery-image-confirmation
+    %h5.red-text.center-align Are you sure?
+    = button_to 'Yes', [@gallery, gallery_image], class: 'btn waves-effect red', form_class: 'delete-gallery-image-button-yes', data: { disable_with: 'Please wait...' }, method: :delete, remote: true
+    = button_tag 'No', class: 'btn waves-effect white black-text delete-gallery-image-button-no'
+  = link_to gallery_image.image.url, class: 'chocolat-image' do
+    = cl_image_tag gallery_image.image
+
+
+      

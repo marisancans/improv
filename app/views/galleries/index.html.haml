@@ -1,6 +1,16 @@
-= form_for(:gallery) do |f|
-  = f.text_field :title
-  = button_to :submit
+= render partial: 'shared/galleries/modal_loading'
+.gallery-wrapper
+  .center-align.header-wrapper
+    %i.material-icons.large.camera-icon camera
+    .header.valign Gallery
+    
+  .center-align
+    = button_tag 'Newest', class: 'btn waves-effect gallery-button-default transparent sort-by-button-group', data: { sort_value: 'created_at', ascending: 'true' }
+    = button_tag 'Oldest', class: 'btn waves-effect gallery-button-default transparent sort-by-button-group', data: { sort_value: 'created_at', ascending: 'false' }
+    %hr#gallery-sorting-line
   
-- @galleries.each do |g|
-  .card-panel= link_to g.title, gallery_path(g)
+  .gallery-grid
+    = render 'new'
+    = render @galleries
+              
+            

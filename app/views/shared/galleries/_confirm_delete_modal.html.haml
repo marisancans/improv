@@ -1,0 +1,11 @@
+.modal-content
+  .left
+    %h4= "Delete \"#{@gallery.title}\" ?"
+    %p Are you sure you want to delete this gallery?
+    %p All images within this gallery will be deleted.
+    %h5.red-text This cannot be undone!
+  .right
+    = cl_image_tag('webpage/shared/galleries/spongebob.gif', width: '200', height: '200', crop: 'fit') 
+.modal-footer
+  = button_tag 'No', class: 'modal-close waves-effect btn-flat', data: { modal: 'confirm-delete-gallery' }
+  = button_to 'Yes', @gallery, class: 'waves-effect btn-flat red-text', method: :delete, data: { disable_with: 'Please wait...' }, remote: true
