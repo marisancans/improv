@@ -1,5 +1,5 @@
 class Gallery < ActiveRecord::Base
-    before_save :capitalize_title
+    before_save :capitalize_title_and_description
 
     has_many :gallery_images, dependent: :destroy
     # accepts_nested_attributes_for :gallery_images, allow_destroy: :true
@@ -11,8 +11,9 @@ class Gallery < ActiveRecord::Base
     mount_uploader :image, ImageUploader
     
     
-    def capitalize_title
+    def capitalize_title_and_description
       self.title = self.title.humanize
+      self.description = self.description.humanize if !self.description.nil?
     end
     
 end

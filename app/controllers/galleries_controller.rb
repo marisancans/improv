@@ -88,7 +88,7 @@ class GalleriesController < ApplicationController
     end
     
     def gallery_params
-      params.require(:gallery).permit(:id, :title, :image).merge(user_id: current_user.id)
+      params.require(:gallery).permit(:id, :title, :description, :image).merge(user_id: current_user.id)
     end
     
 end

@@ -11,7 +11,7 @@
       %span.card-title.grey-text.text-darken-4
         Card Title
         %i.material-icons.right close
-      %p Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia non
+      %p= gallery.description
       .edit-gallery-form{id: "gallery_edit_form_#{gallery.id}"} 
       = button_to delete_get_data_gallery_path(gallery), class: 'gallery-button-default btn waves-effect delete-gallery-button', form_class: 'delete-gallery-form', data: { modal: 'confirm-delete-gallery' }, method: :post, remote: true do
         = icon('fa fa-trash-o fa-lg')
