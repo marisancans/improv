@@ -3,12 +3,7 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
-# Rails.application.config.assets.precompile += %w( todos.css welcome.css lists.css feeds.css
-#                                                   todos.js welcome.js  lists.js  feeds.js
-#                                                   layout.css devise/sessions.css devise/sessions.js )
-# # Rails.application.config.assets.precompile += %w( events.scss welcome.scss lists.scss feeds.scss
-# #                                                   events.js welcome.js  lists.js  feeds.js
-# #                                                   layout.scss galleries.scss)
+Rails.application.config.assets.precompile += %w( devise/sessions.css devise/sessions.js)
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
