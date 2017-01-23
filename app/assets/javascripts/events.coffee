@@ -42,24 +42,15 @@ class EditDay
     @$element = $(element)
     url = @$element.data('url')
     start_time = @$element.data('start-time')
-    target = @$element.data('target')
-    @getEvents(url, start_time, target)
+    @getEvents(url, start_time)
     hidePrevious()
 
-  getEvents: (url, start_time, target) ->
+  getEvents: (url, start_time) ->
     $.get
       url: url
       data : { start_time : start_time }
-
-      beforeSend: =>
-        
-        #$('#loading').show();
       success: ->
         resizeInputs()
-        # $('#'+target).openModal();
-        # $('#loading').hide();
-        # /slight delay neeeds fix
-      
       error: ->
     
 class SaveEvent
