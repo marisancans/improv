@@ -3,7 +3,7 @@ $(document).on 'turbolinks:load', ->
   initGalleryImages()
   $('.chocolat-parent').Chocolat();
   
-$(document).on 'change', '#gallery_image, #gallery_gallery_images', ->
+$(document).on 'change', '#gallery_image, #gallery_images_images', ->
   icon = $('#gallery-image-icon')
   icon.toggleClass 'fa-picture-o fa-check-square-o'
   icon.css 'color': 'green';
