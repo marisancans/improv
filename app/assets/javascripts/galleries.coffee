@@ -21,11 +21,14 @@ $(document).on 'click', '.delete-gallery-button', ->
   target = $(@).data('modal')
   $('#'+target).modal('open');
 
+$(document).on 'click', '.delete-gallery-image-button', -> 
+  $(@).hide();
+  $(@).siblings('.delete-gallery-image-confirmation').show()
   
+$(document).on 'click', '.delete-gallery-image-button-no', -> 
+  $(@).parent().hide();
+  $(@).parent().siblings('.delete-gallery-image-button').show()
   
-  # //IMAGE DELTE Cofigmatio n and delete and ba descripion///////////////// 
-
-
 initGallery= ->
   $grid = $('.gallery-grid').imagesLoaded(->
       # init Isotope after all images have loaded

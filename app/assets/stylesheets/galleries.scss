@@ -205,6 +205,26 @@ body.controller-galleries {
   padding: 0 1rem;
 }
 
+.delete-gallery-image-confirmation {
+  display: none;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  border: solid white 1px;
+  color: white;
+  background-color: rgba(241, 241, 241, 0.25);
+  padding: 0 1rem;
+  
+  .delete-gallery-image-button-yes, .delete-gallery-image-button-no {
+    display: inline-block;
+  }
+  
+  .delete-gallery-image-button-no {
+    margin-bottom: 16px;
+  }
+  
+}
+
 @media #{$small-and-down} {
   .gallery-grid-image-item, .gallery-image-grid-sizer, .new-gallery-card, .gallery-grid-item { width: 100%; }
 }
