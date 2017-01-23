@@ -1,0 +1,7 @@
+.container
+  #subscribed-feeds.row
+    %h5.center-align Subscribed feeds
+    = render @subscribed_feeds
+  #unsubscribed-feeds.row
+    %h5.center-align Other feeds
+    = render partial: 'feed', collection: @unsubscribed_feeds

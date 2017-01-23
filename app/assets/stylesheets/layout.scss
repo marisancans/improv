@@ -1,0 +1,57 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1;
+}
+
+nav {
+  background-color: initial;
+  box-shadow: none;
+  
+  ul a { color: rgba(0, 0, 0, 0.65); }
+}
+
+.card-button {
+  border-color: none;
+  border-width: 0;
+  background-color: initial;
+  text-transform: uppercase;
+  &:focus {
+    outline: none;
+    background-color: initial;
+
+  }
+}
+
+.row.seven-cols {
+  margin-bottom: 0px;
+}
+
+.seven-cols .col.s1,
+.seven-cols .col.m1,
+.seven-cols .col.l1 {
+  width: 14.285714285714285714285714285714%;
+  *width: 14.285714285714285714285714285714%;
+  padding: 0px;
+}
+
+// when :alert, :danger, :error, :validation_errors
+
+.alert, .danger, .error, .validation_errors {
+  background-color: #e91e63;
+}
+.warning, .todo {
+  
+}
+
+.notice, .success {
+  background-color: #4caf50;
+}
+
+// classes += 'alert-info'

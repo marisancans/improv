@@ -1,0 +1,24 @@
+.simple-calendar
+  .calendar-heading.center-align
+    %span.calendar-title
+      = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'left month-navigation'
+      .month= t('date.month_names')[start_date.month]
+      = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'right month-navigation'
+    .year= start_date.year
+      
+
+  .row.seven-cols
+    - date_range.slice(0, 7).each do |day|
+      .col.s1.m1.l1.center-align
+        %th= t('date.abbr_day_names')[day.wday]
+
+  - date_range.each_slice(7) do |week|
+    .row.seven-cols
+      - week.each do |day|
+        .col.s1.m1.l1
+          = content_tag :div, class: calendar.td_classes_for(day) do
+            - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
+              - capture_haml(day, sorted_events.fetch(day, []), &block)
+            - else
+              - block.call day, sorted_events.fetch(day, [])
+

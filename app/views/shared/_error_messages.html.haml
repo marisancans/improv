@@ -1,0 +1,7 @@
+-if obj.errors.any?
+  #error_explanation.red-text
+    %h5= "#{pluralize(obj.errors.count, "error")} prohibited this #{obj.class.name.demodulize} from being saved:"
+    %ul
+      - obj.errors.full_messages.each do |msg|
+        %li= msg
+  

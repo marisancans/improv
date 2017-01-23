@@ -23,20 +23,61 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-#Users
+
+# Users
 gem 'devise'
 
-#Database
+# Database
 gem 'pg'
 
-#HTML markup
+# HTML markup
 gem 'haml'
 
+# RSS
+gem 'feedjira'
+
+# Delayed job
+gem 'delayed_job_active_record'
+
+# Scheludue
+gem 'daemons'
+
+# #Cron jobs
+# gem 'whenever'
+
+gem 'rufus-scheduler'
+
+#Font-awesome
+gem 'font-awesome-sass', '~> 4.6.2'
+
 #Boostrap
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'autoprefixer-rails'
+# ! No need because of materialize framework
+#gem 'bootstrap-sass', '~> 3.3.6'
+#gem 'autoprefixer-rails'
 
+# Materialize
+gem 'materialize-sass'
 
+# Calendar
+gem "simple_calendar", "~> 2.0"
+
+# Dynamic forms
+gem "cocoon"
+
+# Advanced forms
+gem 'formtastic', '~> 3.0'
+
+# Attachment management
+gem 'carrierwave', '~> 1.0'
+
+# Cloudinary hosting API
+gem 'cloudinary', '~> 1.3'
+
+# ENV variable management
+gem "figaro"
+
+# httparty 
+gem 'httparty'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -49,12 +90,13 @@ gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'pry'
   # Testing
   gem 'rspec-rails', '~> 3.4'
   gem "capybara"
   gem 'factory_girl'
   gem 'database_cleaner'
+  gem 'faker'
 end
 
 group :development do

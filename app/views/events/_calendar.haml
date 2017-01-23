@@ -1,0 +1,15 @@
+= month_calendar events: events do |date, events|
+  .content{id: date}
+    .buttons
+      = edit_events_button 'btn-floating edit-button', { url: fetch_for_edit_events_path, start_time: "#{date}" }, 'large material-icons' if events.any?
+      = button_tag feeds_path, class: 'btn-floating' do
+        = icon('fa fa-plus')
+      %a.btn-floating
+        %i.large.material-icons.delete-button delete
+    .date
+      = date.day
+    - events.each do |event|
+      .event
+        %span= event.start_time.strftime("%H:%M")
+        = event.name
+    

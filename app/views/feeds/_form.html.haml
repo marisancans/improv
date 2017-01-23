@@ -1,0 +1,10 @@
+= semantic_form_for @event do |f|
+  #error_explanation
+  .input-field
+  = f.inputs :name => "Basic" do
+    = f.input :name
+    = f.input :url
+  = f.inputs :name => "Advanced" do
+    = f.input :description
+  = f.actions do
+    = f.action :submit, as: :button, button_html: { class: "btn waves-effect light-blue darken-2" }

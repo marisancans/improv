@@ -1,16 +1,31 @@
 Rails.application.routes.draw do
 
   devise_for :admins
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
   
   root 'welcome#home'
-   
-  get 'todos' => 'todos#index'
-  post 'todo/new' => 'todos#new'
-  post 'todo/create' => 'todos#create'
   
-  get 'lists' => 'lists#index'
-  post 'list/new' => 'lists#new'
-  post 'list/create' => 'lists#create'
+  get 'test' => 'welcome#test'
+   
+  resources :events do
+    collection do
+      get 'fetch_for_edit'
+      put 'update_multiple'
+    end
+  end
+  
+  resources :lists
+    resources :feeds do
+      member do
+       resources :entries, only: [:index, :show]
+      end
+  end
+  
+  resources :galleries do
+    resources :gallery_images, :only => [:create, :destroy]
+    post 'delete_get_data', on: :member
+  end
+  
+  resources :subscribed_feeds, only: [:create, :destroy]
   
 end

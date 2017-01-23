@@ -1,24 +1,71 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_list, only: [:destroy, :edit, :update]
+  before_action :current_user, only: [:create,:destroy, :edit, :update]
+  
    
   def index  
-    @lists = current_user.lists.order(created_at: :desc)
-    @new_list = Todo.new
-   # 2.times { @new_list.list_items.build}
+    @lists = current_user.lists.includes(:list_items).order(created_at: :desc)
+    @list = List.new
   end
   
   def create
-     @list = List.new(params.require(:todo).permit(:title).merge(user_id: current_user.id))
     respond_to do |format|
+      @list = List.new(list_params)
       if @list.save
         format.json { render json: @list, status: :created, location: @list }
-        format.js { flash.now[:success] = "List created" }
+        format.js { flash.now[:success] = "List #{@list.title} created" }
       else
-        format.html { render action: "new" }
         format.json { render json: @list.errors, status: :unprocessable_entity }
-        format.js
+        format.js { render :error }
       end
     end
   end
+  
+  def destroy
+    respond_to do |format|
+      if @list.destroy
+        format.json { render json: @list, status: :deleted, location: @list }
+        format.js { flash.now[:success] = "List #{@list.title} deleted" }
+      else
+        format.json { render json: @list.errors, status: :unprocessable_entity }
+        format.js { render :error }
+      end
+    end
+  end
+  
+  def edit
+    respond_to do |format|
+      format.js 
+    end
+  end
+  
+  def update
+     respond_to do |format|
+      if @list.update(list_params)
+          format.json { render json: @list, status: :updated, location: @list }
+          format.js { flash.now[:success] = "List #{@list.title} updated" }
+      else
+        format.json { render json: @list.errors, status: :unprocessable_entity }
+        format.js { render :error }
+      end
+    end
+  end
+  
+  def set_list
+    @list = List.find(params[:id])
+  end
+  
+  private
+  
+  def list_params
+    params.require(:list).permit(:title, list_items_attributes: [:id, :content, :_destroy]).merge(user_id: current_user.id)
+  end
+  
+  def correct_user
+    redirect_to root_url unless @list.user_id == current_user.id
+  end
+  
+
 
 end

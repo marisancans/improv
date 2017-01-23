@@ -1,0 +1,95 @@
+// Place all the styles related to the feeds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.feed-name {
+  font-size: 30px;
+  line-height: 80%;
+  padding-top: 10px;
+}
+.entry-published-date {
+  font-size: 11px;
+}
+
+.entry {
+  .hvr-underline-from-left { a { color: rgba(0, 0, 0, 0.87); } }
+  &:hover { a { color: #039be5; } }
+}
+
+.entry--with-hidden-date {
+  .entry-published-date {
+    display: none;
+  }
+}
+
+
+
+.feed {
+  position: relative;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5); /*dim the background*/
+  
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    .error-subscribing {
+      font-size: 11px;
+    }
+  }
+}
+
+.no-underline {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.align-fix {
+  .unsubscribe-feed-button { float: left; }
+}
+
+.hvr-underline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+
+.hvr-underline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #2098d1;
+  height: 2px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+  right: 0;
+}

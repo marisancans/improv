@@ -1,8 +1,18 @@
+:javascript
+  $(document).ready(function(){
+    $("#new-list-button").click(function(){
+        $("#new-list-form").slideToggle( "slow" );
+    });
+    $('.collapsible').collapsible()
+  });
 .container
+  .row
+    .col.s12
+      = link_to "#", class: "waves-effect waves btn blue-grey darken-4", id: "new-list-button" do
+        New list
+        %i.material-icons.left playlist_add
+      #new-list-form
+        = render "form"
   .row#lists
     = render @lists
-  .row
-    .col-md-12
-      = link_to "New list","#", id: "new-list"
-      #new_list_form
-        = render "form"
+

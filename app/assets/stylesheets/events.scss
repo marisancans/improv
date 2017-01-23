@@ -1,0 +1,189 @@
+// Place all the styles related to the todo controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.controller-events {
+  background-color: rgba(241, 241, 241, 0.25)
+}
+
+#new_todo_form {
+  //display:none;
+}
+
+#loading{
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.5);
+  
+  .progress{
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0,0,0,.0);
+    
+    .indeterminate{
+       background-color: white;
+    }
+  }
+}
+#event_fields {
+  .event-field {
+    .time-select {
+      display: inline;
+      
+      select { 
+        width: initial;
+        display: initial;
+        height: 2rem;
+        padding: initial;
+      }
+    }
+    
+    .title {
+      padding: 10px 0;
+      display: inline-block
+      // white-space: nowrap;
+    }
+  }
+}
+
+.simple-calendar {
+  .calendar-heading {
+    padding: 10px 0;
+    
+    .calendar-title {
+      .month {
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 2rem;
+        letter-spacing: 2rem;
+        display: inline-block;
+      }
+      
+      %span {
+        letter-spacing: initial;
+        font-size: initial;
+      }
+      
+      .month-navigation {
+        text-transform: uppercase;
+        font-weight: 300;
+        padding-top: 15px;
+      }
+    }
+    
+    .year {
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+  }
+  
+  .day {
+    border: 1px solid #ccc;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    height: 100px;
+
+    &:hover {
+      // @extend: $primary-color;
+      transition: all 0.5s ease;
+      
+      .buttons {
+        display: block;
+      }
+    }
+  }
+      
+  .content {
+    .buttons {
+      position: absolute;
+       display: none;
+      
+      .btn-floating {
+        border-radius: initial;
+       
+        &:hover {
+          border-radius: 50%;
+        }
+      }
+    }
+    
+    .date {
+      float: right;
+      padding-right: 5px;
+    }
+        
+
+    // 
+    // padding: 10px 0px;
+    
+    .event {
+      font-size: 12px;
+      display: block;
+      clear: both;
+      // @extend .purple, .accent-4;
+      padding: 0px 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+     
+     span {
+        font-size: 10px;
+     }
+    }
+  }
+  
+
+  
+  
+  
+
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {} 
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month, .next-month {}
+  
+  .current-month {}
+
+  .has-events {}
+}
+
+#card-panel {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  margin-top: -50px;
+  margin-left: -100px;
+ 
+  // margin: 2.5rem 0 0 2.5rem;
+  // background-color: red;
+  
+  .date-with-words {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+  }
+  
+  .close-button {
+    background-color: white;
+    border: none;
+  }
+  
+}
