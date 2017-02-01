@@ -1,22 +1,6 @@
-= render partial: 'shared/events/edit_modal'
-.container
-
-  #events_calendar
-    = render partial: "calendar", locals: {events: @events}
-  
-  #card-panel.card-panel
-  
-  = link_to 'New Event', new_event_path
-
-// -@events.each do |event|
-//   %br=event.inspect
-  
-#loading
-  .progress
-    .indeterminate
-    
-#new_event_field{:style => ""}
-  = render partial: "event_fields", locals: {event: @event} 
-
-----
-=link_to "#"
+#events_calendar
+  = month_calendar events: @events do |date, events|
+    .content{id: date}
+      .date
+        = date.day
+      

@@ -3,13 +3,17 @@ class EventsController < ApplicationController
   
   def new
     #Creates empty object from event class
-    @event = Event.new
+    date = params[:date].to_datetime
+    @event = Event.new(start_time: date)
+    respond_to do |format|
+      format.js
+    end
   end
   
   def index
     @events = current_user.events
-    @event = Event.new
-    # binding.pry
+    @this_month_events = current_user.events.get_from_month_in_advance(Date.current).order(start_time: :asc)
+    @todays_events = current_user.events.get_todays_events(Date.current).order(start_time: :asc)
   end
   
   def update_multiple
@@ -21,45 +25,39 @@ class EventsController < ApplicationController
     end
   end
   
+  # needs reformat
   def fetch_for_edit
-    if params[:start_time].present?
-      respond_to do |format|
-        start_time = params[:start_time].to_datetime
-        @date = params[:start_time]
-        @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
-        if @events.any? 
-          format.js 
-        else 
-          render body: nil
-        end
+    start_time = params[:start_time].to_datetime
+    @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
+    
+    respond_to do |format|
+      
+      @date = params[:start_time]
+      
+      if @events.any? 
+        format.js 
+      else 
+        render 'create'
       end
     end
+
   end
   
   def create
+    @event.new(event_params)
     
-      
-    # else
-    #   render :nothing => true, :status => 400
-    # end
+    if @event.save
+      respond_to do |format|
+        format.js
+      end
+    end
+
   end
   
   private
   
     def event_params
-      params.require(:events).permit(:id, :name, :start_time, :user_id)
+      params.require(:events).permit(:id, :name, :start_time)
     end
-    
-    def new_event_params
-      params.require(:new_events).permit(:date, array: [:key1, :key2])
-    end
-    
- 
-   
-    
-    
-    
-  
 
-  
 end

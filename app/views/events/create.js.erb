@@ -1,0 +1,1 @@
+$('#'+'<%= @date %>').replaceWith("<%= j render partial: 'shared/events/day', locals: {events: @events, date: @date}  %>");
