@@ -10,8 +10,7 @@ development:
   encoding: UTF8
   pool: 5
   
-test:
-  adapter: postgresql
-  database: db_test
-  encoding: SQL_ASCII
-  pool: 5
+production:
+  database: improv_production
+  username: rails
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
