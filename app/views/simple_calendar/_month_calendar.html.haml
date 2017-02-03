@@ -1,16 +1,20 @@
 .row
   .calendar-heading.center-align
     %span.calendar-title
-      = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'left month-navigation'
       .month= t('date.month_names')[start_date.month]
-      = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'right month-navigation'
     .year= start_date.year
 
 .row
-  .col.m4.s12.l3
+  .col.m5.s12.l4
     .simple-calendar
       .card-panel
-        .center-align.todays-date= Date.current.strftime('%B %e')
+        .row.row-month-navigation
+          .col.l4.m4.s4
+            = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'month-navigation'
+          .col.l4.m4.s4.center-align
+            .todays-date= Date.current.strftime('%B %e')
+          .col.l4.m4.s4.right-align
+            = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'month-navigation'
         %table.table
           %thead
             %tr
@@ -28,7 +32,7 @@
     
     #card-panel-day.card-panel
       = render partial: 'todays_events', locals: { events: @todays_events }
-  .col.m8.s12.l9
+  .col.m7.s12.l8
     #card-panel-month.card-panel
       = render partial: 'upcoming_events', locals: { events: @this_month_events }
     

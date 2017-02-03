@@ -3,4 +3,4 @@
     = div_for event  do |event|
       = event.name
       %br= event.start_time.strftime('%H:%M %p')
-      // = button_to 'Delete', event, class: 'card-button red-text', remote: true
+      // = button_to 'Delete', event, class: 'card-button red-text', method: :delete, remote: true

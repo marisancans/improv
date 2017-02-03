@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
+  before_action :initialize_event, only: [:index, :fetch_for_edit]
   
   def new
     #Creates empty object from event class
@@ -12,8 +13,8 @@ class EventsController < ApplicationController
   
   def index
     @events = current_user.events
-    @this_month_events = current_user.events.get_from_month_in_advance(Date.current).order(start_time: :asc)
-    @todays_events = current_user.events.get_todays_events(Date.current).order(start_time: :asc)
+    @this_month_events = current_user.events.get_from_month_in_advance
+    @todays_events = current_user.events.get_todays_events
   end
   
   def update_multiple
@@ -29,11 +30,9 @@ class EventsController < ApplicationController
   def fetch_for_edit
     start_time = params[:start_time].to_datetime
     @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
+    @date = params[:start_time]
     
     respond_to do |format|
-      
-      @date = params[:start_time]
-      
       if @events.any? 
         format.js 
       else 
@@ -44,9 +43,12 @@ class EventsController < ApplicationController
   end
   
   def create
-    @event.new(event_params)
+    @event = current_user.events.new(event_params)
+    @date = @event.start_time
+    @events = current_user.events.get_from_date(@date).order(start_time: :asc)
     
     if @event.save
+      initialize_event
       respond_to do |format|
         format.js
       end
@@ -56,8 +58,16 @@ class EventsController < ApplicationController
   
   private
   
+    def initialize_event
+      if params[:start_time]
+        @event = current_user.events.new(start_time: params[:start_time])
+      else
+        @event = current_user.events.new(start_time: Date.current)
+      end
+    end
+  
     def event_params
-      params.require(:events).permit(:id, :name, :start_time)
+      params.require(:event).permit(:name, :start_time).merge(user_id: current_user.id)
     end
 
 end

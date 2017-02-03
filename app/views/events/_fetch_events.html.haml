@@ -1,0 +1,5 @@
+.todays-events.center-align
+  = @date.to_date.strftime('%B %e')
+  events
+= render 'form'
+= render @events

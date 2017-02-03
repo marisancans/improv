@@ -1,1 +1,1 @@
-$('#'+'<%= @date %>').replaceWith("<%= j render partial: 'shared/events/day', locals: {events: @events, date: @date}  %>");
+$('#card-panel-day').html("<%= j render 'fetch_events', locals: {events: @events, date: @date} %>")

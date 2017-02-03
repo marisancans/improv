@@ -67,12 +67,6 @@ body.controller-events {
       letter-spacing: initial;
       font-size: initial;
     }
-    
-    .month-navigation {
-      text-transform: uppercase;
-      font-weight: 300;
-      padding-top: 15px;
-    }
   }
   
   .year {
@@ -82,6 +76,17 @@ body.controller-events {
 }
 
 .simple-calendar {
+  .row-month-navigation {
+    padding-bottom: initial;
+    
+    .col {
+      padding: initial;
+    }
+  }
+  .month-navigation {
+    text-transform: uppercase;
+    font-weight: 300;
+  }
   
   .todays-date {
     text-transform: uppercase;
@@ -90,6 +95,14 @@ body.controller-events {
 
   .day {
     &:hover { cursor: pointer; }
+  }
+  
+  .event-dot {
+    height: 2px;
+    width: 2px;
+    background-color: red;
+    display: inline-block;
+    border-radius: 50%;
   }
 
   table {
@@ -120,7 +133,7 @@ body.controller-events {
   .current-month {}
 
   .has-events {
-    @extend .purple, .lighten-5
+    // @extend .purple, .lighten-5
   }
 }
 
