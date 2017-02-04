@@ -32,12 +32,14 @@ class EventsController < ApplicationController
     @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
     @date = params[:start_time]
     
-    respond_to do |format|
-      if @events.any? 
+  
+    if @events.any? 
+      respond_to do |format|
         format.js 
-      else 
-        render 'create'
       end
+    else 
+      #need to respond with nothing
+      render 'create'
     end
 
   end
@@ -48,10 +50,13 @@ class EventsController < ApplicationController
     @events = current_user.events.get_from_date(@date).order(start_time: :asc)
     
     if @event.save
-      initialize_event
-      respond_to do |format|
-        format.js
-      end
+      # initialize_event
+      # respond_to do |format|
+        # format.js
+      # end
+    # else
+      @errors = @event.errors.full_messages
+      format.js { render 'shared/flash_now' }
     end
 
   end
@@ -67,7 +72,7 @@ class EventsController < ApplicationController
     end
   
     def event_params
-      params.require(:event).permit(:name, :start_time).merge(user_id: current_user.id)
+      params.require(:event).permit(:name, :start_time, :color).merge(user_id: current_user.id)
     end
 
 end

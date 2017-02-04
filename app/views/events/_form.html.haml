@@ -4,5 +4,9 @@
     #event_fields
       .event-field
         .time-select= f.time_select(:start_time)
-        .title= f.text_field :name
+        %br.title
+          = f.label :name
+          = f.text_field :name
+        = f.label :color
+        .color= f.text_field :color
         %br= submit_tag "Create", class: 'btn waves-effect light-blue darken-2', id: 'create-event-button'

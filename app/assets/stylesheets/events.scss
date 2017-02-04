@@ -97,12 +97,19 @@ body.controller-events {
     &:hover { cursor: pointer; }
   }
   
-  .event-dot {
-    height: 2px;
-    width: 2px;
+  .eqi-container {
+    display:flex;
+    width: 85%;
+    margin: 0 auto;
+  }
+  
+  .eqi-container .event-dot {
+    flex-grow: 1;
+    height: 4px;
+    // width: 100%;
+    width: 4px;
     background-color: red;
-    display: inline-block;
-    border-radius: 50%;
+    // border-radius: 50%;
   }
 
   table {

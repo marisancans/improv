@@ -3,6 +3,8 @@
     .content{id: date}
       .date
         = date.day
-      - events.any? do
-        .event-dot
+      .eqi-container.center-align
+        - events.any? do
+          - events.group_by {|event| event.color }.each do |color, events_for_color|
+            .event-dot{class: color}
       

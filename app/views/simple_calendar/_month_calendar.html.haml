@@ -1,5 +1,5 @@
-.row
-  .calendar-heading.center-align
+.row.center-align
+  .calendar-heading
     %span.calendar-title
       .month= t('date.month_names')[start_date.month]
     .year= start_date.year
@@ -15,7 +15,7 @@
             .todays-date= Date.current.strftime('%B %e')
           .col.l4.m4.s4.right-align
             = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'month-navigation'
-        %table.table
+        %table.centred
           %thead
             %tr
               - date_range.slice(0, 7).each do |day|
