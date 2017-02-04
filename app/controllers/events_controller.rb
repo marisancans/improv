@@ -50,13 +50,16 @@ class EventsController < ApplicationController
     @events = current_user.events.get_from_date(@date).order(start_time: :asc)
     
     if @event.save
-      # initialize_event
-      # respond_to do |format|
-        # format.js
-      # end
-    # else
-      @errors = @event.errors.full_messages
-      format.js { render 'shared/flash_now' }
+      initialize_event
+      respond_to do |format|
+        format.js {}
+      end        
+    else
+      @messages = @event.errors.full_messages
+      @message_class = :error
+      respond_to do |format|
+        format.js { render 'shared/flash_now' }
+      end  
     end
 
   end

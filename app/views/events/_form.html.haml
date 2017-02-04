@@ -1,12 +1,18 @@
-.row
-  = semantic_form_for @event, remote: true do |f|
-    #error_explanation
-    #event_fields
-      .event-field
-        .time-select= f.time_select(:start_time)
-        %br.title
-          = f.label :name
-          = f.text_field :name
-        = f.label :color
-        .color= f.text_field :color
-        %br= submit_tag "Create", class: 'btn waves-effect light-blue darken-2', id: 'create-event-button'
+= semantic_form_for @event, remote: true do |f|
+  #error_explanation
+  #event_fields
+    .event-field
+      .time-select= f.time_select(:start_time)
+      %br.title
+        = f.label :name
+        = f.text_field :name
+      .row
+        %input#color2{name: 'event[color]', type: :radio, value: :yellow}/
+        %label{for: :color2} Yellow
+        %input#color3{name: 'event[color]', type: :radio, value: :green}/
+        %label{for: :color3} Green
+        %input#color4{name: 'event[color]', type: :radio, value: :brown}/
+        %label{for: :color4} Brown
+        %input#color1{name: 'event[color]', type: :radio, value: :red}/
+        %label{for: :color1} Red
+      %br= submit_tag "Create", class: 'btn waves-effect light-blue darken-2', id: 'create-event-button'

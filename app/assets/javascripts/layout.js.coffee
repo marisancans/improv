@@ -7,6 +7,9 @@ $(document).on 'turbolinks:load', ->
     
   $('.modal').each -> 
     $(@).modal()
+  
+  $(document).ready ->
+    $('select').material_select()
     
 $(document).on 'click', '.modal-close', -> 
   target = $(@).data('modal')

@@ -1,3 +1,7 @@
+.row
+  .upcoming-events.center-align
+    = events.count 
+    Upcoming events
 - events.group_by {|event| event.start_time.to_date }.each do |start_time, events_for_date|
   .row.row-group-divider
     .col.l2.m2.s2
