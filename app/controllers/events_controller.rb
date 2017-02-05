@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   
   def index
     @events = current_user.events
-    @this_month_events = current_user.events.get_from_week_in_advance
+    @events_week_in_advance = current_user.events.get_from_week_in_advance
     @todays_events = current_user.events.get_todays_events
   end
   
@@ -31,15 +31,9 @@ class EventsController < ApplicationController
     start_time = params[:start_time].to_datetime
     @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
     @date = params[:start_time]
-    
   
-    if @events.any? 
-      respond_to do |format|
-        format.js 
-      end
-    else 
-      #need to respond with nothing
-      render 'create'
+    respond_to do |format|
+      format.js 
     end
 
   end
@@ -48,6 +42,7 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
     @date = @event.start_time
     @events = current_user.events.get_from_date(@date).order(start_time: :asc)
+    @events_week_in_advance = current_user.events.get_from_week_in_advance
     
     if @event.save
       initialize_event

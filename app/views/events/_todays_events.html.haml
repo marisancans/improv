@@ -1,3 +1,6 @@
-.row
+- if events.present?
   .todays-events.center-align Today's events
   = render events
+- else
+  .todays-events.center-alignno events today
+

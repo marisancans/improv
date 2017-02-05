@@ -1,4 +1,9 @@
-.todays-events.center-align
-  = @date.to_date.strftime('%B %e')
-  events
-= render @events
+- if @events.present?
+  .todays-events.center-align
+    = @date.to_date.strftime('%B %e')
+    events
+  = render @events
+- else
+  .todays-events.center-align
+    no events on
+    = @date.to_date.strftime('%B %e')

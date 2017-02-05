@@ -34,8 +34,8 @@
           = render 'form'
   .col.m7.s12.l4
     #card-panel-day.card-panel
-      = render partial: 'todays_events', locals: { events: @todays_events }
+      = render partial: 'todays_events', locals: { events: @todays_events } 
   .col.s12.m7.l4
-    #card-panel-month.card-panel
-      = render partial: 'upcoming_events', locals: { events: @this_month_events }
+    #card-panel-week.card-panel
+      = render partial: 'upcoming_events', locals: { events: @events_week_in_advance }
     
