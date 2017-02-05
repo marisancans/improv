@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   
   def index
     @events = current_user.events
-    @this_month_events = current_user.events.get_from_month_in_advance
+    @this_month_events = current_user.events.get_from_week_in_advance
     @todays_events = current_user.events.get_todays_events
   end
   

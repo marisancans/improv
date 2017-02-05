@@ -12,7 +12,7 @@
           .col.l4.m4.s4
             = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'month-navigation'
           .col.l4.m4.s4.center-align
-            .todays-date= Date.current.strftime('%B %e')
+            .todays-date= Date.current.strftime('%b %e')
           .col.l4.m4.s4.right-align
             = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'month-navigation'
         %table.centred
@@ -29,10 +29,13 @@
                         - capture_haml(day, sorted_events.fetch(day, []), &block)
                       - else
                         - block.call day, sorted_events.fetch(day, [])
-    
+      .card-panel
+        #new-event
+          = render 'form'
+  .col.m7.s12.l4
     #card-panel-day.card-panel
       = render partial: 'todays_events', locals: { events: @todays_events }
-  .col.m7.s12.l8
+  .col.s12.m7.l4
     #card-panel-month.card-panel
       = render partial: 'upcoming_events', locals: { events: @this_month_events }
     
