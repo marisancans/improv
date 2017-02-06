@@ -101,13 +101,11 @@ body.controller-events {
     display:flex;
     width: 85%;
     margin: 0 auto;
-  }
-  
-  .eqi-container .event-dot {
-    flex-grow: 1;
-    height: 2px;
-    background-color: red;
-    // border-radius: 50%;
+    
+    .event-dot {
+      flex-grow: 1;
+      height: 2px;
+    }
   }
 
   table {
@@ -142,7 +140,7 @@ body.controller-events {
   }
 }
 
-#card-panel-month {
+#card-panel-week {
   .upcoming-events {
     text-transform: uppercase;
     letter-spacing: .1rem;

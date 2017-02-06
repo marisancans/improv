@@ -1,7 +1,6 @@
 - if events.present?
-  .upcoming-events.center-align
-    // = pluralize(events.count, 'mystring')
-  - events.group_by {|event| event.start_time.to_date }.each do |start_time, events_for_date|
+  .upcoming-events.center-align upcoming events
+  - events.group_by {|event| event.start_time.to_date }.each do |start_time, events_for_date| 
     .row.row-group-divider
       .col.l2.m2.s2
         .upcoming-date-number= start_time.strftime('%e')

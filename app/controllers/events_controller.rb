@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :initialize_event, only: [:index, :fetch_for_edit]
   
   def new
     #Creates empty object from event class
@@ -12,6 +11,7 @@ class EventsController < ApplicationController
   end
   
   def index
+    @event = current_user.events.new(start_time: Date.current)
     @events = current_user.events
     @events_week_in_advance = current_user.events.get_from_week_in_advance
     @todays_events = current_user.events.get_todays_events
@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   def fetch_for_edit
     start_time = params[:start_time].to_datetime
     @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
+    @event = Event.new(event_params)
     @date = params[:start_time]
   
     respond_to do |format|
@@ -45,7 +46,7 @@ class EventsController < ApplicationController
     @events_week_in_advance = current_user.events.get_from_week_in_advance
     
     if @event.save
-      initialize_event
+      @event = current_user.events.new(start_time: @date)
       respond_to do |format|
         format.js {}
       end        
@@ -60,14 +61,6 @@ class EventsController < ApplicationController
   end
   
   private
-  
-    def initialize_event
-      if params[:start_time]
-        @event = current_user.events.new(start_time: params[:start_time])
-      else
-        @event = current_user.events.new(start_time: Date.current)
-      end
-    end
   
     def event_params
       params.require(:event).permit(:name, :start_time, :color).merge(user_id: current_user.id)

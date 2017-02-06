@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-    belongs_to :user
+    belongs_to :user, counter_cache: true
     validates :name, :start_time, presence: true
     
     COLORS = %w{ red green blue yellow  }
