@@ -1,8 +1,7 @@
 #events_calendar
   = month_calendar events: @events do |date, events|
     .content{id: date}
-      .date
-        = date.day
+      .date{"data-visual-label-day": date.day }
       .eqi-container.center-align
         - if events.present?
           - events.group_by {|event| event.color }.each do |color, events_for_color|

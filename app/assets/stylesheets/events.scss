@@ -95,6 +95,10 @@ body.controller-events {
 
   .day {
     &:hover { cursor: pointer; }
+    
+  }
+  [data-visual-label-day]:before {
+    content: attr(data-visual-label-day) "";
   }
   
   .eqi-container {
