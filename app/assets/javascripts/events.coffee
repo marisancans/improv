@@ -27,7 +27,7 @@ class EditDay
   getEvents: (url, start_time) ->
     $.get
       url: url
-      data : { start_time : start_time }
+      data : { event: { start_time : start_time } }
       success: ->
         # $('input[value]').each ->
         #   $(this).attr 'size', $(this).attr('value').length

@@ -28,10 +28,10 @@ class EventsController < ApplicationController
   
   # needs reformat
   def fetch_for_edit
-    start_time = params[:start_time].to_datetime
+    start_time = event_params[:start_time]
     @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
     @event = Event.new(event_params)
-    @date = params[:start_time]
+    @date = event_params[:start_time]
   
     respond_to do |format|
       format.js 
