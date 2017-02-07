@@ -37,5 +37,8 @@
       = render partial: 'todays_events', locals: { events: @todays_events } 
   .col.s12.m7.l4
     #card-panel-week.card-panel
+      - Event::COLORS.each do |color|
+        = button_tag color, class: 'btn waves-effect transparent-uppercase sort-by-color-upcoming-events', data: { filter: ".color-#{ color }" }
+      = button_tag 'All', class: 'btn waves-effect transparent-uppercase sort-by-color-upcoming-events', data: { filter: "*" }
       = render partial: 'upcoming_events', locals: { events: @events_week_in_advance }
     

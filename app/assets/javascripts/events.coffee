@@ -1,3 +1,6 @@
+$(document).on 'turbolinks:load', ->
+  initUpcomingEventsGrid()
+
 $(document).on 'click', '.day',  (event) ->
   # send POST to controller and recieve back parial as form
   new EditDay(@)
@@ -13,6 +16,12 @@ $(document).on 'click', '.close-button',  (event) ->
 $(document).on 'click', '.delete-button',  (event) ->
   event.preventDefault()
   new DeleteEvents($(@.form))
+  
+$(document).on 'click', '.sort-by-color-upcoming-events', ->
+  $grid = $('.grid-upcoming-events')
+  sortValue = $(this).attr('data-filter')
+  $grid.isotope
+    filter: sortValue
   
 hideElement= (event) ->
   $(event).parent().hide()
@@ -51,6 +60,12 @@ class SaveEvent
         $('#card-panel').hide()
       error: ->
 
-  
+initUpcomingEventsGrid= ->
+  $('.grid-upcoming-events').isotope
+    itemSelector: '.grid-item-upcoming-event'
+    stamp: '.stamp'
+    layoutMode: 'masonry'
+
+    
   
   

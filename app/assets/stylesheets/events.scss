@@ -149,6 +149,11 @@ body.controller-events {
     text-transform: uppercase;
     letter-spacing: .1rem;
   }
+  
+  .grid-item-upcoming-event {
+    width: 100%;
+    box-sizing: border-box;
+  }
   .upcoming-date-month, .upcoming-date-number {
     text-transform: uppercase;
     letter-spacing: .1rem;
