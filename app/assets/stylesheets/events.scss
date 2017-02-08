@@ -113,6 +113,8 @@ body.controller-events {
   }
 
   table {
+    table-layout: fixed;
+    
     td, th {
        border-radius: initial;
       padding: initial;
@@ -129,7 +131,9 @@ body.controller-events {
   .wday-5 {}
   .wday-6 {}
 
-  .today { @extend .deep-purple} 
+  .today { 
+    @extend .deep-purple;
+  } 
   .past {}
   .future {}
 

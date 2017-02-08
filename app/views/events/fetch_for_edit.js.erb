@@ -1,2 +1,4 @@
 $('#card-panel-day').html("<%= j render partial: 'fetch_events' %>")
 $('#new-event').html("<%= j render 'form' %>")
+$('.today').removeClass('today')
+$('#<%= @date %>').parent().parent().addClass('today')

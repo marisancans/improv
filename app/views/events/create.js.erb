@@ -1,3 +1,4 @@
 $('#card-panel-day').html("<%= j render partial: 'fetch_events', locals: {events: @events, date: @date} %>")
 $('#card-panel-week').html("<%= j render partial: 'upcoming_events', locals: {events: @events_week_in_advance} %>")
 $('#new-event').html("<%= j render 'form' %>")
+$('#<%= @date.strftime("%Y-%m-%d") %>').html("<%= j render partial: 'day', locals: { events: @events } %>")

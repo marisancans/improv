@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   
   # needs reformat
   def fetch_for_edit
-    start_time = event_params[:start_time]
+    start_time = event_params[:start_time].to_datetime
     @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
     @event = Event.new(event_params)
     @date = event_params[:start_time]
