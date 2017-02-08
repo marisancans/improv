@@ -65,6 +65,10 @@ initUpcomingEventsGrid= ->
     itemSelector: '.grid-item-upcoming-event'
     stamp: '.stamp'
     layoutMode: 'masonry'
+    getSortData:
+      startTime: '[data-start-time]'
+    sortBy : 'startTime' 
+    sortAscending: true
 
     
   

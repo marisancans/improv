@@ -1,7 +1,7 @@
-= div_for event, class: "#{ grid_item_class ||= ''} color-#{ event.color }" do |event|
+= div_for event, class: "#{ grid_item_class ||= ''} color-#{ event.color }", data: { start_time: "#{ event.start_time.to_date }" } do |event|
   .card
     .card-content
       = event.name
-      %br= event.start_time.strftime('%H:%M %p')
+      %br= event.start_time.strftime('%d:%m')
       = event.color
       // = button_to 'Delete', event, class: 'card-button red-text', method: :delete, remote: true
