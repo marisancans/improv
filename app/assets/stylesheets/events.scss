@@ -122,6 +122,10 @@ body.controller-events {
     }
   }
   
+  .new-event-label {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+  }
   
   .wday-0 {}
   .wday-1 {}
@@ -152,7 +156,7 @@ body.controller-events {
     letter-spacing: .1rem;
   }
   
-  .grid-item-upcoming-event {
+  .grid-item-event {
     width: 100%;
     box-sizing: border-box;
   }
@@ -176,13 +180,6 @@ body.controller-events {
 #card-panel-day {
 
   .seleted-date, .todays-events {
-    text-transform: uppercase;
-    letter-spacing: .1rem;
-  }
-}
-
-#new-event {
-  .new-event-label {
     text-transform: uppercase;
     letter-spacing: .1rem;
   }

@@ -1,4 +1,4 @@
-= div_for event, class: "#{ grid_item_class ||= ''} color-#{ event.color }", data: { start_time: "#{ event.start_time.to_date }" } do |event|
+= div_for event, class: "grid-item-event color-#{ event.color }", data: { start_time: "#{ event.start_time.to_date }" } do |event|
   .card
     .card-content
       = event.name

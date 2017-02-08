@@ -1,7 +1,7 @@
-.new-event-label.center-align 
-  Add new event to
-  = @event.start_time.strftime('%B %e') 
 = semantic_form_for @event, remote: true do |f|
+  .new-event-label.center-align 
+    Add new event to
+    = @event.start_time.strftime('%B %e') 
   #error_explanation
   #event_fields
     .event-field

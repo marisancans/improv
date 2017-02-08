@@ -1,4 +1,10 @@
-$('#card-panel-day').html("<%= j render partial: 'fetch_events', locals: {events: @events, date: @date} %>")
-$('#card-panel-week').html("<%= j render partial: 'upcoming_events', locals: {events: @events_week_in_advance} %>")
-$('#new-event').html("<%= j render 'form' %>")
+<!--$('#card-panel-day').html("<%= j render partial: 'fetch_events', locals: {events: @events, date: @date} %>")-->
+
+
+$('.grid-todays-events').isotope( 'insert', $("<%= j render @event %>") )
+$('.grid-upcoming-events').isotope( 'insert', $("<%= j render @event %>") )
+
+Materialize.toast('Event successfully created', 5000, 'notice')
+
+$('#new_event')[0].reset();
 $('#<%= @date.strftime("%Y-%m-%d") %>').html("<%= j render partial: 'day', locals: { events: @events } %>")

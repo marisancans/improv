@@ -61,14 +61,18 @@ class SaveEvent
       error: ->
 
 initUpcomingEventsGrid= ->
-  $('.grid-upcoming-events').isotope
-    itemSelector: '.grid-item-upcoming-event'
-    stamp: '.stamp'
-    layoutMode: 'masonry'
-    getSortData:
-      startTime: '[data-start-time]'
-    sortBy : 'startTime' 
-    sortAscending: true
+  $.each [
+    '.grid-upcoming-events'
+    '.grid-todays-events'
+  ], (i, l) ->
+    $(l).isotope
+      itemSelector: '.grid-item-event'
+      stamp: '.stamp'
+      layoutMode: 'masonry'
+      getSortData:
+        startTime: '[data-start-time]'
+      sortBy : 'startTime' 
+      sortAscending: true
 
     
   

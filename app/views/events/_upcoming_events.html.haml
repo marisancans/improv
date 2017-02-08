@@ -7,7 +7,7 @@
       //     .upcoming-date-number= start_time.strftime('%e')
       //     .upcoming-date-month= start_time.strftime('%a')
       //   .col.l10.m10.s10
-      = render partial: events_for_date, locals: { grid_item_class: 'grid-item-upcoming-event'}
+      = render events_for_date
     
     // = button_to new_event_path, class: 'btn-floating', method: :get, remote: true do
     //   = icon('fa fa-plus')
