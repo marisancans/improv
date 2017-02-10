@@ -1,7 +1,9 @@
-<!--$('.grid-todays-events').isotope( 'append', $("<%= j render @event %>") )-->
-$('.grid-upcoming-events').isotope( 'addItems', $("<%= j render @event %>") )
+
+$grid = $('.grid-todays-events')
+$item = $("<%= j render @event %>")
+$grid.prepend($item).isotope('insert', $item).isotope('arrange')
 
 Materialize.toast('Event successfully created', 5000, 'notice')
 
 $('#new_event')[0].reset();
-$('#<%= @date.strftime("%Y-%m-%d") %>').html("<%= j render partial: 'day', locals: { events: @events } %>")
+$('#<%= @date.strftime("%Y-%m-d") %>').html("<%= j render partial: 'day', locals: { events: @events } %>")

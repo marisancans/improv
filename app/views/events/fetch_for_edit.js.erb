@@ -6,7 +6,7 @@ $elems = $grid.isotope('getFilteredItemElements')
 $grid.isotope( 'remove', $elems )
 
 $items = $("<%= j render @events %>")
-$grid.append($items).isotope('appended', $items).isotope('layout')
+$grid.append($items).isotope('insert', $items).isotope('layout')
 
 
 $('#new_event').html("<%= j render 'form' %>")
