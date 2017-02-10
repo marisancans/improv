@@ -32,8 +32,9 @@
       .card-panel
         = render 'form'
   .col.m7.s12.l4
-    #card-panel-day.card-panel.grid-todays-events
-      = render partial: 'todays_events', locals: { events: @todays_events } 
+    #card-panel-day.card-panel
+      .grid-todays-events
+        = render partial: 'todays_events', locals: { events: @todays_events } 
   .col.s12.m7.l4
     #card-panel-week.card-panel
       - Event::COLORS.each do |color|

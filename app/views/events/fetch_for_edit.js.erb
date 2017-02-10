@@ -1,4 +1,16 @@
-$('#card-panel-day').html("<%= j render partial: 'fetch_events' %>")
+$('#card-panel-day-label').html("<%= j render partial: 'fetch_events', locals: { events: @events, date: @date } %>")
+
+$grid = $('.grid-todays-events')
+
+$elems = $grid.isotope('getFilteredItemElements')
+$grid.isotope( 'remove', $elems )
+
+$items = $("<%= j render @events %>")
+$grid.append($items).isotope('appended', $items).isotope('layout')
+
+
 $('#new_event').html("<%= j render 'form' %>")
+
+
 $('.today').removeClass('today')
 $('#<%= @date %>').parent().parent().addClass('today')

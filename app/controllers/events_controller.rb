@@ -17,15 +17,6 @@ class EventsController < ApplicationController
     @todays_events = current_user.events.get_todays_events
   end
   
-  def update_multiple
-    current_user.events.update(params[:events].keys, params[:events].values) if params[:events].present?
-    respond_to do |format|
-      @date = params[:date].to_date 
-      @events = current_user.events.get_from_date(@date).order(start_time: :asc)
-      format.js { flash.now[:success] = "Updated" }
-    end
-  end
-  
   # needs reformat
   def fetch_for_edit
     start_time = event_params[:start_time].to_datetime

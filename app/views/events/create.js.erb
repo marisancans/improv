@@ -1,8 +1,5 @@
-<!--$('#card-panel-day').html("<%= j render partial: 'fetch_events', locals: {events: @events, date: @date} %>")-->
-
-
-$('.grid-todays-events').isotope( 'insert', $("<%= j render @event %>") )
-$('.grid-upcoming-events').isotope( 'insert', $("<%= j render @event %>") )
+<!--$('.grid-todays-events').isotope( 'append', $("<%= j render @event %>") )-->
+$('.grid-upcoming-events').isotope( 'addItems', $("<%= j render @event %>") )
 
 Materialize.toast('Event successfully created', 5000, 'notice')
 

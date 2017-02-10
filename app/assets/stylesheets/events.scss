@@ -183,4 +183,9 @@ body.controller-events {
     text-transform: uppercase;
     letter-spacing: .1rem;
   }
+  
+  .grid-item-event {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
