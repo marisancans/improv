@@ -3,6 +3,12 @@ $grid = $('.grid-todays-events')
 $item = $("<%= j render @event %>")
 $grid.prepend($item).isotope('insert', $item).isotope('arrange')
 
+<%- if @event.start_time > Date.current + 2.weeks then %>
+  $grid = $('.grid-upcoming-events')
+  $item = $("<%= j render @event %>")
+  $grid.prepend($item).isotope('insert', $item).isotope('arrange')
+<% end %>
+
 Materialize.toast('Event successfully created', 5000, 'notice')
 
 $('#new_event')[0].reset();
