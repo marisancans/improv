@@ -7,6 +7,9 @@ $(document).on 'turbolinks:load', ->
     
   $('.modal').each -> 
     $(@).modal()
+    
+  $('.parallax').each -> 
+    $(@).parallax()
   
 $(document).on 'click', '.modal-close', -> 
   target = $(@).data('modal')
