@@ -30,7 +30,8 @@
                       - else
                         - block.call day, sorted_events.fetch(day, [])
       .card-panel
-        = render partial: 'form', locals: { event: @event }
+        #new-event-form
+          = render partial: 'form', locals: { event: @event }
   .col.m7.s12.l4
     #card-panel-day.card-panel
       .grid-todays-events

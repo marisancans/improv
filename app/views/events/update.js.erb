@@ -1,0 +1,10 @@
+
+$item = $("#fetched_event_<%= @event.id %>")
+$item.html("<%= j render partial: "event", locals: { event: @event, event_id_prefix: 'fetched' } %>")
+
+$item = $("#upcoming_event_<%= @event.id %>")
+$item.html("<%= j render partial: "event", locals: { event: @event, event_id_prefix: 'upcoming' } %>")
+
+Materialize.toast('Event successfully updated', 5000, 'notice')
+
+<!--$('#new_event')[0].reset();-->

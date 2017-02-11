@@ -46,6 +46,20 @@ class EventsController < ApplicationController
     end  
   end
   
+  def update
+    @event = current_user.events.find(params[:id])
+    
+    respond_to do |format|
+      if @event.update_attributes(event_params)
+        format.js
+      else
+        @messages = @event.errors.full_messages
+        @message_class = :error
+        format.js { render 'shared/flash_now' }
+      end
+    end 
+  end
+  
   def destroy
     @event = current_user.events.find(params[:id])
     
