@@ -1,8 +1,0 @@
-.new-field
-= form_tag 'http://farfar.away/form', authenticity_token: 'external_token' do
-  Form contents
-  // = fields_for "new_events[]", event do |pf|
-  // //   = pf.text_field :name
-  // = fields_for "new_events[][start_time]", event do |pf|
-  //   .time-select= pf.time_select(:start_time)  
-  .remove-choice{:href => "#", :onclick => "removeEvent($(this))"} X

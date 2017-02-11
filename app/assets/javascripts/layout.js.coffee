@@ -7,7 +7,7 @@ $(document).on 'turbolinks:load', ->
     
   $('.modal').each -> 
     $(@).modal()
-    
+  
 $(document).on 'click', '.modal-close', -> 
   target = $(@).data('modal')
   $('#'+target).modal('close')

@@ -1,0 +1,10 @@
+- if events.present?
+  .upcoming-events.center-align.stamp upcoming events (next 2 weeks)
+  - events.group_by {|event| event.start_time.to_date }.each do |start_time, events_for_date| 
+    .grid-item-event{ data: { start_time: start_time } }
+      .upcoming-date-number= start_time.strftime('%e')
+      .upcoming-date-month= start_time.strftime('%a')
+    = render partial: events_for_date, locals: { event_id_prefix: event_id_prefix }
+  
+- else
+  .upcoming-events.center-align.stamp No upcoming events

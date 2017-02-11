@@ -1,0 +1,4 @@
+$('#new-event-form').html("<%= j render partial: 'form', locals: { event: @event} %>")
+
+$('.today').removeClass('today')
+$('#<%= @date %>').parent().parent().addClass('today')

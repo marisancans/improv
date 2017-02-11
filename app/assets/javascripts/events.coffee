@@ -1,16 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'turbolinks:load', ->
+  initUpcomingEventsGrid()
 
-$ ->
-  $('#new-todo').click (event) ->
-    event.preventDefault()
-    $('#new_todo_form').toggle()
-    
-$(document).on 'click', '#addNewEvent',  ->
-  $("#event_fields").append($('#new_event_field').html())
-    
-$(document).on 'click', '.edit-button',  (event) ->
+$(document).on 'click', '.day',  (event) ->
   # send POST to controller and recieve back parial as form
   new EditDay(@)
   
@@ -26,31 +17,29 @@ $(document).on 'click', '.delete-button',  (event) ->
   event.preventDefault()
   new DeleteEvents($(@.form))
   
-hidePrevious= ->
-  $('.card-panel').each (index, event) ->
-    $(event).hide()
-    
+$(document).on 'click', '.sort-by-color-upcoming-events', ->
+  $grid = $('.grid-upcoming-events')
+  sortValue = $(this).attr('data-filter')
+  $grid.isotope
+    filter: sortValue
+  
 hideElement= (event) ->
   $(event).parent().hide()
-  
-resizeInputs= ->
-  $('input[value]').each ->
-    $(this).attr 'size', $(this).attr('value').length
-  
+
 class EditDay
   constructor: (element) ->
     @$element = $(element)
     url = @$element.data('url')
-    start_time = @$element.data('start-time')
+    start_time = @$element.data('start-time').replace(/\"/g, "")
     @getEvents(url, start_time)
-    hidePrevious()
 
   getEvents: (url, start_time) ->
     $.get
       url: url
-      data : { start_time : start_time }
+      data : { event: { start_time : start_time } }
       success: ->
-        resizeInputs()
+        # $('input[value]').each ->
+        #   $(this).attr 'size', $(this).attr('value').length
       error: ->
     
 class SaveEvent
@@ -71,6 +60,20 @@ class SaveEvent
         $('#card-panel').hide()
       error: ->
 
-  
+initUpcomingEventsGrid= ->
+  $.each [
+    '.grid-upcoming-events'
+    '.grid-todays-events'
+  ], (i, l) ->
+    $(l).isotope
+      itemSelector: '.grid-item-event'
+      stamp: '.stamp'
+      layoutMode: 'masonry'
+      getSortData:
+        startTime: '[data-start-time]'
+      sortBy : 'startTime' 
+      sortAscending: true
+
+    
   
   

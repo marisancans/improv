@@ -1,5 +1,22 @@
-= semantic_form_for @event, remote: true do |f|
+= semantic_form_for event, remote: true do |f|
+  .new-event-label.center-align 
+    = event.new_record? ? "Add new event to" : "Editing event on"
+    = event.start_time.strftime('%B %e') 
+    
   #error_explanation
-  .input-field
-    = f.input :name, "placeholder": "Name"
-    = f.action :submit, button_html: { class: "btn waves-effect light-blue darken-2" }
+  #event_fields
+    .event-field
+      .time-select= f.time_select(:start_time)
+      %br.title 
+        = f.label :name
+        = f.text_field :name
+      .row
+        - Event::COLORS.each do |color|
+          = radio_button('event', 'color', color)
+          = f.label color
+        
+      = submit_tag "#{ event.new_record? ? "Create" : "Update" }", class: 'btn waves-effect light-blue darken-2', id: 'create-event-button', data: { disable_with: 'Please wait...' }
+= button_to('Delete', event, class: 'btn waves-effect light-blue darken-2', method: "delete", remote: true, data: { disable_with: 'Please wait...' }) if !event.new_record?
+
+//UPDATE ACTION
+//CALENDAR UPDATE ACTION

@@ -1,0 +1,3 @@
+- if events.present?
+  - events.group_by {|event| event.color }.each do |color, events_for_color|
+    .event-dot{class: color}
