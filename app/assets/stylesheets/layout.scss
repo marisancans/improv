@@ -33,6 +33,7 @@ nav {
   margin-bottom: 0px;
 }
 
+
 .seven-cols .col.s1,
 .seven-cols .col.m1,
 .seven-cols .col.l1 {
@@ -55,3 +56,16 @@ nav {
 }
 
 // classes += 'alert-info'
+
+.transparent-uppercase {
+  display: inline-block;
+  background-color: white;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.87);
+
+  &:hover, &:focus {
+    background-color: rgb(33, 33, 33);
+    box-shadow: none;
+    color: white;
+  }
+}

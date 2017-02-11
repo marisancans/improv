@@ -1,0 +1,7 @@
+#card-panel-day-label.stamp
+  - if events.present?
+    .todays-events.center-align.stamp today's events 
+    = render events
+  - else
+    .todays-events.center-align.stamp no events today
+

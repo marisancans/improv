@@ -1,0 +1,3 @@
+<% @messages.each do |message| %>
+    Materialize.toast("<%= message %>", 5000, "<%= @message_class %>")
+<% end %>

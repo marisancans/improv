@@ -1,24 +1,46 @@
-.simple-calendar
-  .calendar-heading.center-align
+.row.center-align
+  .calendar-heading
     %span.calendar-title
-      = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'left month-navigation'
       .month= t('date.month_names')[start_date.month]
-      = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'right month-navigation'
     .year= start_date.year
-      
 
-  .row.seven-cols
-    - date_range.slice(0, 7).each do |day|
-      .col.s1.m1.l1.center-align
-        %th= t('date.abbr_day_names')[day.wday]
-
-  - date_range.each_slice(7) do |week|
-    .row.seven-cols
-      - week.each do |day|
-        .col.s1.m1.l1
-          = content_tag :div, class: calendar.td_classes_for(day) do
-            - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
-              - capture_haml(day, sorted_events.fetch(day, []), &block)
-            - else
-              - block.call day, sorted_events.fetch(day, [])
-
+.row
+  .col.m5.s12.l4
+    .simple-calendar
+      .card-panel
+        .row.row-month-navigation
+          .col.l4.m4.s4
+            = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: 'month-navigation'
+          .col.l4.m4.s4.center-align
+            .todays-date= Date.current.strftime('%b %e')
+          .col.l4.m4.s4.right-align
+            = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: 'month-navigation'
+        %table.centred
+          %thead
+            %tr
+              - date_range.slice(0, 7).each do |day|
+                %th.center-align= t('date.abbr_day_names')[day.wday]
+            %tbody
+              - date_range.each_slice(7) do |week|
+                %tr
+                  - week.each do |day|
+                    = content_tag :td, class: calendar.td_classes_for(day) << 'center-align', data: { url: fetch_events_path, start_time: day } do
+                      - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
+                        - capture_haml(day, sorted_events.fetch(day, []), &block)
+                      - else
+                        - block.call day, sorted_events.fetch(day, [])
+      .card-panel
+        #new-event-form
+          = render partial: 'form', locals: { event: @event }
+  .col.m7.s12.l4
+    #card-panel-day.card-panel
+      .grid-todays-events
+        = render partial: 'todays_events', locals: { events: @todays_event, event_id_prefix: 'fetched' } 
+  .col.s12.m7.l4
+    #card-panel-week.card-panel
+      - Event::COLORS.each do |color|
+        = button_tag color, class: 'btn waves-effect transparent-uppercase sort-by-color-upcoming-events', data: { filter: ".color-#{ color }" }
+      = button_tag 'All', class: 'btn waves-effect transparent-uppercase sort-by-color-upcoming-events', data: { filter: "*" }
+      .grid-upcoming-events
+        = render partial: 'upcoming_events', locals: { events: @events_week_in_advance, event_id_prefix: 'upcoming' }
+    

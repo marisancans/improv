@@ -1,7 +1,0 @@
-.content{id: "#{date}"}
-  .date
-    = @date.strftime("%e")
-  - @events.each do |event|
-    = div_for(event, class: 'event') do |event|
-      %span= event.start_time.strftime("%H:%M")
-      = event.name

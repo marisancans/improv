@@ -6,10 +6,6 @@ body.controller-events {
   background-color: rgba(241, 241, 241, 0.25)
 }
 
-#new_todo_form {
-  //display:none;
-}
-
 #loading{
   display: none;
   width: 100%;
@@ -31,7 +27,10 @@ body.controller-events {
     }
   }
 }
+
 #event_fields {
+  overflow-y:auto;
+  
   .event-field {
     .time-select {
       display: inline;
@@ -52,98 +51,82 @@ body.controller-events {
   }
 }
 
-.simple-calendar {
-  .calendar-heading {
-    padding: 10px 0;
-    
-    .calendar-title {
-      .month {
-        text-transform: uppercase;
-        font-weight: 300;
-        font-size: 2rem;
-        letter-spacing: 2rem;
-        display: inline-block;
-      }
-      
-      %span {
-        letter-spacing: initial;
-        font-size: initial;
-      }
-      
-      .month-navigation {
-        text-transform: uppercase;
-        font-weight: 300;
-        padding-top: 15px;
-      }
-    }
-    
-    .year {
+.calendar-heading {
+  padding: 10px 0;
+  
+  .calendar-title {
+    .month {
       text-transform: uppercase;
       font-weight: 300;
+      font-size: 2rem;
+      letter-spacing: 2rem;
+      display: inline-block;
+    }
+    
+    %span {
+      letter-spacing: initial;
+      font-size: initial;
     }
   }
   
+  .year {
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+}
+
+.simple-calendar {
+  .row-month-navigation {
+    padding-bottom: initial;
+    
+    .col {
+      padding: initial;
+    }
+  }
+  .month-navigation {
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  
+  .todays-date {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+  }
+
   .day {
-    border: 1px solid #ccc;
-    margin-right: -1px;
-    margin-bottom: -1px;
-    height: 100px;
-
-    &:hover {
-      // @extend: $primary-color;
-      transition: all 0.5s ease;
-      
-      .buttons {
-        display: block;
-      }
+    &:hover { cursor: pointer; }
+    
+  }
+  [data-visual-label-day]:before {
+    content: attr(data-visual-label-day) "";
+  }
+  
+  .eqi-container {
+    display:flex;
+    width: 85%;
+    margin: 0 auto;
+    
+    .event-dot {
+      flex-grow: 1;
+      height: 2px;
     }
   }
-      
-  .content {
-    .buttons {
-      position: absolute;
-       display: none;
-      
-      .btn-floating {
-        border-radius: initial;
-       
-        &:hover {
-          border-radius: 50%;
-        }
-      }
-    }
-    
-    .date {
-      float: right;
-      padding-right: 5px;
-    }
-        
 
-    // 
-    // padding: 10px 0px;
+  table {
+    table-layout: fixed;
     
-    .event {
-      font-size: 12px;
-      display: block;
-      clear: both;
-      // @extend .purple, .accent-4;
-      padding: 0px 10px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-     
-     span {
-        font-size: 10px;
-     }
+    td, th {
+       border-radius: initial;
+      padding: initial;
+      padding: 10px 0;
     }
   }
   
-
+  .new-event-label {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+  }
   
-  
-  
-
-
   .wday-0 {}
   .wday-1 {}
   .wday-2 {}
@@ -152,38 +135,74 @@ body.controller-events {
   .wday-5 {}
   .wday-6 {}
 
-  .today {} 
+  .today { @extend .deep-purple, .lighten-4; } 
   .past {}
   .future {}
 
-  .start-date {}
+  .start-date { }
 
   .prev-month, .next-month {}
   
   .current-month {}
 
-  .has-events {}
+  .has-events {
+    // @extend .purple, .lighten-5
+  }
 }
 
-#card-panel {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 40%;
-  margin-top: -50px;
-  margin-left: -100px;
- 
-  // margin: 2.5rem 0 0 2.5rem;
-  // background-color: red;
-  
-  .date-with-words {
+#card-panel-week {
+  .upcoming-events {
     text-transform: uppercase;
     letter-spacing: .1rem;
   }
   
-  .close-button {
-    background-color: white;
-    border: none;
+  .grid-item-event {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .upcoming-date-month, .upcoming-date-number {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    font-size: 1.2rem;
+    font-weight: 300;
   }
   
+  .upcoming-date-number {
+    font-size: 2rem;
+  }
+  
+  .row-group-divider {
+    padding: 5px 0;
+  }
+}
+
+
+#card-panel-day {
+
+  .seleted-date, .todays-events {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+  }
+  
+  .grid-item-event {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+#new-event-form {
+  [type="radio"]:not(:checked),
+  [type="radio"]:checked {
+    position: absolute;
+    left: initial;
+    height: 25px;
+    width: 25px;
+    z-index: 2;
+  }
+}
+
+.edit-event-button {
+  color: initial;
+  box-shadow: none;
+  padding: 0;
 }

@@ -1,0 +1,11 @@
+#card-panel-day-label.stamp
+  - date ||= Date.current
+  - if events.present?
+    .todays-events.center-align.stamp 
+      = date.to_date.strftime('%B %e')
+      events
+    
+  - else
+    .todays-events.center-align.stamp 
+      no upcoming events
+      = (date == Date.current)? 'today' : "on #{date.to_date.strftime('%B %e')}"

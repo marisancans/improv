@@ -1,65 +1,93 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   
-  def new
-    #Creates empty object from event class
-    @event = Event.new
-  end
-  
   def index
+    @event = current_user.events.new(start_time: Date.current)
     @events = current_user.events
-    @event = Event.new
-    # binding.pry
+    @events_week_in_advance = current_user.events.get_from_week_in_advance
+    @todays_events = current_user.events.get_todays_events
   end
   
-  def update_multiple
-    current_user.events.update(params[:events].keys, params[:events].values) if params[:events].present?
+  # needs reformat
+  def fetch
+    start_time = event_params[:start_time].to_datetime
+    @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
+    @event = Event.new(event_params)
+    @date = event_params[:start_time]
+  
     respond_to do |format|
-      @date = params[:date].to_date 
-      @events = current_user.events.get_from_date(@date).order(start_time: :asc)
-      format.js { flash.now[:success] = "Updated" }
+      format.js 
     end
-  end
-  
-  def fetch_for_edit
-    if params[:start_time].present?
-      respond_to do |format|
-        start_time = params[:start_time].to_datetime
-        @date = params[:start_time]
-        @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
-        if @events.any? 
-          format.js 
-        else 
-          render body: nil
-        end
-      end
-    end
+
   end
   
   def create
+    @event = current_user.events.new(event_params)
+    @date = @event.start_time
+    @events = current_user.events.get_from_date(@date).order(start_time: :asc)
     
-      
-    # else
-    #   render :nothing => true, :status => 400
-    # end
+    if @event.save
+      respond_to do |format|
+        format.js
+      end        
+    else
+      @messages = @event.errors.full_messages
+      @message_class = :error
+      respond_to do |format|
+        format.js { render 'shared/flash_now' }
+      end  
+    end
+  end
+  
+  def edit
+   respond_to do |format|
+     find_event
+     @date = @event.start_time.to_date
+      format.js
+    end  
+  end
+  
+  def update
+    @event = current_user.events.find(params[:id])
+    @date = @event.start_time
+    @events = current_user.events.get_from_date(@date).order(start_time: :asc)
+    
+    
+    respond_to do |format|
+      if @event.update_attributes(event_params)
+        format.js
+      else
+        @messages = @event.errors.full_messages
+        @message_class = :error
+        format.js { render 'shared/flash_now' }
+      end
+    end 
+  end
+  
+  def destroy
+    @event = current_user.events.find(params[:id])
+    @date = @event.start_time
+    @events = current_user.events.get_from_date(@date).order(start_time: :asc)
+    
+    respond_to do |format|
+      if @event.destroy
+        format.js
+      else
+        @messages = @event.errors.full_messages
+        @message_class = :error
+        format.js { render 'shared/flash_now' }
+      end
+    end 
   end
   
   private
   
     def event_params
-      params.require(:events).permit(:id, :name, :start_time, :user_id)
+      params.require(:event).permit(:name, :start_time, :color).merge(user_id: current_user.id)
     end
     
-    def new_event_params
-      params.require(:new_events).permit(:date, array: [:key1, :key2])
+    def find_event
+      @event = current_user.events.find(params[:id])
     end
-    
- 
-   
-    
-    
-    
-  
 
-  
 end
