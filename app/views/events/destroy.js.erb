@@ -1,0 +1,9 @@
+$grid = $('.grid-todays-events')
+$item = $("#fetched_event_<%= @event.id %>")
+$grid.isotope('remove', $item).isotope('arrange')
+
+$grid = $('.grid-upcoming-events')
+$item = $("#upcoming_event_<%= @event.id %>")
+$grid.isotope('remove', $item).isotope('arrange')
+
+Materialize.toast('Event successfully deleted', 5000, 'notice')

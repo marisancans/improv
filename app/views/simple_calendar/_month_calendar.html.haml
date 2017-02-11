@@ -24,21 +24,22 @@
               - date_range.each_slice(7) do |week|
                 %tr
                   - week.each do |day|
-                    = content_tag :td, class: calendar.td_classes_for(day) << 'center-align', data: { url: fetch_for_edit_events_path, start_time: day } do
+                    = content_tag :td, class: calendar.td_classes_for(day) << 'center-align', data: { url: fetch_events_path, start_time: day } do
                       - if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block)
                         - capture_haml(day, sorted_events.fetch(day, []), &block)
                       - else
                         - block.call day, sorted_events.fetch(day, [])
       .card-panel
-        = render 'form'
+        = render partial: 'form', locals: { event: @event }
   .col.m7.s12.l4
     #card-panel-day.card-panel
       .grid-todays-events
-        = render partial: 'todays_events', locals: { events: @todays_events } 
+        = render partial: 'todays_events', locals: { events: @todays_event, event_id_prefix: 'fetched' } 
   .col.s12.m7.l4
     #card-panel-week.card-panel
       - Event::COLORS.each do |color|
         = button_tag color, class: 'btn waves-effect transparent-uppercase sort-by-color-upcoming-events', data: { filter: ".color-#{ color }" }
       = button_tag 'All', class: 'btn waves-effect transparent-uppercase sort-by-color-upcoming-events', data: { filter: "*" }
-      = render partial: 'upcoming_events', locals: { events: @events_week_in_advance }
+      .grid-upcoming-events
+        = render partial: 'upcoming_events', locals: { events: @events_week_in_advance, event_id_prefix: 'upcoming' }
     

@@ -1,15 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   
-  def new
-    #Creates empty object from event class
-    date = params[:date].to_datetime
-    @event = Event.new(start_time: date)
-    respond_to do |format|
-      format.js
-    end
-  end
-  
   def index
     @event = current_user.events.new(start_time: Date.current)
     @events = current_user.events
@@ -18,7 +9,7 @@ class EventsController < ApplicationController
   end
   
   # needs reformat
-  def fetch_for_edit
+  def fetch
     start_time = event_params[:start_time].to_datetime
     @events = current_user.events.get_from_date(start_time).order(start_time: :asc)
     @event = Event.new(event_params)
@@ -37,7 +28,7 @@ class EventsController < ApplicationController
     
     if @event.save
       respond_to do |format|
-        format.js {}
+        format.js
       end        
     else
       @messages = @event.errors.full_messages
@@ -46,13 +37,37 @@ class EventsController < ApplicationController
         format.js { render 'shared/flash_now' }
       end  
     end
-
+  end
+  
+  def edit
+   respond_to do |format|
+     find_event
+      format.js
+    end  
+  end
+  
+  def destroy
+    @event = current_user.events.find(params[:id])
+    
+    respond_to do |format|
+      if @event.destroy
+        format.js
+      else
+        @messages = @event.errors.full_messages
+        @message_class = :error
+        format.js { render 'shared/flash_now' }
+      end
+    end 
   end
   
   private
   
     def event_params
       params.require(:event).permit(:name, :start_time, :color).merge(user_id: current_user.id)
+    end
+    
+    def find_event
+      @event = current_user.events.find(params[:id])
     end
 
 end

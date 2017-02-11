@@ -1,12 +1,13 @@
-
 $grid = $('.grid-todays-events')
-$item = $("<%= j render @event %>")
-$grid.prepend($item).isotope('insert', $item).isotope('arrange')
+$item = $("<%= j render partial: "event", locals: { event: @event, event_id_prefix: 'fetched' } %>")
+$grid.prepend($item).isotope('insert', $item).isotope('arrange').isotope('reloadItems')
 
-<%- if @event.start_time > Date.current + 2.weeks then %>
+
+
+<% if  @event.start_time.between?(Date.current, Date.current + 2.weeks) %>
   $grid = $('.grid-upcoming-events')
-  $item = $("<%= j render @event %>")
-  $grid.prepend($item).isotope('insert', $item).isotope('arrange')
+  $item = $("<%= j render partial: "event", locals: { event: @event, event_id_prefix: 'upcoming' } %>")
+  $grid.prepend($item).isotope('insert', $item).isotope('arrange').isotope('reloadItems')
 <% end %>
 
 Materialize.toast('Event successfully created', 5000, 'notice')
