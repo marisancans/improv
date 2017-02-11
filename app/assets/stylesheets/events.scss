@@ -135,7 +135,7 @@ body.controller-events {
   .wday-5 {}
   .wday-6 {}
 
-  .today { @extend .deep-purple; } 
+  .today { @extend .deep-purple, .lighten-4; } 
   .past {}
   .future {}
 
@@ -199,4 +199,10 @@ body.controller-events {
     width: 25px;
     z-index: 2;
   }
+}
+
+.edit-event-button {
+  color: initial;
+  box-shadow: none;
+  padding: 0;
 }

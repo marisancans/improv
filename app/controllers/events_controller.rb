@@ -42,12 +42,16 @@ class EventsController < ApplicationController
   def edit
    respond_to do |format|
      find_event
+     @date = @event.start_time.to_date
       format.js
     end  
   end
   
   def update
     @event = current_user.events.find(params[:id])
+    @date = @event.start_time
+    @events = current_user.events.get_from_date(@date).order(start_time: :asc)
+    
     
     respond_to do |format|
       if @event.update_attributes(event_params)
@@ -62,6 +66,8 @@ class EventsController < ApplicationController
   
   def destroy
     @event = current_user.events.find(params[:id])
+    @date = @event.start_time
+    @events = current_user.events.get_from_date(@date).order(start_time: :asc)
     
     respond_to do |format|
       if @event.destroy

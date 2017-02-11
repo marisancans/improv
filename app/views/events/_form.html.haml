@@ -16,7 +16,7 @@
           = f.label color
         
       = submit_tag "#{ event.new_record? ? "Create" : "Update" }", class: 'btn waves-effect light-blue darken-2', id: 'create-event-button', data: { disable_with: 'Please wait...' }
-= button_to('Delete', event, method: "delete", remote: true, data: { disable_with: 'Please wait...' }) if !event.new_record?
+= button_to('Delete', event, class: 'btn waves-effect light-blue darken-2', method: "delete", remote: true, data: { disable_with: 'Please wait...' }) if !event.new_record?
 
 //UPDATE ACTION
 //CALENDAR UPDATE ACTION
