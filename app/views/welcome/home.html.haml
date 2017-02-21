@@ -9,7 +9,7 @@
     = image_tag 'http://placehold.it/2000x500', class: 'responsive-img'
     .col.s2.red
     .col.s7.blue
-      a
+    %h1= link_to "Sign out", destroy_user_session_path, :method => :delete
     .col.s3
   .col.s3
     %h6.center-align.tooltipped(data-position="bottom" data-delay="50" data-tooltip='#{render partial: 'shared/feeds/tooltip', locals: {subscribed_feeds: @subscribed_feeds}}')
