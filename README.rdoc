@@ -1,23 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Web application with user galeries, callendar, RSS feeds etc.
 
-Things you may want to cover:
+Made on c9.io web IDE
 
 * Ruby version
+  Last time I checked it was ruby 2.3.0p0 (2015-12-25 revision 53290)
 
 * System dependencies
 
 * Configuration
-
+  ENV for Cloudinary, Devise
+  
+* Tasks
+  rake pg:(start/stop) - Start or stop PostgreSQL server
+  
+  rake seed:events - Seeds database with 10 records, for the FIRST USER in database. From month first to last day, randomly.
+  rake feeds:sync - Gets latest RSS feeds
+  
 * Database creation
+  Usual rails database initialization
 
 * Database initialization
 
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
+  Has background workers, check gemfile
+  IMPORTANT! This project uses Paperclip gem, linux users might have to 'sudo chmod 777 tmp' in public folder where paperclip saves tmp     images. Im not pro at this and 777 might not be right choice, so check it in your own.
 
 * Deployment instructions
 
