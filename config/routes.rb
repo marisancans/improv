@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+  get 'welcome/index'
+  end
+
   devise_for :admins
   devise_for :users, :controllers => {:registrations => "users/registrations"}
   
@@ -12,6 +16,11 @@ Rails.application.routes.draw do
       get 'fetch'
       put 'update_multiple'
     end
+  end
+  
+  namespace :public do
+    root :to => "welcome#index"
+    resources :welcome
   end
   
   resources :lists
