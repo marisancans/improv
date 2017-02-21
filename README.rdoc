@@ -14,7 +14,6 @@ Made on c9.io web IDE
   
 * Tasks
   rake pg:(start/stop) - Start or stop PostgreSQL server
-  
   rake seed:events - Seeds database with 10 records, for the FIRST USER in database. From month first to last day, randomly.
   rake feeds:sync - Gets latest RSS feeds
   
