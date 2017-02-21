@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   
   namespace :public do
     root :to => "welcome#index"
-    resources :welcome
+    resources :welcome do
+    end
+    
+    get '/hours/' => 'welcome#hours', :as => 'hours'
+    
   end
   
   resources :lists
