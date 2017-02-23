@@ -1,5 +1,6 @@
 .grid-item-event{ id: "#{ event_id_prefix}_event_#{ event.id }", class: "color-#{ event.color }", data: { start_time: "#{ event.start_time }" }}
-  .lighten-5{ class: event.color }
+  .card.lighten-1{ class: event.color }
+    .card-content
       = button_to edit_event_path(event), class: 'right btn transparent edit-event-button', method: :get, remote: true do
         %i.material-icons.right.activator more_vert
       = event.name

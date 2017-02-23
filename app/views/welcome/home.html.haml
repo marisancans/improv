@@ -1,6 +1,6 @@
 .row
   .col.s2.upcoming-events-col
-    = render partial: 'events/upcoming_events', locals: { events: @events_week_in_advance, event_id_prefix: 'upcoming' }
+    = render partial: 'event_for_upcoming', collection: @events_week_in_advance, as: :event, locals: { event_id_prefix: 'upcoming' }
   .col.s7
     = image_tag 'http://placehold.it/2000x500', class: 'responsive-img'
     .col.s2.red
