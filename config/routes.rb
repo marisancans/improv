@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     end
     
     get '/hours/' => 'welcome#hours', :as => 'hours'
+    get '/physics/' => 'welcome#physics', :as => 'physics'
     
   end
   
