@@ -8,4 +8,8 @@ class Public::WelcomeController < Public::BaseController
     
   end
   
+  def physics
+    
+  end
+  
 end
