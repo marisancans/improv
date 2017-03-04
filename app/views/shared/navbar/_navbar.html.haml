@@ -1,0 +1,9 @@
+%nav
+  .nav-wrapper
+    %a.brand-logo{:href => "#!"} Logo
+    %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+      %i.material-icons menu
+    %ul.right.hide-on-med-and-down
+      = render 'shared/navbar/links'
+    %ul#mobile-demo.side-nav
+      = render 'shared/navbar/links'

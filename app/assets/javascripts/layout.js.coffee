@@ -10,6 +10,8 @@ $(document).on 'turbolinks:load', ->
     
   $('.parallax').each -> 
     $(@).parallax()
+    
+  $(".button-collapse").sideNav();
   
 $(document).on 'click', '.modal-close', -> 
   target = $(@).data('modal')
