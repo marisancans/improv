@@ -1,9 +1,11 @@
 %nav
   .nav-wrapper
-    %a.brand-logo{:href => "#!"} Logo
+    = link_to 'Atom chest', root_url, class: 'brand-logo'
     %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
       %i.material-icons menu
     %ul.right.hide-on-med-and-down
       = render 'shared/navbar/links'
     %ul#mobile-demo.side-nav
+      %li 
+        = link_to 'Home', root_url, class: 'brand-logo'
       = render 'shared/navbar/links'
