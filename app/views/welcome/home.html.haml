@@ -5,12 +5,9 @@
         = cl_image_tag 'webpage/shared/home/jack-catterall-6268'
 
 .row
-  .col.s2.upcoming-events-col
+  .col.s3.upcoming-events-col
     = render partial: 'event_for_upcoming', collection: @events_week_in_advance, as: :event, locals: { event_id_prefix: 'upcoming' }
-  .col.s7
-   
-    .col.s2.red
-    .col.s7.blue
+  .col.s6
     %h1= link_to "Sign out", destroy_user_session_path, :method => :delete
     .col.s3
   .col.s3
