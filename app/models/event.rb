@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class Event < ApplicationRecord::Base
     before_save :capitalize_name
 
     belongs_to :user, counter_cache: true

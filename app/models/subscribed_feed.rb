@@ -1,4 +1,4 @@
-class SubscribedFeed < ActiveRecord::Base
+class SubscribedFeed < ApplicationRecord::Base
   belongs_to :feed, counter_cache: true
   belongs_to :user
   

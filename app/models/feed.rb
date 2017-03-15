@@ -1,4 +1,4 @@
-class Feed < ActiveRecord::Base
+class Feed < ApplicationRecord::Base
   has_many :entries
   has_many :subscribed_feeds, dependent: :destroy
   

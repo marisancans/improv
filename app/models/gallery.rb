@@ -1,4 +1,4 @@
-class Gallery < ActiveRecord::Base
+class Gallery < ApplicationRecord::Base
     before_save :capitalize_title_and_description
 
     has_many :gallery_images, dependent: :destroy
