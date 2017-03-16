@@ -33,8 +33,18 @@
 //   background: #0044cc;
 // }
  
+body.controller-welcome {
+  background-color: #f1f1f1
+} 
+ 
 .upcoming-events-col {
-  background: #3F51B5;
   color: white;
 } 
+
+.welcome-parallax {
+  .parallax-container {
+    height: 400px;
+  }
+  // margin-top: -300px;
+}
  
