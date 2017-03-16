@@ -9,4 +9,18 @@ namespace :seed do
       puts "[#{event.id}] #{start_time} #{name}"
     end
   end
+  
+  task :lists => :environment do
+    5.times do |list|
+      title = Faker::Lorem.sentence
+      list = List.create(title: title, user_id: User.first.id)
+      list.save
+      puts "[#{list.id}] #{list.title}"
+      5.times do |list_item|
+        content = Faker::Lorem.sentence(3)
+        list.list_items.create(content: content) 
+      end
+    end
+  end
+  
 end
