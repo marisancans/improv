@@ -1,2 +1,2 @@
-class GlobalStatistic < ActiveRecord::Base
+class GlobalStatistic < ApplicationRecords::Base
 end

@@ -1,2 +1,2 @@
-class Stat < ActiveRecord::Base
+class Stat < ApplicationRecord::Base
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  Rails.application.routes.draw do
 
   namespace :public do
   get 'welcome/index'
@@ -42,4 +43,5 @@ Rails.application.routes.draw do
   
   resources :subscribed_feeds, only: [:create, :destroy]
   
+end
 end
