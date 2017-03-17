@@ -1,7 +1,5 @@
-.grid-item-event{ id: "#{ event_id_prefix}_event_#{ event.id }", class: "color-#{ event.color }", data: { start_time: "#{ event.start_time }" }}
-  .card.lighten-1{ class: event.color }
-    .card-content
-      = button_to edit_event_path(event), class: 'right btn transparent edit-event-button', method: :get, remote: true do
-        %i.material-icons.right.activator more_vert
-      = event.name
-      %br= event.start_time.strftime('%H:%M %p')
+.grid-item-event
+  .row
+    .col.m2= event.start_time.strftime('%H:%M %p')
+    .col.m9.offset-m1= event.name
+    

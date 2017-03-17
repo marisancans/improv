@@ -1,41 +1,14 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-//padding: 25px 50px 75px 100px;
-//top padding is 25px
-//right padding is 50px
-//bottom padding is 75px
-//left padding is 100px
-
-
-
-// .btn-sharp {
-//   padding: 14px 24px;
-//   border: 0 none;
-//   font-weight: 700;
-//   letter-spacing: 1px;
-//   text-transform: uppercase;
-//   color: #ffffff;
-//   border-radius: 0;
-// }
- 
-// .btn-sharp:hover {
-//   background: #33a6cc;
-//   text-decoration: none;
-// }
-
-// .btn-sharp-todos {
-//   background: #0099cc;
-// }
-
-// .btn-sharp-lists {
-//   background: #0044cc;
-// }
- 
 body.controller-welcome {
-  background-color: #f1f1f1
+  background-image:url('https://source.unsplash.com/JOfTqNlkIHU/1600x900');
+  background-size:cover; 
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  height:100%;
 } 
+ 
+.upcoming-events-col {
+  background-color: rgba(255, 255, 255, 0.19);
+}
  
 .upcoming-events-col {
   color: white;
