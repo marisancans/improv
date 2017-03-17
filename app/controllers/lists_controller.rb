@@ -10,16 +10,18 @@ class ListsController < ApplicationController
   end
   
   def create
-    respond_to do |format|
-      @list = List.new(list_params)
+    @list = current_user.lists.new(list_params)
       if @list.save
-        format.json { render json: @list, status: :created, location: @list }
-        format.js { flash.now[:success] = "List #{@list.title} created" }
+        respond_to do |format|
+          format.js
+        end        
       else
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-        format.js { render :error }
+        @messages = @list.errors.full_messages
+        @message_class = :error
+        respond_to do |format|
+          format.js { render 'shared/flash_now' }
+        end  
       end
-    end
   end
   
   def destroy
