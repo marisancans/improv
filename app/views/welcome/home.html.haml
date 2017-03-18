@@ -4,14 +4,10 @@
       %h5.center Upcoming events
     = render partial: 'event_for_upcoming', collection: @events_week_in_advance, as: :event, locals: { event_id_prefix: 'upcoming' }
   .col.s12.m6
-    %h1= link_to "Sign out", destroy_user_session_path, :method => :delete
-    .col.s3
-  .col.s12.m3
-    %h6.center-align.tooltipped(data-position="bottom" data-delay="50" data-tooltip='#{render partial: 'shared/feeds/tooltip', locals: {subscribed_feeds: @subscribed_feeds}}')
-      My feeds:
-    - @entries.each do |entry|
-      %br
-      .entry.entry--with-hidden-date
-        .hvr-underline-from-left
-          = link_to entry.title, entry.url, target: '_blank'
-          .entry-published-date= "#{time_ago_in_words(entry.published)} ago"
+  .col.s12.m3.rss-col
+    .row
+      %h5.center RSS
+    = render @entries
+    // - @entries.each do |entry|
+    //   = link_to entry.title, entry.url, target: '_blank'
+    //   .entry-published-date= "#{time_ago_in_words(entry.published)} ago"

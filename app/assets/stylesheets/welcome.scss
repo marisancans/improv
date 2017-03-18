@@ -4,12 +4,23 @@ body.controller-welcome {
   background-repeat:no-repeat;
   background-attachment:fixed;
   height:100%;
+  color: white;
 } 
- 
-.upcoming-events-col {
-  background-color: rgba(255, 255, 255, 0.19);
+
+nav ul a {
+  color: white;
 }
  
+ 
+.upcoming-events-col {
+  // background-color: rgba(255, 255, 255, 0.19);
+}
+.rss-col {
+  a { color: white; }
+}
+
+
+  
 .upcoming-events-col {
   color: white;
 } 
