@@ -3,5 +3,6 @@
     .card-content
       = button_to edit_event_path(event), class: 'right btn transparent edit-event-button', method: :get, remote: true do
         %i.material-icons.right.activator more_vert
+      %i.fa{ class: event.icon }
       = event.name
       %br= event.start_time.strftime('%H:%M %p')

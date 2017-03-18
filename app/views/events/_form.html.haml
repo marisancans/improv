@@ -14,9 +14,10 @@
         - Event::COLORS.each do |color|
           = radio_button('event', 'color', color)
           = f.label color
-        
+      = f.label :icon
+      = link_to 'HELP URL' do
+        %i.fa.fa-question-circle-o.black-text
+      = f.text_field :icon
+     
       = submit_tag "#{ event.new_record? ? "Create" : "Update" }", class: 'btn waves-effect light-blue darken-2', id: 'create-event-button', data: { disable_with: 'Please wait...' }
 = button_to('Delete', event, class: 'btn waves-effect light-blue darken-2', method: "delete", remote: true, data: { disable_with: 'Please wait...' }) if !event.new_record?
-
-//UPDATE ACTION
-//CALENDAR UPDATE ACTION

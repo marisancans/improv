@@ -1,9 +1,16 @@
 #events_calendar
   = month_calendar events: @events do |date, events|
+    - e = events.map {|event| event["icon"] }
+    - e.reject! &:blank?
+    - unless e.blank?
+      .icons-container
+        - events.group_by {|event| event.icon }.each do |icon, events_for_color|
+          - if icon.present?
+            %i.event-icon{ class: "fa #{ icon }"  }
     .content
       .date{"data-visual-label-day": date.day }
-      .eqi-container.center-align{id: date}
-        - if events.present?
+      .eqi-container.center-align
+        - if events.any?
           - events.group_by {|event| event.color }.each do |color, events_for_color|
             .event-dot{class: color}
       
