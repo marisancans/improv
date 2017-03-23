@@ -5,6 +5,6 @@ class WelcomeController < ApplicationController
     @entries = Entry.user_entries(@subscribed_feeds).limit(25).order(published: :desc)
     @events_week_in_advance = current_user.events.get_from_week_in_advance
     
-    @message = Message.new
+    @message  = current_user.messages.build
   end  
 end

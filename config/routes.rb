@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   root 'welcome#home'
   
+  resources :messages
+  
   get 'test' => 'welcome#test'
    
   resources :events do
