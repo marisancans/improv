@@ -8,8 +8,9 @@
   .col.s3.upcoming-events-col
     = render partial: 'event_for_upcoming', collection: @events_week_in_advance, as: :event, locals: { event_id_prefix: 'upcoming' }
   .col.s6
-    %h1= link_to "Sign out", destroy_user_session_path, :method => :delete
-    .col.s3
+  
+
+
   .col.s3
     %h6.center-align.tooltipped(data-position="bottom" data-delay="50" data-tooltip='#{render partial: 'shared/feeds/tooltip', locals: {subscribed_feeds: @subscribed_feeds}}')
       My feeds:
