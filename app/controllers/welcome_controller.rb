@@ -6,5 +6,6 @@ class WelcomeController < ApplicationController
     @events_week_in_advance = current_user.events.get_from_week_in_advance
     
     @message  = current_user.messages.build
+    @messages = Message.includes(:user).last(20)
   end  
 end

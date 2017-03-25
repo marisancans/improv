@@ -1,10 +1,7 @@
 class MessagesController < ApplicationController
   def create
     message = current_user.messages.build(message_params)
-    if message.save
-      ActionCable.server.broadcast 'chat_room_channel',
-                                   message: render_message(message)
-    end
+    render_message(message) if message.save
   end
   
   def speak

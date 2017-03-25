@@ -9,10 +9,16 @@ App.room = App.cable.subscriptions.create "ChatRoomChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     $('#messages').append(data.message)
-    
-    
-$(document).on 'keypress', '[data-behavior~=room_speaker]', (event) -> 
-  if event.keyCode is 13 # return/enter = send
-    App.room.speak event.target.value 
-    event.target.value = ''
-    event.preventDefault()
+
+$(document).on 'turbolinks:load', ->
+  submit_message()
+  
+  objDiv = document.getElementById('messages')
+  objDiv.scrollTop = objDiv.scrollHeight
+
+submit_message = () ->
+  $('#message_content').on 'keydown', (event) ->
+    if event.keyCode is 13
+      $('input').click()
+      event.target.value = ""
+      event.preventDefault()
