@@ -48,3 +48,8 @@ body.controller-welcome {
   // margin-top: -300px;
 }
  
+ 
+#messages {
+  overflow-y:scroll;
+  height:200px;
+}

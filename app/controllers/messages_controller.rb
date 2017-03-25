@@ -7,6 +7,10 @@ class MessagesController < ApplicationController
     end
   end
   
+  def speak
+    
+  end
+  
   private
   
     def message_params

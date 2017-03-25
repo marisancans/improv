@@ -8,4 +8,11 @@ App.room = App.cable.subscriptions.create "ChatRoomChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    console.log data.content
+    $('#messages').append(data.message)
+    
+    
+$(document).on 'keypress', '[data-behavior~=room_speaker]', (event) -> 
+  if event.keyCode is 13 # return/enter = send
+    App.room.speak event.target.value 
+    event.target.value = ''
+    event.preventDefault()

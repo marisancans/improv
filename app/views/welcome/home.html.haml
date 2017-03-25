@@ -8,6 +8,8 @@
   .col.s3.upcoming-events-col
     = render partial: 'event_for_upcoming', collection: @events_week_in_advance, as: :event, locals: { event_id_prefix: 'upcoming' }
   .col.s6
+    #messages
+    
     = render 'messages/message_form'
 
 
