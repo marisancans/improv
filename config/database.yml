@@ -1,0 +1,5 @@
+development:
+  adapter: postgresql		
+  database: db_development
+  encoding: UTF8		
+  pool: 5

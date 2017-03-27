@@ -14,9 +14,10 @@
           .center-align
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             .input
-              = f.label :email, class: 'active'
+              %p
+              = f.label :login
               %br/
-              = f.email_field :email, autofocus: true
+              = f.text_field :login
             .input
               = f.label :password
               %br/
@@ -36,10 +37,14 @@
         .card-content
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = devise_error_messages!
-            .field
+            %p
+              = f.label :username
+              %br/
+              = f.text_field :username
+            %p
               = f.label :email
               %br/
-              = f.email_field :email, autofocus: true
+              = f.email_field :email
             .field
               = f.label :password
               - if @minimum_password_length
