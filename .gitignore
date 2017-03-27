@@ -22,4 +22,4 @@
 # Ignore upload tmp files
 /public/uploads/tmp/*
 
-config/database.yml
+#config/database.yml
