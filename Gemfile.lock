@@ -152,6 +152,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
+    puma (3.8.2)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -284,6 +285,7 @@ DEPENDENCIES
   materialize-sass
   pg
   pry
+  puma
   rails (>= 5.0.0.rc2, < 5.1)
   rspec-rails (~> 3.4)
   rufus-scheduler

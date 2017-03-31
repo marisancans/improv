@@ -1,6 +1,3 @@
-$(document).ready ->
-  Materialize.updateTextFields()
-  
 $(document).on 'click', '.sign-up-button', (event) ->
   event.preventDefault()
   new SignUp($(@.form))

@@ -2,6 +2,10 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.time_zone = 'Riga'
   
+  #Cloud ide exception for chat
+  config.action_cable.allowed_request_origins = [
+    'https://improv-xonecell.c9users.io' ]
+  
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

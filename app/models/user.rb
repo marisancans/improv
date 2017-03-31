@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :lists, :dependent => :destroy 
   has_many :subscribed_feeds, dependent: :destroy
   has_many :galleries
+  has_many :messages
+  has_many :chatrooms, through: :messages
 end
