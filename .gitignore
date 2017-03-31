@@ -22,4 +22,8 @@
 # Ignore upload tmp files
 /public/uploads/tmp/*
 
+<<<<<<< HEAD
 # config/database.yml
+=======
+#config/database.yml
+>>>>>>> feature-devise

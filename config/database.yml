@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SQLite version 3.x
 #   gem install sqlite3
 #
@@ -14,4 +15,10 @@ test:
   adapter: postgresql
   database: db_test
   encoding: UTF8
+=======
+development:
+  adapter: postgresql		
+  database: db_development
+  encoding: UTF8		
+>>>>>>> feature-devise
   pool: 5
