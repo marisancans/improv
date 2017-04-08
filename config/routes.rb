@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+  Rails.application.routes.draw do
 
   namespace :public do
-  get 'welcome/index'
+    get 'welcome/index'
   end
 
   devise_for :admins
   devise_for :users, :controllers => {:registrations => "users/registrations"}
   
   root 'welcome#home'
+  
+  resources :messages
   
   get 'test' => 'welcome#test'
    
@@ -20,9 +23,8 @@ Rails.application.routes.draw do
   
   namespace :public do
     root :to => "welcome#index"
-    resources :welcome do
-    end
-    
+    resources :welcome
+  
     get '/hours/' => 'welcome#hours', :as => 'hours'
     get '/physics/' => 'welcome#physics', :as => 'physics'
     
@@ -33,6 +35,7 @@ Rails.application.routes.draw do
       member do
        resources :entries, only: [:index, :show]
       end
+    end
   end
   
   resources :galleries do
@@ -42,4 +45,5 @@ Rails.application.routes.draw do
   
   resources :subscribed_feeds, only: [:create, :destroy]
   
+  mount ActionCable.server, at: '/cable'
 end
