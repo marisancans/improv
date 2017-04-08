@@ -83,7 +83,7 @@ class EventsController < ApplicationController
   private
   
     def event_params
-      params.require(:event).permit(:name, :start_time, :color).merge(user_id: current_user.id)
+      params.require(:event).permit(:name, :start_time, :color, :icon).merge(user_id: current_user.id)
     end
     
     def find_event
