@@ -1,3 +1,7 @@
 .message
-  .message-user
-    = " #{ message.user.email } : #{ message.content } "
+  .row
+    .col.s1
+      .message-user-image= cl_image_tag(message.user.profile_image, :width=>30, :height=>30)
+    .col.s11
+      .message-text= " #{ message.user.username } : #{ message.content } "
+    
