@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :chatrooms, through: :messages
-
+  
+  mount_uploader :profile_image, ProfileImageUploader
   
   validate :validate_username
   

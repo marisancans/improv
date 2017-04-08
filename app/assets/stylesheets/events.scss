@@ -95,11 +95,26 @@ body.controller-events {
 
   .day {
     &:hover { cursor: pointer; }
-    
+    position: relative;
   }
   [data-visual-label-day]:before {
     content: attr(data-visual-label-day) "";
   }
+  
+  .icons-container {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    
+    .fa { 
+      font-size: 0.8em;
+      vertical-align:top;
+    };
+  }
+  
   
   .eqi-container {
     display:flex;
