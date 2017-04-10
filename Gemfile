@@ -79,6 +79,9 @@ gem "figaro"
 # httparty 
 gem 'httparty'
 
+# Google mas API
+gem 'gmaps4rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

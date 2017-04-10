@@ -1,3 +1,9 @@
+%script{:src => "//maps.google.com/maps/api/js?key=AIzaSyD0oNaJvEm7i9OKhBVrPFpv_hcZUMwfZC4"}
+%script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
+%script{:src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", :type => "text/javascript"}
+
+= javascript_include_tag 'underscore'
+
 .row
   .col.s12.m3.upcoming-events-col
     .row
@@ -7,6 +13,8 @@
     #messages
       = render @messages
     = render 'messages/message_form'
+    
+    #map{:style => "width: 100%; height: 400px;"}
 
 
   .col.s3

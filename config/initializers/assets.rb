@@ -2,7 +2,8 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-Rails.application.config.assets.precompile += %w( scss|css|js|coffee )		
+Rails.application.config.assets.precompile += %w( scss|css|js|coffee )	
+Rails.application.config.assets.precompile += %w( underscore.js )
 Rails.application.config.assets.precompile += %w( devise//sessions.js devise//sessions.css public//public.js public//public.css)
 
 

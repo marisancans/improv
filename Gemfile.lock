@@ -110,6 +110,7 @@ GEM
       actionpack (>= 3.2.13)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     haml (4.0.7)
       tilt
     http-cookie (1.0.3)
@@ -278,6 +279,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass (~> 4.6.2)
   formtastic (~> 3.0)
+  gmaps4rails
   haml
   httparty
   jbuilder (~> 2.0)
