@@ -3,14 +3,17 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
-    handler = Gmaps.build('Google')
-    handler.buildMap { internal: id: 'map' }, ->
-      markers = handler.addMarkers([
-        {
-          lat: 43
-          lng: 3.5
-        }
-      ])
-      handler.bounds.extendWith markers
-      handler.fitMapToBounds()
-      return
+  setLastLocationMarker()
+  setLocation()
+  
+setLastLocationMarker=->
+  
+  
+setLocation=->  
+  handler = Gmaps.build('Google')
+  handler.buildMap { internal: id: 'map' }, ->
+    polylines = handler.addPolylines([$('#map-data').data('locations')], strokeColor: '#FF0000')
+    handler.bounds.extendWith polylines
+    handler.fitMapToBounds()
+    return
+    

@@ -2,20 +2,18 @@
 %script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
 %script{:src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", :type => "text/javascript"}
 
-= javascript_include_tag 'underscore'
-
 .row
   .col.s12.m3.upcoming-events-col
     .row
       %h5.center Upcoming events
     = render partial: 'event_for_upcoming', collection: @events_week_in_advance, as: :event, locals: { event_id_prefix: 'upcoming' }
-  .col.s6
+  .col.s12.m6
     #messages
       = render @messages
     = render 'messages/message_form'
     
+    #map-data{ data: {locations: (raw @location_hash.to_json)} }
     #map{:style => "width: 100%; height: 400px;"}
-
 
   .col.s3
     %h6.center-align.tooltipped(data-position="bottom" data-delay="50" data-tooltip='#{render partial: 'shared/feeds/tooltip', locals: {subscribed_feeds: @subscribed_feeds}}')
