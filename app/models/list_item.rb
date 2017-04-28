@@ -1,3 +1,3 @@
-class ListItem < ApplicationRecord::Base
+class ListItem < ApplicationRecord
   belongs_to :list
 end
