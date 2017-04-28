@@ -25,7 +25,7 @@
 # /////--Above is from whenever gem
 
 require 'rufus-scheduler'
-ENV['TZ'] = Time.zone.name
+ENV['TZ'] = 'Europe/Riga'
 scheduler = Rufus::Scheduler.new
 
 scheduler.every('1h') do 
