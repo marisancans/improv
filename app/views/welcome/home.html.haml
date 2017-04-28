@@ -10,8 +10,7 @@
 
 
   .col.s3
-    %h6.center-align.tooltipped(data-position="bottom" data-delay="50" data-tooltip='#{render partial: 'shared/feeds/tooltip', locals: {subscribed_feeds: @subscribed_feeds}}')
-      My feeds:
+    My feeds:
     - @entries.each do |entry|
       %br
       .entry.entry--with-hidden-date
