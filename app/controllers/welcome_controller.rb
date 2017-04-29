@@ -8,8 +8,8 @@ class WelcomeController < ApplicationController
     @message  = current_user.messages.build
     @messages = Message.includes(:user).last(20)
     
-    @locations = Location.last(500)
-    markers(@locations) do |location, marker|
+    @locations = current_user.locations.last(500)
+    @location_hash = Gmaps4rails.build_markers(@locations) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
     end

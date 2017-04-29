@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'location/fetch'
-
-  Rails.application.routes.draw do
-
   get 'location' => 'location#fetch'
 
   namespace :public do
@@ -35,10 +31,10 @@ Rails.application.routes.draw do
   end
   
   resources :lists
-    resources :feeds do
-      member do
-       resources :entries, only: [:index, :show]
-      end
+  
+  resources :feeds do
+    member do
+     resources :entries, only: [:index, :show]
     end
   end
   
