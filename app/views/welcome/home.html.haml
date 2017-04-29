@@ -16,12 +16,4 @@
     #map{:style => "width: 100%; height: 400px;"}
 
   .col.s3
-    My feeds:
-    - if @entries.present?
-      - @entries.each do |entry|
-        %br
-        .entry.entry--with-hidden-date
-          .hvr-underline-from-left
-            = link_to entry.title, entry.url, target: '_blank'
-            .entry-published-date= "#{time_ago_in_words(entry.published)} ago"
 
