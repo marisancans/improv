@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.time_zone = 'Europe/Riga'
-  config.action_cable.allowed_request_origins = ws://atomchest.com/
+  config.action_cable.allowed_request_origins = %w( ws://atomchest.com/ ) 
 
 
 
