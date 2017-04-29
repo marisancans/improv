@@ -17,10 +17,11 @@
 
   .col.s3
     My feeds:
-    // - @entries.each do |entry|
-    //   %br
-    //   .entry.entry--with-hidden-date
-    //     .hvr-underline-from-left
-    //       = link_to entry.title, entry.url, target: '_blank'
-    //       .entry-published-date= "#{time_ago_in_words(entry.published)} ago"
+    - if @entries.present?
+      - @entries.each do |entry|
+        %br
+        .entry.entry--with-hidden-date
+          .hvr-underline-from-left
+            = link_to entry.title, entry.url, target: '_blank'
+            .entry-published-date= "#{time_ago_in_words(entry.published)} ago"
 
