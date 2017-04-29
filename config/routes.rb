@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'location/fetch'
+
   Rails.application.routes.draw do
+
+  get 'location' => 'location#fetch'
 
   namespace :public do
     get 'welcome/index'
