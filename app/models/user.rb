@@ -3,21 +3,24 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
-         
+
   has_many :events, :dependent => :destroy 
   has_many :lists, :dependent => :destroy 
   has_many :subscribed_feeds, dependent: :destroy
   has_many :galleries
-
+  has_many :user_keys
+  has_many :locations
   has_many :messages
   has_many :chatrooms, through: :messages
+  
+  has_secure_token :location_token
   
   mount_uploader :profile_image, ProfileImageUploader
   
   validate :validate_username
   
   attr_accessor :login
-
+  
   def validate_username
     if User.where(email: username).exists?
       errors.add(:username, :invalid)
@@ -33,6 +36,4 @@ class User < ApplicationRecord
     end
   end
     
-  
-
 end

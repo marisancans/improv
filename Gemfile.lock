@@ -110,6 +110,7 @@ GEM
       actionpack (>= 3.2.13)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     haml (4.0.7)
       tilt
     http-cookie (1.0.3)
@@ -240,6 +241,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
+    underscore-rails (1.8.3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
@@ -278,6 +280,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass (~> 4.6.2)
   formtastic (~> 3.0)
+  gmaps4rails
   haml
   httparty
   jbuilder (~> 2.0)
@@ -295,6 +298,7 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier (>= 1.3.0)
+  underscore-rails
   unicorn
   web-console (~> 2.0)
 
